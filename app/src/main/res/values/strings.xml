@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Q&amp;A</string>
     <string name="full_app_name">Question and Answer</string>
-
+    <string name="enter_game_name">Enter Game Name</string>
 </resources>
