@@ -12,31 +12,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
         <activity
-            android:name=".Setting"
+            android:name=".RulesAndPolicy"
             android:exported="false" />
         <activity
-            android:name=".RulesAndPolicy"
+            android:name=".Setting"
             android:exported="false" />
         <activity
             android:name=".QustionViewActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainGame"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".ContactUs"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Login"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".CreateGame"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
