@@ -15,4 +15,11 @@
     <color name="deep_forest_green">#344E41</color>
     <color name="grey">#808080</color>
 
+
+
+    <color name="Primary">#ffe8d2</color>
+    <color name="Secondry">#946f5c</color>
+    <color name="background">#005257</color>
+    <color name="ripplePrimary">#ff8a44</color>
+
 </resources>
