@@ -20,7 +20,7 @@
         android:textColor="@color/deep_forest_green"
         app:layout_constraintBottom_toTopOf="@+id/menu_section"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
