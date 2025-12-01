@@ -2,4 +2,14 @@
     <string name="app_name">Q&amp;A</string>
     <string name="full_app_name">Question and Answer</string>
     <string name="enter_game_name">Enter Game Name</string>
+    <string name="team_1">Team 1</string>
+    <string name="team_2">Team 2</string>
+    <string name="Start_Game_Btn">Start Game</string>
+    <string name="Start_Game_Btn">Start Game</string>
+    <string name="Login_Sign_up_Btn">Login/Sign up</string>
+    <string name="Setting_Btn">Setting</string>
+    <string name="Contact_us_Btn">Contact us</string>
+    <string name="Rule_and_policy_Btn">Rule and policy</string>
+
+
 </resources>

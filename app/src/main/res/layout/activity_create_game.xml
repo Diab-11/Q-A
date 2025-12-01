@@ -48,12 +48,12 @@
         app:layout_constraintWidth_percent="0.75">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Name"
+            android:id="@+id/input_team1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:hint="Team 1"
+            android:hint="@string/team_1"
             android:textColorHint="@color/Secondry"
             app:boxBackgroundColor="@color/Primary"
             app:boxBackgroundMode="outline"
@@ -65,7 +65,7 @@
             app:boxStrokeWidth="1dp"
             app:boxStrokeWidthFocused="3dp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintEnd_toStartOf="@id/password"
+            app:layout_constraintEnd_toStartOf="@id/input_team2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -81,12 +81,12 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password"
+            android:id="@+id/input_team2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
-            android:hint="Team 2"
+            android:hint="@string/team_2"
             android:textColorHint="@color/Secondry"
             app:boxBackgroundColor="@color/Primary"
             app:boxBackgroundMode="outline"
@@ -99,7 +99,7 @@
             android:layout_marginRight="20dp"
             app:boxStrokeWidthFocused="3dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/Name"
+            app:layout_constraintStart_toEndOf="@id/input_team1"
             app:layout_constraintTop_toTopOf="parent">
 
 
@@ -131,7 +131,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Name">
+            app:layout_constraintTop_toBottomOf="@id/input_team1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/game_name"
@@ -154,7 +154,7 @@
         android:layout_margin="16dp"
         android:layout_marginTop="80dp"
         android:backgroundTint="@color/Secondry"
-        android:text="Log In"
+        android:text="Start"
         android:autoSizeTextType="uniform"
         app:cornerRadius="12dp"
         android:textColor="@color/Primary"
