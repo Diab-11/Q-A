@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="btn_primary">#A3B18A</color>
+    <color name="btn_secondary">#DDA15E</color>
+
+    <color name="sand_beige_20">#33F4E1D2</color>
+    <color name="sand_beige">#F4E1D2</color>
+    <color name="olive_green">#A3B18A</color>
+    <color name="olive_green_20">#33A3B18A</color>
+    <color name="terracotta">#DDA15E</color>
+    <color name="deep_beige">#956E42</color>
+    <color name="deep_forest_green">#344E41</color>
+    <color name="grey">#808080</color>
+
+</resources>

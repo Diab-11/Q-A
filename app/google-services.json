@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1045845217956",
+    "project_id": "qa-game-ddc5e",
+    "storage_bucket": "qa-game-ddc5e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045845217956:android:4c37a3425d164dc584cc31",
+        "android_client_info": {
+          "package_name": "se.jumomo24wv.menuactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045845217956-9l9qrieoodpq9mh3bg4opnf6fu61m7md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmtAz2HNEn6w8-Zz4ZlyYTvvtlR7yRzCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045845217956-9l9qrieoodpq9mh3bg4opnf6fu61m7md.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
