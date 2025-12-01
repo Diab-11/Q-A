@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="se.jumomo24wv.menuactivity" />
+                  <option name="mobileSdkAppId" value="1:1045845217956:android:4c37a3425d164dc584cc31" />
+                  <option name="projectId" value="qa-game-ddc5e" />
+                  <option name="projectNumber" value="1045845217956" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

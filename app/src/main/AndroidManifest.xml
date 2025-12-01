@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
         <activity
+            android:name=".QustionViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainGame"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".CreateGame"
             android:exported="false" />
         <activity
