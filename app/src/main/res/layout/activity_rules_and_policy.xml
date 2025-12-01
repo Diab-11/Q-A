@@ -5,11 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".RulesAndPolicy">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:autoSizeTextType="uniform"
-        android:text="Login"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

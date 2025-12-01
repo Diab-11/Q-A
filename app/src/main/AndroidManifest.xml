@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
         <activity
+            android:name=".Setting"
+            android:exported="false" />
+        <activity
+            android:name=".RulesAndPolicy"
+            android:exported="false" />
+        <activity
             android:name=".QustionViewActivity"
             android:exported="false" />
         <activity

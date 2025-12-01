@@ -26,14 +26,45 @@ class MainActivity : AppCompatActivity() {
 
         with(binding){
             menuStartGame.setOnClickListener {
-                createGameFun()
+                createGameStartActivity()
             }
+            menuLogin.setOnClickListener {
+                loginStartActivity()
+            }
+            menuContactUs.setOnClickListener {
+                contactUsStartActivity()
+            }
+            menuSetting.setOnClickListener {
+                settingStartActivity()
+            }
+            menuRulesPolicy.setOnClickListener {
+                rulesStartActivity()
+            }
+
 
         }
 
     }
-    fun createGameFun(){
+    fun createGameStartActivity(){
         intent = Intent(this, CreateGame::class.java)
+        startActivity(intent)
+    }
+    fun loginStartActivity(){
+        intent = Intent(this, Login::class.java)
+        startActivity(intent)
+    }
+    fun contactUsStartActivity(){
+        intent = Intent(this, ContactUs::class.java)
+        startActivity(intent)
+    }
+    fun settingStartActivity(){
+        intent = Intent(this, Setting::class.java)
+        startActivity(intent)
+    }
+
+
+    fun rulesStartActivity(){
+        intent = Intent(this, RulesAndPolicy::class.java)
         startActivity(intent)
     }
 
