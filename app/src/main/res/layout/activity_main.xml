@@ -34,6 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_Logo"
         android:orientation="vertical"
         app:layout_constraintWidth_percent="0.5"
+        android:layout_marginBottom="20dp"
 
         >
         <com.google.android.material.button.MaterialButton
@@ -41,51 +42,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start Game"
-            android:paddingHorizontal="75dp"
             app:rippleColor="@color/olive_green"
             android:backgroundTint="@color/olive_green"
             app:cornerRadius="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login/Sign up"
-            android:paddingHorizontal="75dp"
             app:rippleColor="@color/olive_green"
             android:backgroundTint="@color/olive_green"
             app:cornerRadius="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/menu_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Setting"
-            android:paddingHorizontal="75dp"
             app:rippleColor="@color/olive_green"
             android:backgroundTint="@color/olive_green"
             app:cornerRadius="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/menu_contact_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contact us"
-            android:paddingHorizontal="75dp"
             app:rippleColor="@color/olive_green"
             android:backgroundTint="@color/olive_green"
             app:cornerRadius="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/menu_rules_policy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rule and policy"
-            android:paddingHorizontal="75dp"
             app:rippleColor="@color/olive_green"
             android:backgroundTint="@color/olive_green"
             app:cornerRadius="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="2dp"/>
 
 
 
