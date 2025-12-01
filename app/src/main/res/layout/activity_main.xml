@@ -5,24 +5,27 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#005257">
 
     <TextView
         android:id="@+id/menu_Logo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
-        android:fontFamily="@font/aclonica"
+        android:fontFamily="@font/allerta_stencil"
         android:gravity="center_horizontal"
-        android:letterSpacing="0.5"
+        android:letterSpacing="1"
         android:lines="1"
         android:text="@string/app_name"
-        android:textColor="@color/deep_forest_green"
+        android:textColor="#ffe8d2"
         app:layout_constraintBottom_toTopOf="@+id/menu_section"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/menu_section"
         android:layout_marginTop="15dp"
@@ -42,8 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start Game"
-            app:rippleColor="@color/olive_green"
-            android:backgroundTint="@color/olive_green"
+            app:rippleColor="#ff8a44"
+            android:backgroundTint="#ffe8d2"
+            android:textColor="#946f5c"
             app:cornerRadius="10dp"
             android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
@@ -51,17 +55,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login/Sign up"
-            app:rippleColor="@color/olive_green"
-            android:backgroundTint="@color/olive_green"
+            app:rippleColor="#ff8a44"
             app:cornerRadius="10dp"
+            android:backgroundTint="#ffe8d2"
+            android:textColor="#946f5c"
             android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/menu_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Setting"
-            app:rippleColor="@color/olive_green"
-            android:backgroundTint="@color/olive_green"
+            app:rippleColor="#ff8a44"
+            android:backgroundTint="#ffe8d2"
+            android:textColor="#946f5c"
             app:cornerRadius="10dp"
             android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
@@ -69,8 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contact us"
-            app:rippleColor="@color/olive_green"
-            android:backgroundTint="@color/olive_green"
+            app:rippleColor="#ff8a44"
+            android:backgroundTint="#ffe8d2"
+            android:textColor="#946f5c"
             app:cornerRadius="10dp"
             android:layout_marginTop="2dp"/>
         <com.google.android.material.button.MaterialButton
@@ -78,9 +85,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rule and policy"
-            app:rippleColor="@color/olive_green"
-            android:backgroundTint="@color/olive_green"
-            app:cornerRadius="10dp"
+            app:rippleColor="#ff8a44"
+            android:backgroundTint="#ffe8d2"
+            android:textColor="#946f5c"            app:cornerRadius="10dp"
             android:layout_marginTop="2dp"/>
 
 
