@@ -13,10 +13,13 @@
         android:theme="@style/Theme.MenuActivity">
         <activity
             android:name=".RulesAndPolicy"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Setting"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".QustionViewActivity"
             android:exported="false"

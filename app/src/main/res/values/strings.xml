@@ -9,4 +9,67 @@
     <string name="Setting_Btn">Setting</string>
     <string name="Contact_us_Btn">Contact us</string>
     <string name="Rule_and_policy_Btn">Rule and policy</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Rules Text-->
+
+
+        <string name="rules_title">Game Rules</string>
+        <string name="rules_overview_title">Overview</string>
+        <string name="rules_points_title">Points</string>
+        <string name="rules_gameplay_title">Gameplay</string>
+        <string name="rules_bonus_title">Bonus Rule</string>
+        <string name="rules_endgame_title">End of Game</string>
+
+
+        <string name="rules_overview_text">
+        • Two teams compete in a Q&amp;A challenge.\n
+        • The game has 6 categories.\n
+        • Each category contains 3 difficulty levels + 1 bonus question.
+    </string>
+
+
+        <string name="rules_points_text">
+        • Easy question: 200 points\n
+        • Medium question: 400 points\n
+        • Hard question: 600 points\n
+        • Bonus question: difficulty chosen by player
+    </string>
+
+        <string name="rules_gameplay_text">
+        • Choose a category.\n
+        • Pick a difficulty.\n
+        • A timer starts for players to discuss.\n
+        • Team locks in an answer.\n
+        • Both teams answer, then tap Reveal Answer.\n
+        • Correct team is awarded points.
+    </string>
+
+        <string name="rules_bonus_text">
+        • Bonus unlocks previously answered questions.\n
+        • You can pick another question of the same difficulty.\n
+        • Bonus can only be used once per category.
+    </string>
+
+        <string name="rules_endgame_text">
+        • Game ends when all questions are answered.\n
+        • Final scores are shown.\n
+        • If logged in, results are saved.
+    </string>
+
+
+
+
 </resources>

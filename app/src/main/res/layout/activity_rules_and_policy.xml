@@ -5,6 +5,128 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RulesAndPolicy">
+    tools:context=".RulesAndPolicy"
+    android:background="@color/Secondry">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_title"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingBottom="10dp"/>
+
+            <!-- Section: Overview -->
+            <TextView
+                android:id="@+id/section1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_overview_title"                 android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingTop="10dp"/>
+
+            <TextView
+                android:id="@+id/overview_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Primary"
+                android:paddingTop="5dp"
+                android:text="@string/rules_overview_text" />
+
+            <!-- Section: Points -->
+            <TextView
+                android:id="@+id/section2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_points_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:id="@+id/points_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Primary"
+                android:paddingTop="5dp"
+                android:text="@string/rules_points_text"/>
+            <!-- Section: Gameplay -->
+            <TextView
+                android:id="@+id/section3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_gameplay_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:id="@+id/gameplay_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Primary"
+                android:paddingTop="5dp"
+                android:text="@string/rules_gameplay_text" />
+
+            <!-- Section: Bonus Rule -->
+            <TextView
+                android:id="@+id/section4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_bonus_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:id="@+id/bonus_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Primary"
+                android:paddingTop="5dp"
+                android:text="@string/rules_bonus_text" />
+            <!-- Section: End of Game -->
+            <TextView
+                android:id="@+id/section5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rules_endgame_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/Primary"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:id="@+id/endgame_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Primary"
+                android:paddingTop="5dp"
+                android:text="@string/rules_endgame_text" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
