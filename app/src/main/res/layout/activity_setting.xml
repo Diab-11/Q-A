@@ -31,14 +31,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:divider="@color/olive_green"
+            android:divider="@color/background"
             android:showDividers="middle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:dividerPadding="6dp">
+            android:dividerPadding="6dp"
+            >
 
 
 
@@ -49,9 +50,11 @@
                 android:layout_marginVertical="12dp"
                 android:checked="true"
                 android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/background"
                 android:textSize="16sp"
-                android:thumbTint="@color/switch_thumb_colors"
-                android:trackTint="@color/Primary"
+                app:thumbTint="@color/switch_thumb_color"
+                app:trackTint="@color/Primary"
+                app:useMaterialThemeColors="false"
                 />
 
 
@@ -60,14 +63,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
                 android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/background"
                 android:text="Swedish"
                 android:textSize="16sp"
-                android:thumbTint="@color/switch_thumb_colors"
-                android:trackTint="@color/Primary" />
+                app:thumbTint="@color/switch_thumb_color"
+                app:trackTint="@color/Primary"
+                app:useMaterialThemeColors="false"/>
 
 
 
         </LinearLayout>
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"

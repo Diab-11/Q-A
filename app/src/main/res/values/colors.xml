@@ -23,7 +23,8 @@
     <color name="ripplePrimary">#ff8a44</color>
 
 
-
+    <color name="thumb_on_color">#4CAF50</color>   <!-- grön -->
+    <color name="thumb_off_color">#BDBDBD</color>  <!-- grå -->
 
 </resources>
 
