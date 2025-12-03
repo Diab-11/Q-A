@@ -98,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -121,8 +121,8 @@
                 android:layout_weight="1"
                 />
             <com.google.android.material.button.MaterialButton
-                android:layout_weight="1"
                 android:id="@+id/cars_200"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="200"
@@ -147,15 +147,16 @@
                 android:autoSizeTextType="uniform"
                 android:letterSpacing="0.1"
                 android:backgroundTint="@color/Secondry"/>
+
             <com.google.android.material.button.MaterialButton
-            android:id="@+id/cars_bonus"
-                android:layout_weight="1"
+                android:id="@+id/cars_bonus"
                 android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="bonus !"
-            android:autoSizeTextType="uniform"
-            android:letterSpacing="0.1"
-            android:backgroundTint="@color/ripplePrimary"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/ripplePrimary"
+                android:letterSpacing="0.1"
+                android:text="bonus !" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,7 +172,11 @@
                 android:layout_width="4dp"
                 android:layout_height="0dp"
                 android:background="@color/Primary"
-                app:layout_constraintStart_toEndOf="@+id/section_cars"/>
+                app:layout_constraintStart_toEndOf="@+id/section_cars"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/section_common_knowledge"/>
+
 
         <LinearLayout
             android:id="@+id/section_sports"
@@ -184,7 +189,7 @@
 
         </LinearLayout>
         <View
-            android:id="@+id/vertical1"
+            android:id="@+id/horizontal1"
             android:layout_width="0dp"
             android:layout_height="4dp"
             android:background="@color/Primary"
@@ -198,7 +203,7 @@
             app:layout_constraintEnd_toStartOf="@+id/section_flags_countries"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <View
-            android:id="@+id/vertical1"
+            android:id="@+id/vertical2"
             android:layout_width="4dp"
             android:layout_height="0dp"
             android:background="@color/Primary"
