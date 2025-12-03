@@ -12,14 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
         <activity
+            android:name=".LoginTest"
+            android:exported="false"
+            android:label="@string/title_activity_login_test"
+            android:theme="@style/Theme.MenuActivity" />
+        <activity
             android:name=".RulesAndPolicy"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Setting"
             android:exported="false"
-            android:screenOrientation="landscape"
-            />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".QustionViewActivity"
             android:exported="false"

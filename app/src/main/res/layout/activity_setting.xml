@@ -42,20 +42,27 @@
             >
 
 
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dark Mood"
-                android:layout_marginVertical="12dp"
-                android:checked="true"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/background"
-                android:textSize="16sp"
-                app:thumbTint="@color/switch_thumb_color"
-                app:trackTint="@color/Primary"
-                app:useMaterialThemeColors="false"
-                />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginVertical="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Theme"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/background"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/theme_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -85,8 +92,5 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
