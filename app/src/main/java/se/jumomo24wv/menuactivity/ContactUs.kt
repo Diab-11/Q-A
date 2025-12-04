@@ -66,7 +66,7 @@ fun ContactUsScreen() {
             }
             item {
                 ProfileCard(
-                    name = "Zakaria Diab",
+                    name = "Zkaria Diab",
                     description = "Backend Developer ensuring robust and scalable server-side logic. Expert in database management and API integration.",
                     email = "Zkariadiab308@gmail.com",
                     instagramId = "zkaria_7"

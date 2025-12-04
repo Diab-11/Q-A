@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -21,87 +19,91 @@
         android:lines="1"
         android:text="@string/app_name"
         android:textColor="@color/Primary"
-        app:layout_constraintBottom_toTopOf="@+id/menu_section"
+        app:layout_constraintBottom_toTopOf="@+id/menu_scroll_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/menu_section"
-        android:layout_marginTop="15dp"
+    <ScrollView
+        android:id="@+id/menu_scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_Logo"
-        android:orientation="vertical"
-        app:layout_constraintWidth_percent="0.5"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_Logo"
+        app:layout_constraintWidth_percent="0.5">
 
-        >
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_start_game"
+        <LinearLayout
+            android:id="@+id/menu_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Start_Game_Btn"
-            app:rippleColor="@color/ripplePrimary"
-            android:backgroundTint="@color/Primary"
-            android:textColor="@color/Secondry"
-            app:cornerRadius="10dp"
-            android:layout_marginTop="2dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Login_Sign_up_Btn"
-            app:rippleColor="@color/ripplePrimary"
-            app:cornerRadius="10dp"
-            android:backgroundTint="@color/Primary"
-            android:textColor="@color/Secondry"
-            android:layout_marginTop="2dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Setting_Btn"
-            app:rippleColor="@color/ripplePrimary"
-            android:backgroundTint="@color/Primary"
-            android:textColor="@color/Secondry"
-            app:cornerRadius="10dp"
-            android:layout_marginTop="2dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_contact_us"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Contact_us_Btn"
-            app:rippleColor="@color/ripplePrimary"
-            android:backgroundTint="@color/Primary"
-            android:textColor="@color/Secondry"
-            app:cornerRadius="10dp"
-            android:layout_marginTop="2dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_rules_policy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Rule_and_policy_Btn"
-            app:rippleColor="@color/ripplePrimary"
-            android:backgroundTint="@color/Primary"
-            android:textColor="@color/Secondry"
-            app:cornerRadius="10dp"
-            android:layout_marginTop="2dp"/>
+            android:orientation="vertical">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menu_start_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/Primary"
+                android:text="@string/Start_Game_Btn"
+                android:textColor="@color/Secondry"
+                app:cornerRadius="10dp"
+                app:rippleColor="@color/ripplePrimary" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menu_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/Primary"
+                android:text="@string/Login_Sign_up_Btn"
+                android:textColor="@color/Secondry"
+                app:cornerRadius="10dp" 
+                app:rippleColor="@color/ripplePrimary" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menu_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/Primary"
+                android:text="@string/Setting_Btn"
+                android:textColor="@color/Secondry"
+                app:cornerRadius="10dp"
+                app:rippleColor="@color/ripplePrimary" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menu_contact_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/Primary"
+                android:text="@string/Contact_us_Btn"
+                android:textColor="@color/Secondry"
+                app:cornerRadius="10dp"
+                app:rippleColor="@color/ripplePrimary" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/menu_rules_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/Primary"
+                android:text="@string/Rule_and_policy_Btn"
+                android:textColor="@color/Secondry"
+                app:cornerRadius="10dp"
+                app:rippleColor="@color/ripplePrimary" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
     <FrameLayout
         android:id="@+id/fragment_container_rules"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
