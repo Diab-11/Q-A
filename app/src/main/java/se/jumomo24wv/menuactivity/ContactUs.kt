@@ -48,29 +48,56 @@ fun ContactUsScreen() {
             )
         }
     ) { paddingValues ->
-        LazyColumn(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+                .padding(16.dp)
         ) {
-            item {
-                ProfileCard(
-                    name = "Mohamed Lutfi Mohamed",
-                    description = "Lead Developer with a passion for creating beautiful and functional Android apps. Focused on UI/UX and app performance.",
-                    email = "Mohamelotfii@gmail.com",
-                    instagramId = "mohamed_lutfe"
-                )
-            }
-            item {
-                ProfileCard(
-                    name = "Zakaria Diab",
-                    description = "Backend Developer ensuring robust and scalable server-side logic. Expert in database management and API integration.",
-                    email = "Zkariadiab308@gmail.com",
-                    instagramId = "zkaria_7"
-                )
+            val isWide = maxWidth > 600.dp
+            if (isWide) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    ProfileCard(
+                        modifier = Modifier.weight(1f).fillMaxHeight(),
+                        name = "Mohamed Lutfi Mohamed",
+                        description = "Lead Developer with a passion for creating beautiful and functional Android apps. Focused on UI/UX and app performance.",
+                        email = "Mohamelotfii@gmail.com",
+                        instagramId = "mohamed_lutfe"
+                    )
+                    ProfileCard(
+                        modifier = Modifier.weight(1f).fillMaxHeight(),
+                        name = "Zakaria Diab",
+                        description = "Backend Developer ensuring robust and scalable server-side logic. Expert in database management and API integration.",
+                        email = "Zkariadiab308@gmail.com",
+                        instagramId = "zkaria_7"
+                    )
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(24.dp)
+                ) {
+                    item {
+                        ProfileCard(
+                            name = "Mohamed Lutfi Mohamed",
+                            description = "Lead Developer with a passion for creating beautiful and functional Android apps. Focused on UI/UX and app performance.",
+                            email = "Mohamelotfii@gmail.com",
+                            instagramId = "mohamed_lutfe"
+                        )
+                    }
+                    item {
+                        ProfileCard(
+                            name = "Zakaria Diab",
+                            description = "Backend Developer ensuring robust and scalable server-side logic. Expert in database management and API integration.",
+                            email = "Zkariadiab308@gmail.com",
+                            instagramId = "zkaria_7"
+                        )
+                    }
+                }
             }
         }
     }
@@ -78,15 +105,21 @@ fun ContactUsScreen() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProfileCard(name: String, description: String, email: String, instagramId: String) {
+fun ProfileCard(
+    modifier: Modifier = Modifier.fillMaxWidth(),
+    name: String,
+    description: String,
+    email: String,
+    instagramId: String
+) {
     val context = LocalContext.current
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(16.dp).fillMaxHeight(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
@@ -106,6 +139,10 @@ fun ProfileCard(name: String, description: String, email: String, instagramId: S
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
+
+            // This weighted spacer pushes the contact icons to the bottom
+            Spacer(Modifier.weight(1f))
+
             Spacer(modifier = Modifier.height(16.dp))
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -121,7 +158,7 @@ fun ProfileCard(name: String, description: String, email: String, instagramId: S
                     context.startActivity(intent)
                 }
                 ContactIcon(
-                    icon = R.drawable.ic_instagram, // Assumes you have an instagram icon in res/drawable
+                    icon = R.drawable.ic_instagram,
                     contentDescription = "Visit $name's Instagram"
                 ) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/$instagramId"))
