@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Q&amp;A</string>
+
+    <!-- IMPORTANT: Replace this with your real Web Client ID from Google Cloud Console -->
+    <string name="default_web_client_id">316253336830-74omkii0igd9qh7l6tmsst6nbkhe4od8.apps.googleusercontent.com</string>
+
     <string name="full_app_name">Question and Answer</string>
     <string name="enter_game_name">Enter Game Name</string>
     <string name="team_1">Team 1</string>

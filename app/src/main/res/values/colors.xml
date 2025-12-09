@@ -14,8 +14,8 @@
     <color name="deep_beige">#956E42</color>
     <color name="deep_forest_green">#344E41</color>
     <color name="grey">#808080</color>
-
-
+    <color name="secbackground">#FFFFFF</color>
+    <color name="textcolor">#005257</color>
 
     <color name="Primary">#ffe8d2</color>
     <color name="Secondry">#946f5c</color>

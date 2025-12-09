@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1045845217956",
-    "project_id": "qa-game-ddc5e",
-    "storage_bucket": "qa-game-ddc5e.firebasestorage.app"
+    "project_number": "316253336830",
+    "project_id": "qa-app-2dc95",
+    "storage_bucket": "qa-app-2dc95.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1045845217956:android:4c37a3425d164dc584cc31",
+        "mobilesdk_app_id": "1:316253336830:android:82d1159c6b14b79244e1af",
         "android_client_info": {
           "package_name": "se.jumomo24wv.menuactivity"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1045845217956-9l9qrieoodpq9mh3bg4opnf6fu61m7md.apps.googleusercontent.com",
+          "client_id": "316253336830-74omkii0igd9qh7l6tmsst6nbkhe4od8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "se.jumomo24wv.menuactivity",
+            "certificate_hash": "4729311aacc27701aeea2cac719e096fd814997b"
+          }
+        },
+        {
+          "client_id": "316253336830-ka1rt1vq0tpo2uj26lq68f5uksod8igt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBmtAz2HNEn6w8-Zz4ZlyYTvvtlR7yRzCk"
+          "current_key": "AIzaSyDSzPQ1aFd0HL5SHnQqwdVsS3DaqQJLH04"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1045845217956-9l9qrieoodpq9mh3bg4opnf6fu61m7md.apps.googleusercontent.com",
+              "client_id": "316253336830-ka1rt1vq0tpo2uj26lq68f5uksod8igt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,172 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateGame"
-    android:background="@color/background">
-
-    <View
-        android:id="@+id/create_game_top"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        android:background="@color/Primary"
-        android:scaleType="center"
-        />
-
-    <TextView
-        android:id="@+id/create_game_title"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:autoSizeTextType="uniform"
-        android:fontFamily="@font/allerta_stencil"
-        android:gravity="center"
-        android:letterSpacing="1"
-        android:text="@string/app_name"
-        android:textColor="@color/Primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/create_game_top" />
-
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/input_section"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/create_game_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_game_title"
-        app:layout_constraintWidth_percent="0.75">
+        android:background="@color/background"
+        tools:context=".CreateGame">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_team1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
-            android:hint="@string/team_1"
-            android:textColorHint="@color/Secondry"
-            app:boxBackgroundColor="@color/Primary"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/ripplePrimary"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="3dp"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintEnd_toStartOf="@id/input_team2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <View
+            android:id="@+id/create_game_top"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/Primary"
+            android:scaleType="center"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:inputType="textPersonName" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_team2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:hint="@string/team_2"
-            android:textColorHint="@color/Secondry"
-            app:boxBackgroundColor="@color/Primary"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/ripplePrimary"
-            app:boxStrokeWidth="1dp"
-            android:layout_marginRight="20dp"
-            app:boxStrokeWidthFocused="3dp"
+        <TextView
+            android:id="@+id/create_game_title"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/allerta_stencil"
+            android:gravity="center"
+            android:letterSpacing="1"
+            android:text="@string/app_name"
+            android:textColor="@color/Primary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/input_team1"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/create_game_top" />
 
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-
-            android:id="@+id/create_game_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/input_section"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:hint="@string/enter_game_name"
-            app:boxBackgroundColor="@color/Primary"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            android:textColorHint="@color/Secondry"
-            app:boxStrokeColor="@color/ripplePrimary"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/create_game_title"
+            app:layout_constraintWidth_percent="0.75">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_team1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:hint="@string/team_1"
+                android:textColorHint="@color/Secondry"
+                app:boxBackgroundColor="@color/Primary"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/ripplePrimary"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="3dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintEnd_toStartOf="@id/input_team2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="textPersonName" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_team2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/team_2"
+                android:textColorHint="@color/Secondry"
+                app:boxBackgroundColor="@color/Primary"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/ripplePrimary"
+                app:boxStrokeWidth="1dp"
+                android:layout_marginRight="20dp"
+                app:boxStrokeWidthFocused="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/input_team1"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:fontFamily="sans-serif-condensed" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/create_game_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:hint="@string/enter_game_name"
+                app:boxBackgroundColor="@color/Primary"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                android:textColorHint="@color/Secondry"
+                app:boxStrokeColor="@color/ripplePrimary"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_team1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/game_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create_game_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="80dp"
+            android:autoSizeTextType="uniform"
+            android:backgroundTint="@color/Secondry"
+            android:text="Start"
+            android:textColor="@color/Primary"
+            app:cornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_team1">
+            app:layout_constraintTop_toBottomOf="@id/input_section"
+            app:layout_constraintWidth_percent="0.5"
+            app:rippleColor="@color/ripplePrimary" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/game_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                />
-        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/create_game_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="@color/Secondry"
-        android:text="Start"
-        android:autoSizeTextType="uniform"
-        app:cornerRadius="12dp"
-        android:textColor="@color/Primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_section"
-        app:layout_constraintWidth_percent="0.5"
-        app:rippleColor="@color/ripplePrimary" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
