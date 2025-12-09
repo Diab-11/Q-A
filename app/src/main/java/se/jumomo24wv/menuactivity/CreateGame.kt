@@ -32,6 +32,9 @@ class CreateGame : AppCompatActivity() {
             if (team1txt.isEmpty()) {
                 binding.inputTeam1.error = "Team name cannot be empty"
                 hasError = true
+            } else if (team1txt.length > 12) {
+                binding.inputTeam1.error = "Team name cannot be more than 12 characters"
+                hasError = true
             } else {
                 binding.inputTeam1.error = null
             }
@@ -39,12 +42,18 @@ class CreateGame : AppCompatActivity() {
             if (team2txt.isEmpty()) {
                 binding.inputTeam2.error = "Team name cannot be empty"
                 hasError = true
+            } else if (team2txt.length > 12) {
+                binding.inputTeam2.error = "Team name cannot be more than 12 characters"
+                hasError = true
             } else {
                 binding.inputTeam2.error = null
             }
 
             if (gametxt.isEmpty()) {
                 binding.createGameName.error = "Game name cannot be empty"
+                hasError = true
+            } else if (gametxt.length > 12) {
+                binding.createGameName.error = "Game name cannot be more than 12 characters"
                 hasError = true
             } else {
                 binding.createGameName.error = null
