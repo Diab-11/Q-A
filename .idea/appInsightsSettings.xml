@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="se.jumomo24wv.menuactivity" />
-                  <option name="mobileSdkAppId" value="1:1045845217956:android:4c37a3425d164dc584cc31" />
-                  <option name="projectId" value="qa-game-ddc5e" />
-                  <option name="projectNumber" value="1045845217956" />
+                  <option name="mobileSdkAppId" value="1:316253336830:android:82d1159c6b14b79244e1af" />
+                  <option name="projectId" value="qa-app-2dc95" />
+                  <option name="projectNumber" value="316253336830" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
