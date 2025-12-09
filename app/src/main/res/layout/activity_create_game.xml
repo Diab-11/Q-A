@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_game_title"
+            app:layout_constraintTop_toBottomOf="@id/create_game_title"
             app:layout_constraintWidth_percent="0.75">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -72,6 +72,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="@color/black"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="textPersonName" />
 
@@ -104,6 +105,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="@color/black"
                     android:fontFamily="sans-serif-condensed" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -135,7 +137,7 @@
                     android:id="@+id/game_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:textColor="@color/black"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,11 +149,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginTop="80dp"
+            android:autoSizeTextType="uniform"
             android:backgroundTint="@color/Secondry"
             android:text="Start"
-            android:autoSizeTextType="uniform"
-            app:cornerRadius="12dp"
             android:textColor="@color/Primary"
+            app:cornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

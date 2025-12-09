@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textcolor">#ffe8d2</color>
+    <color name="background">#182625</color>      <!-- Keeping existing name "background" -->
+    <color name="secbackground">#2F3D40</color>
+
+    <!-- Text color for dark mode -->
+</resources>
