@@ -1,7 +1,9 @@
 package se.jumomo24wv.menuactivity.data
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import se.jumomo24wv.menuactivity.R
 
 
 @Parcelize
@@ -24,7 +26,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which European country has a flag featuring three vertical stripes of blue, white, and red?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "France",
             points = 200
         ),
@@ -32,7 +34,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "The flag with a red maple leaf in the center belongs to which country?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Canada",
             points = 200
         ),
@@ -40,7 +42,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "What is the capital city of Japan?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Tokyo",
             points = 200
         ),
@@ -48,7 +50,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country’s flag consists of green, white, and orange vertical stripes?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Ireland",
             points = 200
         ),
@@ -56,7 +58,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "This flag has a red circle on a white background. Name the country.",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Japan",
             points = 200
         ),
@@ -64,7 +66,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country has Brasília as its capital?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Brazil",
             points = 200
         ),
@@ -72,7 +74,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "The flag with stars and stripes represents which country?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "United States",
             points = 200
         ),
@@ -80,7 +82,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "What is the capital city of Egypt?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Cairo",
             points = 200
         ),
@@ -88,7 +90,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country uses a flag with one large white star on a blue triangle?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Cuba",
             points = 200
         ),
@@ -96,7 +98,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "The capital of Australia is not Sydney. What is it?",
-            imageRes = null,
+            imageRes = R.drawable.image,
             answer = "Canberra",
             points = 200
         )
