@@ -11,6 +11,15 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
+
+        <receiver android:name=".MyAppWidgetReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/my_app_widget_info" />
+        </receiver>
+
         <activity
             android:name=".LoginTest"
             android:exported="false"
@@ -25,7 +34,7 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".QustionViewActivity"
+            android:name=".QuestionViewActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity

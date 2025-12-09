@@ -61,6 +61,7 @@
         • If logged in, results are saved.
     </string>
     <string name="title_activity_login_test">LoginTest</string>
+    <string name="app_widget_description">My App Widget</string>
 
     <string-array name="theme_options">
         <item>Light</item>
