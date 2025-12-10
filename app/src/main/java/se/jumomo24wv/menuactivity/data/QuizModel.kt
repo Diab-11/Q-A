@@ -1,6 +1,5 @@
 package se.jumomo24wv.menuactivity.data
 
-import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import se.jumomo24wv.menuactivity.R
@@ -25,16 +24,16 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which European country has a flag featuring three vertical stripes of blue, white, and red?",
-            imageRes = R.drawable.image,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.france,
             answer = "France",
             points = 200
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "The flag with a red maple leaf in the center belongs to which country?",
-            imageRes = R.drawable.image,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.canda,
             answer = "Canada",
             points = 200
         ),
@@ -42,7 +41,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "What is the capital city of Japan?",
-            imageRes = R.drawable.image,
+            imageRes = R.drawable.tokyo,
             answer = "Tokyo",
             points = 200
         ),
@@ -50,15 +49,15 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country’s flag consists of green, white, and orange vertical stripes?",
-            imageRes = R.drawable.image,
+            imageRes = R.drawable.ireland,
             answer = "Ireland",
             points = 200
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "This flag has a red circle on a white background. Name the country.",
-            imageRes = R.drawable.image,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.japanflag,
             answer = "Japan",
             points = 200
         ),
@@ -66,15 +65,15 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country has Brasília as its capital?",
-            imageRes = R.drawable.image,
+            imageRes = R.drawable.brazilia,
             answer = "Brazil",
             points = 200
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "The flag with stars and stripes represents which country?",
-            imageRes = R.drawable.image,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.usa_flag,
             answer = "United States",
             points = 200
         ),
@@ -82,15 +81,15 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "What is the capital city of Egypt?",
-            imageRes = R.drawable.image,
+            imageRes = R.drawable.cairo,
             answer = "Cairo",
             points = 200
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country uses a flag with one large white star on a blue triangle?",
-            imageRes = R.drawable.image,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_cuba,
             answer = "Cuba",
             points = 200
         ),
@@ -98,18 +97,17 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "easy",
             question = "The capital of Australia is not Sydney. What is it?",
-            imageRes = R.drawable.image,
+            imageRes = R.drawable.canberra,
             answer = "Canberra",
             points = 200
         )
     )
-
     val flagsMedium = listOf(
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
             question = "Which African country’s flag features a golden star within a blue triangle and green–red stripes?",
-            imageRes = null,
+            imageRes = R.drawable.flag_mozambique,
             answer = "Mozambique",
             points = 400
         ),
@@ -117,107 +115,108 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "medium",
             question = "The capital city of Kazakhstan was renamed several times; what is its current official name?",
-            imageRes = null,
+            imageRes = R.drawable.astana,
             answer = "Astana",
             points = 400
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which South American country has a flag with a diagonal yellow stripe separating blue and green sections?",
-            imageRes = null,
-            answer = "Guyana",
-            points = 400
-        ),
-        QuizQuestion(
-            category = "Flags and Countries",
-            difficulty = "medium",
-            question = "This flag has two horizontal stripes: red on top, white on the bottom. Name the European country.",
-            imageRes = null,
-            answer = "Poland",
-            points = 400
-        ),
-        QuizQuestion(
-            category = "Flags and Countries",
-            difficulty = "medium",
-            question = "What is the administrative capital of Sri Lanka?",
-            imageRes = null,
-            answer = "Sri Jayawardenepura Kotte",
-            points = 400
-        ),
-        QuizQuestion(
-            category = "Flags and Countries",
-            difficulty = "medium",
-            question = "Which Middle Eastern country uses a flag with black, white, and green stripes plus a red triangle on the left?",
-            imageRes = null,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_palestine,
             answer = "Palestine",
             points = 400
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "What is the capital of New Zealand?",
-            imageRes = null,
-            answer = "Wellington",
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_iraq,
+            answer = "Irak",
             points = 400
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which Southeast Asian nation historically used a flag featuring a white elephant?",
-            imageRes = null,
+            question = "What is the administrative capital of Turkey?",
+            imageRes = R.drawable.ankara,
+            answer = "Ankara",
+            points = 400
+        ),
+        QuizQuestion(
+            category = "Flags and Countries",
+            difficulty = "medium",
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_syria,
+            answer = "Syria",
+            points = 400
+        ),
+        QuizQuestion(
+            category = "Flags and Countries",
+            difficulty = "hard",
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_morocco,
+            answer = "Morocco",
+            points = 400
+        ),
+        QuizQuestion(
+            category = "Flags and Countries",
+            difficulty = "medium",
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_thailand,
             answer = "Thailand",
             points = 400
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country’s flag features a blue field with a single white 5-pointed star?",
-            imageRes = null,
+            question = "Which country dose this flag belongs to?",
+            imageRes = R.drawable.flag_somalia,
             answer = "Somalia",
             points = 400
         ),
+
         QuizQuestion(
-            category = "Flags and Countries",
-            difficulty = "medium",
-            question = "What is the current capital of Myanmar?",
-            imageRes = null,
-            answer = "Naypyidaw",
-            points = 400
-        )
+        category = "Flags and Countries",
+        difficulty = "hard",
+        question = "Which country dose this flag belongs to?",
+        imageRes = R.drawable.flag_sweden,
+        answer = "Sweden",
+        points = 400
+    )
     )
 
     val flagsHard = listOf(
         QuizQuestion(
             category = "Flags and Countries",
-            difficulty = "hard",
-            question = "Which country has a flag with a green pentagram centered on a red field?",
+            difficulty = "medium",
+            question = "What is the capital of New Zealand?",
             imageRes = null,
-            answer = "Morocco",
+            answer = "Wellington",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "The capital of Eswatini shares its name with a river. What is it?",
+            question = "What is the area of Palestine?",
             imageRes = null,
-            answer = "Mbabane",
+            answer = "27027 square kilometers",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "Which Pacific island nation has a flag featuring the Union Jack and five white stars representing island groups?",
+            question = "What is the area of Sweden?",
             imageRes = null,
-            answer = "New Zealand",
+            answer = "449,964 square kilometers",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "Which country’s flag displays a yellow sun with 40 rays on a red background?",
+            question = "What is the area of Denmark?",
             imageRes = null,
-            answer = "Kyrgyzstan",
+            answer = "42,933 square kilometers",
             points = 600
         ),
         QuizQuestion(
@@ -231,43 +230,44 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "What is the capital of Burkina Faso?",
+            question = "What is the capital of Lebanon?",
             imageRes = null,
-            answer = "Ouagadougou",
+            answer = "Beirut",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "Which Central Asian republic has a flag featuring a yurt crown (tunduk) in the center?",
+            question = "Where is the city of Bethlehem located?",
             imageRes = null,
-            answer = "Kyrgyzstan",
+            answer = "In Palestine",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "The flag of which African nation includes a horizontal saw-toothed red band?",
+            question = "Where is the city of Idlib located?",
             imageRes = null,
-            answer = "Zimbabwe",
+            answer = "In Syria",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "What is the capital city of Belize?",
+            question = "What is the capital city of Colombia?",
             imageRes = null,
-            answer = "Belmopan",
+            answer = "Bogota",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
-            difficulty = "hard",
-            question = "Which European country’s flag has a Nordic cross with blue and yellow colors?",
+            difficulty = "medium",
+            question = "What is the oldest capital in the world?",
             imageRes = null,
-            answer = "Sweden",
+            answer = "Damascus",
             points = 600
         )
+
     )
     // -------------------------
 // CATEGORY 2: GEOGRAPHY
