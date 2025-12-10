@@ -48,6 +48,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_team1"
+                style="@style/Widget.App.TextInputLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -83,6 +84,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_team2"
+                style="@style/Widget.App.TextInputLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -118,6 +120,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 android:id="@+id/create_game_name"
+                style="@style/Widget.App.TextInputLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
