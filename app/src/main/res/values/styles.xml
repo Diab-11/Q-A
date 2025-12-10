@@ -1,5 +1,5 @@
 <resources>
     <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="counterTextColor">@color/Secondry</item>
+        <item name="counterTextColor">@color/Secondary</item>
     </style>
 </resources>

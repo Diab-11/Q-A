@@ -51,7 +51,7 @@
                 android:layout_marginTop="2dp"
                 android:backgroundTint="@color/Primary"
                 android:text="@string/Start_Game_Btn"
-                android:textColor="@color/Secondry"
+                android:textColor="@color/Secondary"
                 app:cornerRadius="10dp"
                 app:rippleColor="@color/ripplePrimary" />
 
@@ -62,7 +62,7 @@
                 android:layout_marginTop="2dp"
                 android:backgroundTint="@color/Primary"
                 android:text="@string/Login_Sign_up_Btn"
-                android:textColor="@color/Secondry"
+                android:textColor="@color/Secondary"
                 app:cornerRadius="10dp" 
                 app:rippleColor="@color/ripplePrimary" />
 
@@ -73,7 +73,7 @@
                 android:layout_marginTop="2dp"
                 android:backgroundTint="@color/Primary"
                 android:text="@string/Setting_Btn"
-                android:textColor="@color/Secondry"
+                android:textColor="@color/Secondary"
                 app:cornerRadius="10dp"
                 app:rippleColor="@color/ripplePrimary" />
 
@@ -84,7 +84,7 @@
                 android:layout_marginTop="2dp"
                 android:backgroundTint="@color/Primary"
                 android:text="@string/Contact_us_Btn"
-                android:textColor="@color/Secondry"
+                android:textColor="@color/Secondary"
                 app:cornerRadius="10dp"
                 app:rippleColor="@color/ripplePrimary" />
 
@@ -95,7 +95,7 @@
                 android:layout_marginTop="2dp"
                 android:backgroundTint="@color/Primary"
                 android:text="@string/Rule_and_policy_Btn"
-                android:textColor="@color/Secondry"
+                android:textColor="@color/Secondary"
                 app:cornerRadius="10dp"
                 app:rippleColor="@color/ripplePrimary" />
 

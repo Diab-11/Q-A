@@ -9,7 +9,7 @@
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/Secondry"
+        android:background="@color/Secondary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         app:layout_constraintWidth_percent="0.05"
         android:layout_height="match_parent"
-        android:background="@color/Secondry"
+        android:background="@color/Secondary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/team_b_correct_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,8 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Team A"
-        android:backgroundTint="@color/Secondry"
-
+        android:backgroundTint="@color/Secondary"
+        android:textColor="@color/Primary"
         app:layout_constraintWidth_percent="0.2"
         android:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/none_correct_button"
@@ -90,8 +90,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/Secondry"
-
+        android:backgroundTint="@color/Secondary"
+        android:textColor="@color/Primary"
         android:text="Team B"
         app:layout_constraintWidth_percent="0.2"
         android:autoSizeTextType="uniform"
@@ -110,10 +110,12 @@
         android:autoSizeTextType="uniform"
         android:layout_marginTop="8dp"
         android:text="None Got It Right"
+        android:textColor="@color/Primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/team_a_correct_button"
+
        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

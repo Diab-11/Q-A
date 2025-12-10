@@ -5,230 +5,238 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainGame"
-    android:background="@color/Secondry">
-
-
+    android:background="@color/Secondary"
+    tools:context=".MainGame">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_game_names_section"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
-        android:background="@color/Secondry"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/Secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.12"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/main_game_team1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:textAlignment="center"
-            android:text="Team1 "
             android:autoSizeTextType="uniform"
+            android:text="Team1"
+            android:textAlignment="center"
             android:textColor="@color/Primary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/main_game_team1_score"
-            app:layout_constraintEnd_toStartOf="@id/main_game_name"/>
+            app:layout_constraintEnd_toStartOf="@id/main_game_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/main_game_team1_score"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="0"
             android:autoSizeTextType="uniform"
+            android:text="0"
             android:textAlignment="center"
             android:textColor="@color/Primary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_game_team1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/main_game_name"/>
+            app:layout_constraintEnd_toStartOf="@id/main_game_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_game_team1" />
+
         <TextView
             android:id="@+id/main_game_name"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Game Name "
-            android:textAlignment="center"
             android:autoSizeTextType="uniform"
+            android:text="Game Name"
+            android:textAlignment="center"
             android:textColor="@color/Primary"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/main_game_team2"
             app:layout_constraintStart_toEndOf="@id/main_game_team1"
-            app:layout_constraintEnd_toStartOf="@id/main_game_team2_score"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/main_game_team2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Team 2 "
             android:autoSizeTextType="uniform"
+            android:text="Team 2"
             android:textAlignment="center"
             android:textColor="@color/Primary"
-            app:layout_constraintStart_toEndOf="@id/main_game_name"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/main_game_team2_score"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/main_game_team2_score"/>
+            app:layout_constraintStart_toEndOf="@id/main_game_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/main_game_team2_score"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="0"
             android:autoSizeTextType="uniform"
+            android:text="0"
             android:textAlignment="center"
             android:textColor="@color/Primary"
-            app:layout_constraintStart_toEndOf="@id/main_game_name"
-            app:layout_constraintTop_toBottomOf="@id/main_game_team2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toEndOf="@id/main_game_name"
+            app:layout_constraintTop_toBottomOf="@id/main_game_team2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_game_section"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@id/main_game_names_section"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_game_names_section">
 
+        <!-- Top Row -->
         <LinearLayout
-            android:orientation="vertical"
             android:id="@+id/section_cars"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/section_common_knowledge"
+            android:orientation="vertical"
+            android:weightSum="5"
             app:layout_constraintBottom_toTopOf="@+id/section_geography"
-            android:weightSum="5">
+            app:layout_constraintEnd_toStartOf="@+id/section_common_knowledge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/section_cars_title"
-                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Cars"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
                 android:layout_weight="1"
-                />
+                android:autoSizeTextType="uniform"
+                android:text="Cars"
+                android:textAlignment="center"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cars_200"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="200"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
-            <com.google.android.material.button.MaterialButton
                 android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/cars_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="400"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cars_600"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="600"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cars_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:textColor="@color/Primary"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="bonus !" />
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/section_common_knowledge"
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/section_cars"
-            app:layout_constraintEnd_toStartOf="@+id/section_sports"
+            android:orientation="vertical"
+            android:weightSum="5"
             app:layout_constraintBottom_toTopOf="@+id/section_flags_countries"
-            android:weightSum="5">
+            app:layout_constraintEnd_toStartOf="@+id/section_sports"
+            app:layout_constraintStart_toEndOf="@id/section_cars"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/section_common_knowledge_title"
-                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Common Knowledge"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
                 android:layout_weight="1"
-                />
+                android:autoSizeTextType="uniform"
+                android:text="Common Knowledge"
+                android:textAlignment="center"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/common_knowledge_200"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="200"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
-            <com.google.android.material.button.MaterialButton
                 android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/common_knowledge_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="400"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/common_knowledge_600"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="600"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/Secondry"/>
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/common_knowledge_bonus"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="bonus !"
-                android:textColor="@color/Primary"
-                android:layout_marginBottom="8dp"
-                android:autoSizeTextType="uniform"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/ripplePrimary"/>
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/ripplePrimary"
+                android:letterSpacing="0.1"
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/section_sports"
@@ -236,10 +244,11 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:weightSum="5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/section_common_knowledge"
+            app:layout_constraintBottom_toTopOf="@+id/section_no_word"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/section_no_word">
+            app:layout_constraintStart_toEndOf="@id/section_common_knowledge"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/section_sports_title"
                 android:layout_width="match_parent"
@@ -249,63 +258,69 @@
                 android:text="Sports"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sports_200"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="200" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sports_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="400" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sports_600"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="600" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sports_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginBottom="8dp"
+                android:layout_weight="1"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:layout_marginHorizontal="8dp"
-                android:text="bonus !" />
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
 
+        <!-- Bottom Row -->
         <LinearLayout
             android:id="@+id/section_geography"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             android:weightSum="5"
-            app:layout_constraintTop_toBottomOf="@id/section_cars"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/section_flags_countries"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section_cars">
+
             <TextView
                 android:id="@+id/section_geography_title"
                 android:layout_width="match_parent"
@@ -315,51 +330,55 @@
                 android:text="Geography"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/geography_200"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="200" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/geography_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="400" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/geography_600"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="600" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/geography_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                android:textColor="@color/Primary"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:layout_marginHorizontal="8dp"
-                android:text="bonus !" />
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
 
         <LinearLayout
@@ -369,9 +388,10 @@
             android:orientation="vertical"
             android:weightSum="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section_common_knowledge"
-            app:layout_constraintStart_toEndOf="@+id/section_geography"
-            app:layout_constraintEnd_toStartOf="@+id/section_no_word">
+            app:layout_constraintEnd_toStartOf="@+id/section_no_word"
+            app:layout_constraintStart_toEndOf="@id/section_geography"
+            app:layout_constraintTop_toBottomOf="@+id/section_common_knowledge">
+
             <TextView
                 android:id="@+id/section_flags_countries_title"
                 android:layout_width="match_parent"
@@ -381,51 +401,55 @@
                 android:text="Flags &amp; Countries"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/flags_countries_200"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="200" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/flags_countries_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="400" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/flags_countries_600"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="600" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/flags_countries_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                android:textColor="@color/Primary"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:layout_marginHorizontal="8dp"
-                android:text="bonus !" />
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
 
         <LinearLayout
@@ -435,9 +459,10 @@
             android:orientation="vertical"
             android:weightSum="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section_sports"
-            app:layout_constraintStart_toEndOf="@+id/section_flags_countries"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/section_flags_countries"
+            app:layout_constraintTop_toBottomOf="@+id/section_sports">
+
             <TextView
                 android:id="@+id/section_no_word_title"
                 android:layout_width="match_parent"
@@ -447,82 +472,56 @@
                 android:text="No Word"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/no_word_200"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="200" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="200"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/no_word_400"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="400" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="400"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/no_word_600"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Primary"
-                android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondry"
-                android:letterSpacing="0.1"
                 android:layout_marginHorizontal="8dp"
-                android:text="600" />
+                android:layout_weight="1"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/Secondary"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textColor="@color/Primary" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/no_word_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                android:textColor="@color/Primary"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
-                android:letterSpacing="0.1"
-                android:layout_marginHorizontal="8dp"
-                android:text="bonus !" />
+                android.letterSpacing="0.1"
+                android:text="bonus !"
+                android:textColor="@color/Primary" />
         </LinearLayout>
-
-        <View
-            android:id="@+id/vertical1"
-            android:layout_width="4dp"
-            android:layout_height="0dp"
-            android:background="@color/Primary"
-            app:layout_constraintStart_toEndOf="@+id/section_cars"
-            app:layout_constraintEnd_toStartOf="@+id/section_common_knowledge"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <View
-            android:id="@+id/vertical2"
-            android:layout_width="4dp"
-            android:layout_height="0dp"
-            android:background="@color/Primary"
-            app:layout_constraintStart_toEndOf="@+id/section_common_knowledge"
-            app:layout_constraintEnd_toStartOf="@+id/section_sports"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <View
-            android:id="@+id/horizontal1"
-            android:layout_width="0dp"
-            android:layout_height="4dp"
-            android:background="@color/Primary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section_cars"
-            app:layout_constraintBottom_toTopOf="@+id/section_geography"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

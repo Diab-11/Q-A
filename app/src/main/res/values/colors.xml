@@ -18,7 +18,7 @@
     <color name="textcolor">#005257</color>
 
     <color name="Primary">#ffe8d2</color>
-    <color name="Secondry">#946f5c</color>
+    <color name="Secondary">#946f5c</color>
     <color name="background">#005257</color>
     <color name="ripplePrimary">#ff8a44</color>
 
@@ -27,4 +27,3 @@
     <color name="thumb_off_color">#BDBDBD</color>  <!-- grå -->
 
 </resources>
-
