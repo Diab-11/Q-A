@@ -10,10 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
 import se.jumomo24wv.menuactivity.data.QuizQuestion
 
 class QuestionViewActivity : AppCompatActivity() {
-
+    private lateinit var questionPoints : MaterialButton
     private lateinit var questionText: TextView
     private lateinit var questionImage: ImageView
     private lateinit var timerText: TextView
@@ -46,6 +47,7 @@ class QuestionViewActivity : AppCompatActivity() {
         teamAScore = findViewById(R.id.team_a_score)
         teamBScore = findViewById(R.id.team_b_score)
         revealAnswerButton = findViewById(R.id.reveal_answer_button)
+        questionPoints = findViewById(R.id.question_points)
 
         teamAScoreValue = intent.getIntExtra("TEAM_A_SCORE", 0)
         teamBScoreValue = intent.getIntExtra("TEAM_B_SCORE", 0)
@@ -77,6 +79,7 @@ class QuestionViewActivity : AppCompatActivity() {
                 questionImage.visibility = View.GONE
             }
         }
+        questionPoints.text = "${currentQuestion?.category} : ${currentQuestion?.points}"
     }
 
     private fun startTimer() {
