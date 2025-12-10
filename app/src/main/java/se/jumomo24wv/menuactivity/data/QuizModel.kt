@@ -191,7 +191,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "medium",
             question = "What is the capital of New Zealand?",
-            imageRes = null,
+            imageRes = R.drawable.wellington,
             answer = "Wellington",
             points = 600
         ),
@@ -199,7 +199,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "What is the area of Palestine?",
-            imageRes = null,
+            imageRes = R.drawable.palestine_map,
             answer = "27027 square kilometers",
             points = 600
         ),
@@ -207,7 +207,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "What is the area of Sweden?",
-            imageRes = null,
+            imageRes = R.drawable.sweden_map,
             answer = "449,964 square kilometers",
             points = 600
         ),
@@ -215,7 +215,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "What is the area of Denmark?",
-            imageRes = null,
+            imageRes = R.drawable.denmark_map,
             answer = "42,933 square kilometers",
             points = 600
         ),
@@ -223,7 +223,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "This black, yellow, and white tricolor flag belonged to which former empire?",
-            imageRes = null,
+            imageRes = R.drawable.flag_of_russian_empire,
             answer = "Russian Empire",
             points = 600
         ),
@@ -231,7 +231,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "What is the capital of Lebanon?",
-            imageRes = null,
+            imageRes = R.drawable.beriut,
             answer = "Beirut",
             points = 600
         ),
@@ -239,23 +239,23 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "hard",
             question = "Where is the city of Bethlehem located?",
-            imageRes = null,
+            imageRes = R.drawable.betlahim,
             answer = "In Palestine",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "Where is the city of Idlib located?",
-            imageRes = null,
-            answer = "In Syria",
+            question = "Where is the first university in the world located?",
+            imageRes = R.drawable.uni_morocco,
+            answer = "In Morocco ",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
             question = "What is the capital city of Colombia?",
-            imageRes = null,
+            imageRes = R.drawable.bogota,
             answer = "Bogota",
             points = 600
         ),
@@ -263,7 +263,7 @@ object QuizData {
             category = "Flags and Countries",
             difficulty = "medium",
             question = "What is the oldest capital in the world?",
-            imageRes = null,
+            imageRes = R.drawable.damascus,
             answer = "Damascus",
             points = 600
         )

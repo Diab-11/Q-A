@@ -34,6 +34,9 @@
             android:name=".RevealAnswerActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
+        <activity android:name=".RevealAnswerActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Setting"
             android:exported="false"
