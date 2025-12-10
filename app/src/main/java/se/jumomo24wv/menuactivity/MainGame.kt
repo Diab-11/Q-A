@@ -64,33 +64,37 @@ class MainGame : AppCompatActivity() {
     }
 
     private fun generateGameQuestions() {
-        gameQuestions["flags_countries_200"] = QuizData.flagsEasy.random()
-        gameQuestions["flags_countries_400"] = QuizData.flagsMedium.random()
-        gameQuestions["flags_countries_600"] = QuizData.flagsHard.random()
+        // Use randomOrNull() to prevent crashes on empty lists.
+        // The '?: return' will stop the function if a list is empty,
+        // which you might want to handle differently (e.g., show an error).
+        gameQuestions["flags_countries_200"] = QuizData.flagsEasy.randomOrNull() ?: return
+        gameQuestions["flags_countries_400"] = QuizData.flagsMedium.randomOrNull() ?: return
+        gameQuestions["flags_countries_600"] = QuizData.flagsHard.randomOrNull() ?: return
 
-        gameQuestions["geography_200"] = QuizData.geographyEasy.random()
-        gameQuestions["geography_400"] = QuizData.geographyMedium.random()
-        gameQuestions["geography_600"] = QuizData.geographyHard.random()
+        gameQuestions["geography_200"] = QuizData.geographyEasy.randomOrNull() ?: return
+        gameQuestions["geography_400"] = QuizData.geographyMedium.randomOrNull() ?: return
+        gameQuestions["geography_600"] = QuizData.geographyHard.randomOrNull() ?: return
 
-        gameQuestions["cars_200"] = QuizData.carsEasy.random()
-        gameQuestions["cars_400"] = QuizData.carsMedium.random()
-        gameQuestions["cars_600"] = QuizData.carsHard.random()
+        gameQuestions["cars_200"] = QuizData.carsEasy.randomOrNull() ?: return
+        gameQuestions["cars_400"] = QuizData.carsMedium.randomOrNull() ?: return
+        gameQuestions["cars_600"] = QuizData.carsHard.randomOrNull() ?: return
 
-        gameQuestions["common_knowledge_200"] = QuizData.commonKnowledgeEasy.random()
-        gameQuestions["common_knowledge_400"] = QuizData.commonKnowledgeMedium.random()
-        gameQuestions["common_knowledge_600"] = QuizData.commonKnowledgeHard.random()
+        gameQuestions["common_knowledge_200"] = QuizData.commonKnowledgeEasy.randomOrNull() ?: return
+        gameQuestions["common_knowledge_400"] = QuizData.commonKnowledgeMedium.randomOrNull() ?: return
+        gameQuestions["common_knowledge_600"] = QuizData.commonKnowledgeHard.randomOrNull() ?: return
 
-        gameQuestions["sports_200"] = QuizData.sportsEasy.random()
-        gameQuestions["sports_400"] = QuizData.sportsMedium.random()
-        gameQuestions["sports_600"] = QuizData.sportsHard.random()
+        gameQuestions["sports_200"] = QuizData.sportsEasy.randomOrNull() ?: return
+        gameQuestions["sports_400"] = QuizData.sportsMedium.randomOrNull() ?: return
+        gameQuestions["sports_600"] = QuizData.sportsHard.randomOrNull() ?: return
     }
+
 
     private fun setupButtonClickListeners() {
         val buttonIds = gameQuestions.keys
         for (buttonId in buttonIds) {
             val resId = resources.getIdentifier(buttonId, "id", packageName)
             if (resId != 0) {
-                 findViewById<View>(resId).setOnClickListener {
+                findViewById<View>(resId).setOnClickListener {
                     openQuestion(buttonId)
                 }
             }

@@ -26,7 +26,12 @@
             android:label="@string/title_activity_login_test"
             android:theme="@style/Theme.MenuActivity" />
         <activity
+
             android:name=".RulesAndPolicy"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".RevealAnswerActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity

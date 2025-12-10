@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".RevealAnswerActivity">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/Secondry"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@id/team_a_correct_button"
+        app:layout_constraintWidth_percent="0.05"
+        />
+    <View
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.05"
+        android:layout_height="match_parent"
+        android:background="@color/Secondry"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/team_b_correct_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <TextView
+        android:id="@+id/right_answer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="The right answer is :"
+        android:textColor="@color/Primary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/answer_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+         />
 
     <TextView
         android:id="@+id/answer_text"
@@ -13,31 +50,70 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:gravity="center"
+        android:textColor="@color/Primary"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/right_answer_text"
         tools:text="This is the revealed answer" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Who got it right?" />
+        android:text="Who got it right?"
+        android:textColor="@color/Primary"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/none_correct_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_text" />
 
     <Button
         android:id="@+id/team_a_correct_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Team A" />
+        android:layout_marginTop="8dp"
+        android:text="Team A"
+        android:backgroundTint="@color/Secondry"
+
+        app:layout_constraintWidth_percent="0.2"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/none_correct_button"
+        app:layout_constraintEnd_toStartOf="@+id/team_b_correct_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/team_b_correct_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Team B" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/Secondry"
+
+        android:text="Team B"
+        app:layout_constraintWidth_percent="0.2"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/none_correct_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/team_a_correct_button"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/none_correct_button"
-        android:layout_width="wrap_content"
+        app:layout_goneMarginTop="20dp"
+        android:backgroundTint="@color/ripplePrimary"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Neither" />
+        app:layout_constraintWidth_percent="0.3"
+        android:autoSizeTextType="uniform"
+        android:layout_marginTop="8dp"
+        android:text="None Got It Right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team_a_correct_button"
+       />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
