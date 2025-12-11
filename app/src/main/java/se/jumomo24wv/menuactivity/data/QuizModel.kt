@@ -365,7 +365,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which African country has the highest population?",
-            imageRes = null,
+            imageRes = R.drawable.map_africa,
             answer = "Nigeria",
             points = 400
         ),
@@ -373,7 +373,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "What is the largest state in the United States?",
-            imageRes = null,
+            imageRes = R.drawable.usa_map,
             answer = "Alaska",
             points = 400
         ),
@@ -381,7 +381,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "What is the world’s longest river?",
-            imageRes = null,
+            imageRes = R.drawable.nile_river,
             answer = "Nile River",
             points = 400
         ),
@@ -389,7 +389,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which river is the longest in Europe?",
-            imageRes = null,
+            imageRes = R.drawable.volga,
             answer = "Volga River",
             points = 400
         ),
@@ -397,7 +397,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which country owns the island of Greenland?",
-            imageRes = null,
+            imageRes = R.drawable.grenland,
             answer = "Denmark",
             points = 400
         ),
@@ -405,7 +405,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which country has the most time zones?",
-            imageRes = null,
+            imageRes = R.drawable.timezone,
             answer = "France",
             points = 400
         ),
@@ -413,7 +413,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which country has the largest Muslim population in the world?",
-            imageRes = null,
+            imageRes = R.drawable.muslim,
             answer = "Indonesia",
             points = 400
         ),
@@ -421,7 +421,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "What country is home to the Amazon Rainforest (largest portion)?",
-            imageRes = null,
+            imageRes = R.drawable.amazon,
             answer = "Brazil",
             points = 400
         ),
@@ -429,7 +429,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "Which European mountain range runs through Switzerland, France, and Italy?",
-            imageRes = null,
+            imageRes = R.drawable.alps,
             answer = "The Alps",
             points = 400
         ),
@@ -437,7 +437,7 @@ object QuizData {
             category = "Geography",
             difficulty = "medium",
             question = "In which country can you find the ancient city of Petra?",
-            imageRes = null,
+            imageRes = R.drawable.petra,
             answer = "Jordan",
             points = 400
         )

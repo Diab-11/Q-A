@@ -26,6 +26,8 @@ class QuestionViewActivity : AppCompatActivity() {
     private var questionId: String? = null
     private var teamAScoreValue = 0
     private var teamBScoreValue = 0
+    private var teamAName: String? = "Team A"
+    private var teamBName: String? = "Team B"
     private var timer: CountDownTimer? = null
 
     private val revealAnswerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -51,6 +53,8 @@ class QuestionViewActivity : AppCompatActivity() {
 
         teamAScoreValue = intent.getIntExtra("TEAM_A_SCORE", 0)
         teamBScoreValue = intent.getIntExtra("TEAM_B_SCORE", 0)
+        teamAName = intent.getStringExtra("TEAM_A_NAME") ?: "Team A"
+        teamBName = intent.getStringExtra("TEAM_B_NAME") ?: "Team B"
         updateScores()
 
         currentQuestion = intent.getParcelableExtra("QUESTION")
@@ -100,6 +104,8 @@ class QuestionViewActivity : AppCompatActivity() {
         timer?.cancel()
         val intent = Intent(this, RevealAnswerActivity::class.java)
         intent.putExtra("ANSWER", currentQuestion?.answer)
+        intent.putExtra("TEAM_A_NAME", teamAName)
+        intent.putExtra("TEAM_B_NAME", teamBName)
         revealAnswerLauncher.launch(intent)
     }
 
@@ -124,8 +130,8 @@ class QuestionViewActivity : AppCompatActivity() {
     }
 
     private fun updateScores() {
-        teamAScore.text = "Team A: $teamAScoreValue"
-        teamBScore.text = "Team B: $teamBScoreValue"
+        teamAScore.text = "$teamAName: $teamAScoreValue"
+        teamBScore.text = "$teamBName: $teamBScoreValue"
     }
 
     override fun onDestroy() {

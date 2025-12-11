@@ -2,6 +2,7 @@ package se.jumomo24wv.menuactivity
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +19,8 @@ class MainGame : AppCompatActivity() {
     private lateinit var binding: ActivityMainGameBinding
     private var teamAScore = 0
     private var teamBScore = 0
+    private var teamAName: String? = null
+    private var teamBName: String? = null
 
     private val gameQuestions = mutableMapOf<String, QuizQuestion>()
 
@@ -34,7 +37,9 @@ class MainGame : AppCompatActivity() {
             if (answeredQuestionId != null) {
                 val resId = resources.getIdentifier(answeredQuestionId, "id", packageName)
                 if (resId != 0) {
-                    findViewById<View>(resId).isEnabled = false
+                    val button = findViewById<View>(resId)
+                    button.isEnabled = false
+                    button.setBackgroundColor(Color.GRAY)
                 }
             }
         }
@@ -51,12 +56,12 @@ class MainGame : AppCompatActivity() {
             insets
         }
 
-        val nameText1 = intent.getStringExtra(CreateGame.ARG_TXT1)
-        val nameText2 = intent.getStringExtra(CreateGame.ARG_TXT2)
+        teamAName = intent.getStringExtra(CreateGame.ARG_TXT1)
+        teamBName = intent.getStringExtra(CreateGame.ARG_TXT2)
         val gameNameText = intent.getStringExtra(CreateGame.ARG_GAMETXT)
 
-        binding.mainGameTeam1.text = nameText1 ?: ""
-        binding.mainGameTeam2.text = nameText2 ?: ""
+        binding.mainGameTeam1.text = teamAName ?: ""
+        binding.mainGameTeam2.text = teamBName ?: ""
         binding.mainGameName.text = gameNameText ?: ""
         updateScores()
         generateGameQuestions()
@@ -108,6 +113,8 @@ class MainGame : AppCompatActivity() {
             intent.putExtra("QUESTION", question)
             intent.putExtra("TEAM_A_SCORE", teamAScore)
             intent.putExtra("TEAM_B_SCORE", teamBScore)
+            intent.putExtra("TEAM_A_NAME", teamAName)
+            intent.putExtra("TEAM_B_NAME", teamBName)
             intent.putExtra("QUESTION_ID", questionId)
             questionLauncher.launch(intent)
         }
