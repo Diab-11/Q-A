@@ -1,8 +1,12 @@
 package se.jumomo24wv.menuactivity.data
 
+
+import se.jumomo24wv.menuactivity.R // <-- CORRECT IMPORT
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import se.jumomo24wv.menuactivity.R
+
+// ... rest of your code
+
 
 
 @Parcelize
@@ -278,7 +282,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Which city is home to the Eiffel Tower?",
-            imageRes = null,
+            imageRes = R.drawable.eiffel,
             answer = "Paris",
             points = 200
         ),
@@ -286,7 +290,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Which country is famous for the pyramids of Giza?",
-            imageRes = null,
+            imageRes = R.drawable.pyramids,
             answer = "Egypt",
             points = 200
         ),
@@ -294,7 +298,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Mount Everest lies on the border of Nepal and which country?",
-            imageRes = null,
+            imageRes = R.drawable.mount_everest,
             answer = "China",
             points = 200
         ),
@@ -302,7 +306,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Which continent is the Sahara Desert located in?",
-            imageRes = null,
+            imageRes = R.drawable.sahara,
             answer = "Africa",
             points = 200
         ),
@@ -310,7 +314,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "What is the capital of Italy?",
-            imageRes = null,
+            imageRes = R.drawable.rome,
             answer = "Rome",
             points = 200
         ),
@@ -318,7 +322,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Which famous statue stands in New York Harbor?",
-            imageRes = null,
+            imageRes = R.drawable.statue_hero,
             answer = "Statue of Liberty",
             points = 200
         ),
@@ -326,7 +330,7 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "Which country is known as the Land of the Rising Sun?",
-            imageRes = null,
+            imageRes = R.drawable.sun,
             answer = "Japan",
             points = 200
         ),
@@ -334,23 +338,23 @@ object QuizData {
             category = "Geography",
             difficulty = "easy",
             question = "What is the largest ocean on Earth?",
-            imageRes = null,
+            imageRes = R.drawable.ocean,
             answer = "Pacific Ocean",
             points = 200
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "easy",
-            question = "Which European city is famous for its canals and gondolas?",
-            imageRes = null,
-            answer = "Venice",
+            question = "What is biggest city in the world?",
+            imageRes = R.drawable.japan1,
+            answer = "Tokyo",
             points = 200
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "easy",
-            question = "Which country does the Great Barrier Reef belong to?",
-            imageRes = null,
+            question = "What is the smallest continent in the world?",
+            imageRes = R.drawable.map7,
             answer = "Australia",
             points = 200
         )
@@ -368,9 +372,9 @@ object QuizData {
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "Which South American landmark is known as the 'Lost City of the Incas'?",
+            question = "What is the largest state in the United States?",
             imageRes = null,
-            answer = "Machu Picchu",
+            answer = "Alaska",
             points = 400
         ),
         QuizQuestion(
@@ -384,41 +388,41 @@ object QuizData {
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "Which country contains the region of Patagonia?",
+            question = "Which river is the longest in Europe?",
             imageRes = null,
-            answer = "Argentina and Chile",
+            answer = "Volga River",
             points = 400
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "The Angkor Wat temple complex is located in which country?",
+            question = "Which country owns the island of Greenland?",
             imageRes = null,
-            answer = "Cambodia",
+            answer = "Denmark",
             points = 400
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "Which Asian capital city sits along the Chao Phraya River?",
+            question = "Which country has the most time zones?",
             imageRes = null,
-            answer = "Bangkok",
+            answer = "France",
             points = 400
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "Which lake is the deepest in the world?",
+            question = "Which country has the largest Muslim population in the world?",
             imageRes = null,
-            answer = "Lake Baikal",
+            answer = "Indonesia",
             points = 400
         ),
         QuizQuestion(
             category = "Geography",
             difficulty = "medium",
-            question = "What is the name of the desert covering much of northern China and Mongolia?",
+            question = "What country is home to the Amazon Rainforest (largest portion)?",
             imageRes = null,
-            answer = "Gobi Desert",
+            answer = "Brazil",
             points = 400
         ),
         QuizQuestion(
