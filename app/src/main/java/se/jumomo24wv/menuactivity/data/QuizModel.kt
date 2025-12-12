@@ -21,7 +21,6 @@ data class QuizQuestion(
 
 
 
-
 object QuizData {
 
     val flagsEasy = listOf(

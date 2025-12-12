@@ -16,6 +16,10 @@ import com.google.android.material.button.MaterialButton
 import se.jumomo24wv.menuactivity.data.QuizData
 import se.jumomo24wv.menuactivity.data.QuizQuestion
 import se.jumomo24wv.menuactivity.databinding.ActivityMainGameBinding
+import se.jumomo24wv.menuactivity.data.NoWordData
+import se.jumomo24wv.menuactivity.data.NoWordQuestion
+
+
 
 class MainGame : AppCompatActivity() {
 
@@ -42,6 +46,7 @@ class MainGame : AppCompatActivity() {
         if (isBonusMode) {
             isBonusMode = false // Exit bonus mode immediately
         }
+
 
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -75,6 +80,22 @@ class MainGame : AppCompatActivity() {
         restoreBoardState()
         updateTurnHighlight()
     }
+    private val noWordLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                val teamAPoints = data?.getIntExtra("TEAM_A_POINTS_GAINED", 0) ?: 0
+                val teamBPoints = data?.getIntExtra("TEAM_B_POINTS_GAINED", 0) ?: 0
+
+                teamAScore += teamAPoints
+                teamBScore += teamBPoints
+                updateScores()
+
+                // byt tur efter avslutad no-word-runda
+                isTeamATurn = !isTeamATurn
+                updateTurnHighlight()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +119,7 @@ class MainGame : AppCompatActivity() {
         initializeNewGame()
         setupButtonClickListeners()
         setupBonusButtonClickListeners()
+        setupNoWordClickListeners()
         restoreBoardState() // Set initial state of all buttons
         updateTurnHighlight() // Set initial highlight
     }
@@ -200,6 +222,7 @@ class MainGame : AppCompatActivity() {
             }
         }
 
+
         val bonusCategories = mapOf(
             "cars_bonus" to "Cars",
             "common_knowledge_bonus" to "Common Knowledge",
@@ -291,6 +314,44 @@ class MainGame : AppCompatActivity() {
             questionLauncher.launch(intent)
         }
     }
+
+    private fun openNoWordQr(list: List<NoWordQuestion>) {
+        if (list.isEmpty()) {
+            Toast.makeText(this, "No No-Word cards configured yet.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val card = list.random()  // plockar ett slumpat NoWordQuestion
+
+        val intent = Intent(this, NoWordQrActivity::class.java).apply {
+            putExtra("NO_WORD_URL", card.url)
+            putExtra("NO_WORD_POINTS", card.points)
+            putExtra("NO_WORD_ANSWER", card.answer)
+            putExtra("TEAM_A_NAME", teamAName)
+            putExtra("TEAM_B_NAME", teamBName)
+        }
+        noWordLauncher.launch(intent)
+    }
+
+
+
+
+
+    private fun setupNoWordClickListeners() {
+        binding.noWord200.setOnClickListener {
+            openNoWordQr(NoWordData.noWord200)
+        }
+        binding.noWord400.setOnClickListener {
+            openNoWordQr(NoWordData.noWord400)
+        }
+        binding.noWord600.setOnClickListener {
+            openNoWordQr(NoWordData.noWord600)
+        }
+    }
+
+
+
+
 
     private fun updateScores() {
         binding.mainGameTeam1Score.text = teamAScore.toString()
