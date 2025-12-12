@@ -200,26 +200,26 @@ object QuizData {
         ),
         QuizQuestion(
             category = "Flags and Countries",
-            difficulty = "hard",
-            question = "What is the area of Palestine?",
-            imageRes = R.drawable.palestine_map,
-            answer = "27027 square kilometers",
+            difficulty = "medium",
+            question = "Which is the only country in the world with no official capital city?",
+            imageRes = R.drawable.nauru,
+            answer = "Nauru",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
-            difficulty = "hard",
-            question = "What is the area of Sweden?",
-            imageRes = R.drawable.sweden_map,
-            answer = "449,964 square kilometers",
+            difficulty = "medium",
+            question = "Which country contains the most islands in the world?",
+            imageRes = R.drawable.island_sweden,
+            answer = "Sweden",
             points = 600
         ),
         QuizQuestion(
             category = "Flags and Countries",
-            difficulty = "hard",
-            question = "What is the area of Denmark?",
-            imageRes = R.drawable.denmark_map,
-            answer = "42,933 square kilometers",
+            difficulty = "medium",
+            question = "Which ocean is the saltiest?",
+            imageRes = R.drawable.ocean,
+            answer = "The Atlantic Ocean",
             points = 600
         ),
         QuizQuestion(
@@ -447,7 +447,7 @@ object QuizData {
             category = "Geography",
             difficulty = "hard",
             question = "Which country is home to the K2 mountain peak?",
-            imageRes = null,
+            imageRes = R.drawable.k2,
             answer = "Pakistan",
             points = 600
         ),
@@ -455,7 +455,7 @@ object QuizData {
             category = "Geography",
             difficulty = "hard",
             question = "What is the least populated sovereign country in the world?",
-            imageRes = null,
+            imageRes = R.drawable.vatican_city,
             answer = "Vatican City",
             points = 600
         ),
@@ -463,7 +463,7 @@ object QuizData {
             category = "Geography",
             difficulty = "hard",
             question = "Which river flows through the Grand Canyon?",
-            imageRes = null,
+            imageRes = R.drawable.colorado_river,
             answer = "Colorado River",
             points = 600
         ),
@@ -471,31 +471,16 @@ object QuizData {
             category = "Geography",
             difficulty = "hard",
             question = "What is the world’s largest non-polar desert?",
-            imageRes = null,
+            imageRes = R.drawable.sahara,
             answer = "Sahara Desert",
             points = 600
         ),
-        QuizQuestion(
-            category = "Geography",
-            difficulty = "hard",
-            question = "Which ancient wonder stood in the city of Ephesus?",
-            imageRes = null,
-            answer = "Temple of Artemis",
-            points = 600
-        ),
-        QuizQuestion(
-            category = "Geography",
-            difficulty = "hard",
-            question = "The ancient rock-cut churches of Lalibela are located in which country?",
-            imageRes = null,
-            answer = "Ethiopia",
-            points = 600
-        ),
+
         QuizQuestion(
             category = "Geography",
             difficulty = "hard",
             question = "Which country has the most UNESCO World Heritage Sites?",
-            imageRes = null,
+            imageRes = R.drawable.itlay,
             answer = "Italy",
             points = 600
         ),
@@ -503,26 +488,26 @@ object QuizData {
             category = "Geography",
             difficulty = "hard",
             question = "Which city is located exactly where the Blue Nile and White Nile meet?",
-            imageRes = null,
+            imageRes = R.drawable.khartoum,
             answer = "Khartoum",
             points = 600
         ),
         QuizQuestion(
-            category = "Geography",
+            category = "Flags and Countries",
             difficulty = "hard",
-            question = "The Moai statues are found on which island?",
-            imageRes = null,
-            answer = "Easter Island (Rapa Nui)",
+            question = "What is the area of Sweden?",
+            imageRes = R.drawable.sweden_map,
+            answer = "449,964 square kilometers",
             points = 600
         ),
         QuizQuestion(
-            category = "Geography",
+            category = "Flags and Countries",
             difficulty = "hard",
-            question = "Which desert is the driest non-polar region on Earth?",
-            imageRes = null,
-            answer = "Atacama Desert",
+            question = "What is the area of Denmark?",
+            imageRes = R.drawable.denmark_map,
+            answer = "42,933 square kilometers",
             points = 600
-        )
+        ),
     )
     // ----------------------------
 // CATEGORY: Cars
@@ -536,7 +521,7 @@ object QuizData {
             question = "Which company manufactures the Civic?",
             answer = "Honda",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.honda_civic
         ),
         QuizQuestion(
             category = "Cars",
@@ -544,7 +529,7 @@ object QuizData {
             question = "Which car brand has a prancing horse as its logo?",
             answer = "Ferrari",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.ferrari
         ),
         QuizQuestion(
             category = "Cars",
@@ -552,7 +537,7 @@ object QuizData {
             question = "Which German brand makes the 3 Series?",
             answer = "BMW",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.bmw3series
         ),
         QuizQuestion(
             category = "Cars",
@@ -560,7 +545,7 @@ object QuizData {
             question = "What car brand uses four interlocking rings?",
             answer = "Audi",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.audi
         ),
         QuizQuestion(
             category = "Cars",
@@ -568,7 +553,7 @@ object QuizData {
             question = "What company produces the Mustang?",
             answer = "Ford",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.mustang
         ),
         QuizQuestion(
             category = "Cars",
@@ -576,7 +561,7 @@ object QuizData {
             question = "Which brand is known for the Beetle?",
             answer = "Volkswagen",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.beetle
         ),
         QuizQuestion(
             category = "Cars",
@@ -584,7 +569,7 @@ object QuizData {
             question = "Which country is Tesla based in?",
             answer = "United States",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.tesla
         ),
         QuizQuestion(
             category = "Cars",
@@ -592,7 +577,7 @@ object QuizData {
             question = "What type of car is the Toyota Prius known as?",
             answer = "Hybrid",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.prius
         ),
         QuizQuestion(
             category = "Cars",
@@ -600,7 +585,7 @@ object QuizData {
             question = "Which Italian company produces the Huracán?",
             answer = "Lamborghini",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.`huracan`
         ),
         QuizQuestion(
             category = "Cars",
@@ -608,7 +593,7 @@ object QuizData {
             question = "Which brand makes the Corolla?",
             answer = "Toyota",
             points = 200,
-            imageRes = null
+            imageRes = R.drawable.corolla
         )
     )
 
@@ -619,7 +604,7 @@ object QuizData {
             question = "What country manufactures the brand Volvo?",
             answer = "Sweden",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.volvo
         ),
         QuizQuestion(
             category = "Cars",
@@ -627,7 +612,7 @@ object QuizData {
             question = "What does 'GTI' stand for in performance cars?",
             answer = "Grand Touring Injection",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.gti
         ),
         QuizQuestion(
             category = "Cars",
@@ -635,15 +620,15 @@ object QuizData {
             question = "Which brand created the iconic Countach?",
             answer = "Lamborghini",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.countach
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "medium",
-            question = "Which Japanese manufacturer produces the WRX?",
-            answer = "Subaru",
+            question = "Which car uses the Quattro all-wheel drive system?",
+            answer = "Audi",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.maserati
         ),
         QuizQuestion(
             category = "Cars",
@@ -651,23 +636,23 @@ object QuizData {
             question = "Which company makes the luxury brand Lexus?",
             answer = "Toyota",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.quattro
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "medium",
-            question = "Which engine layout features cylinders placed horizontally?",
-            answer = "Boxer engine",
+            question = "Which BMW car has a V10 engine?",
+            answer = " BMW M5 E60",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.lexus
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "medium",
-            question = "Which French company produces the Clio?",
-            answer = "Renault",
+            question = "Which car uses the 4MATIC all-wheel drive system?",
+            answer = "Mercedes-Benz",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.e60
         ),
         QuizQuestion(
             category = "Cars",
@@ -675,23 +660,23 @@ object QuizData {
             question = "Which brand's logo features a trident?",
             answer = "Maserati",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.mercedes_4matic
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "medium",
-            question = "Which company produces the model 'Impreza'?",
-            answer = "Subaru",
+            question = "How many major car brands are owned by the Volkswagen Group ?",
+            answer = "12",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.vw_group
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "medium",
-            question = "Which country is home to the car brand Škoda?",
-            answer = "Czech Republic",
+            question = "Approximately how much horsepower does the BMW F10 M5 have?",
+            answer = "560 hp",
             points = 400,
-            imageRes = null
+            imageRes = R.drawable.bmw_f10
         )
     )
 
@@ -699,34 +684,34 @@ object QuizData {
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "Which engine pioneered by Mazda uses a spinning rotor instead of pistons?",
-            answer = "Wankel rotary engine",
+            question = "Which Volkswagen Group brand is known for producing luxury hypercars like the Chiron?",
+            answer = "Bugatti",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.f1_1990s
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "What is the exact top speed of the Bugatti Chiron Super Sport 300+ in mph?",
-            answer = "304 mph",
+            question = "What is the exact top speed of the Bugatti Chiron Super Sport 300+ in km/h?",
+            answer = "490 km/h",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.vw_group
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "What does 'TFSI' stand for in Audi engines?",
-            answer = "Turbocharged Fuel Stratified Injection",
+            question = "Which company did Nils Bohlin work for when he invented the three-point seatbelt?",
+            answer = "Volvo",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.bugatti_chiron
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "Which company originally created the 2JZ engine?",
-            answer = "Toyota",
+            question = "When did the Hummer brand stop production?",
+            answer = "2010",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.seat_belt
         ),
         QuizQuestion(
             category = "Cars",
@@ -734,39 +719,39 @@ object QuizData {
             question = "Which brand produced the rare supercar named the 'F1' in the 1990s?",
             answer = "McLaren",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.hummer
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "Which company designed the quad-turbo W16 engine?",
-            answer = "Volkswagen Group",
+            question = "Which company was the first to use front windshield wipers?",
+            answer = "Cadillac",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.gle
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "The term 'Camber' refers to the angle of wheels relative to what?",
-            answer = "The vertical axis of the car",
+            question = "What is the name of this Toyota model?",
+            answer = "RAV4",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.cadillac
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "What racing category uses cars with energy recovery systems known as MGU-K and MGU-H?",
-            answer = "Formula 1",
+            question = "What is the name of this Audi model?",
+            answer = "Audi RQ8",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.rav4
         ),
         QuizQuestion(
             category = "Cars",
             difficulty = "hard",
-            question = "Which manufacturer built the legendary Group B rally car 'Quattro S1'?",
-            answer = "Audi",
+            question = "What is the name of this Mercedes model?",
+            answer = "GLE Coupe",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.audi_rq8
         ),
         QuizQuestion(
             category = "Cars",
@@ -774,7 +759,7 @@ object QuizData {
             question = "Which Italian brand built the rare hypercar 'MC12'?",
             answer = "Maserati",
             points = 600,
-            imageRes = null
+            imageRes = R.drawable.mc12
         )
     )
 
