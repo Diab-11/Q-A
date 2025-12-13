@@ -35,6 +35,7 @@ class MainGame : AppCompatActivity() {
     private val answeredQuestions = mutableSetOf<String>()
     private val usedBonusButtons = mutableSetOf<String>()
     private val presentedQuestions = mutableSetOf<QuizQuestion>() // Tracks all questions shown to user
+    private val answeredNoWordQuestions = mutableSetOf<String>()
 
     // State for bonus round
     private var isBonusMode = false
@@ -82,15 +83,39 @@ class MainGame : AppCompatActivity() {
     }
     private val noWordLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            val wasInNoWordBonusMode = isBonusMode
+            if (isBonusMode) {
+                isBonusMode = false // Exit bonus mode immediately
+            }
             if (result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
                 val teamAPoints = data?.getIntExtra("TEAM_A_POINTS_GAINED", 0) ?: 0
                 val teamBPoints = data?.getIntExtra("TEAM_B_POINTS_GAINED", 0) ?: 0
+                val answeredQuestionId = data?.getStringExtra("ANSWERED_QUESTION_ID")
+
+                if (wasInNoWordBonusMode) {
+                    // Restore pre-bonus state for no-word questions
+                    answeredNoWordQuestions.clear()
+                    answeredNoWordQuestions.addAll(preBonusAnsweredQuestions)
+                    if (answeredQuestionId != null) {
+                        answeredNoWordQuestions.add(answeredQuestionId)
+                    }
+                    // Restore other questions
+                    gameQuestions.clear()
+                    gameQuestions.putAll(preBonusGameQuestions)
+                    answeredQuestions.clear()
+                    answeredQuestions.addAll(preBonusAnsweredQuestions.filter { !it.startsWith("no_word") })
+
+                } else {
+                    if (answeredQuestionId != null) {
+                        answeredNoWordQuestions.add(answeredQuestionId)
+                    }
+                }
 
                 teamAScore += teamAPoints
                 teamBScore += teamBPoints
                 updateScores()
-
+                restoreBoardState()
                 // byt tur efter avslutad no-word-runda
                 isTeamATurn = !isTeamATurn
                 updateTurnHighlight()
@@ -164,6 +189,35 @@ class MainGame : AppCompatActivity() {
             }
         }
         setAllBonusButtonsEnabled(false)
+    }
+
+    private fun triggerNoWordBonusRound(bonusButtonId: String) {
+        if (isBonusMode || usedBonusButtons.contains(bonusButtonId)) return
+
+        isBonusMode = true
+        usedBonusButtons.add(bonusButtonId)
+
+        // Save state
+        preBonusGameQuestions.clear()
+        preBonusGameQuestions.putAll(gameQuestions)
+        preBonusAnsweredQuestions.clear()
+        preBonusAnsweredQuestions.addAll(answeredQuestions)
+        // Also save no word answered questions
+        preBonusAnsweredQuestions.addAll(answeredNoWordQuestions)
+
+
+        // Refresh "No Word" questions for bonus round (re-enable them)
+        answeredNoWordQuestions.clear()
+        restoreBoardState() // this will re-enable the no word buttons
+
+        // Disable all other categories
+        for ((buttonId, question) in gameQuestions) {
+            val resId = resources.getIdentifier(buttonId, "id", packageName)
+            if (resId != 0) {
+                findViewById<View>(resId).isEnabled = false
+            }
+        }
+        setAllBonusButtonsEnabled(false) // disable other bonus buttons
     }
 
     private fun refreshCategoryQuestions(category: String) {
@@ -251,8 +305,28 @@ class MainGame : AppCompatActivity() {
                 }
             }
         }
-        binding.noWordBonus.isEnabled = false
-        binding.noWordBonus.setBackgroundColor(Color.GRAY)
+        val noWordButtons = listOf("no_word_200", "no_word_400", "no_word_600")
+        for (buttonId in noWordButtons) {
+            val resId = resources.getIdentifier(buttonId, "id", packageName)
+            if (resId != 0) {
+                val button = findViewById<View>(resId)
+                if (answeredNoWordQuestions.contains(buttonId)) {
+                    button.isEnabled = false
+                    button.setBackgroundColor(Color.GRAY)
+                } else {
+                    button.isEnabled = true
+                    (button as? MaterialButton)?.setBackgroundColor(ContextCompat.getColor(this, R.color.Secondry))
+                }
+            }
+        }
+
+        val allNoWordAnswered = answeredNoWordQuestions.containsAll(listOf("no_word_200", "no_word_400", "no_word_600"))
+        binding.noWordBonus.isEnabled = allNoWordAnswered && !usedBonusButtons.contains("no_word_bonus")
+        if (binding.noWordBonus.isEnabled) {
+            binding.noWordBonus.setBackgroundColor(ContextCompat.getColor(this, R.color.ripplePrimary))
+        } else {
+            binding.noWordBonus.setBackgroundColor(Color.GRAY)
+        }
     }
 
     private fun initializeNewGame() {
@@ -295,7 +369,7 @@ class MainGame : AppCompatActivity() {
         binding.flagsCountriesBonus.setOnClickListener { triggerBonusRound("Flags and Countries", "flags_countries_bonus") }
 
         binding.noWordBonus.setOnClickListener {
-            Toast.makeText(this, "No questions available for this category.", Toast.LENGTH_SHORT).show()
+            triggerNoWordBonusRound("no_word_bonus")
         }
     }
 
@@ -315,7 +389,7 @@ class MainGame : AppCompatActivity() {
         }
     }
 
-    private fun openNoWordQr(list: List<NoWordQuestion>) {
+    private fun openNoWordQr(list: List<NoWordQuestion>, questionId: String) {
         if (list.isEmpty()) {
             Toast.makeText(this, "No No-Word cards configured yet.", Toast.LENGTH_SHORT).show()
             return
@@ -329,6 +403,7 @@ class MainGame : AppCompatActivity() {
             putExtra("NO_WORD_ANSWER", card.answer)
             putExtra("TEAM_A_NAME", teamAName)
             putExtra("TEAM_B_NAME", teamBName)
+            putExtra("ANSWERED_QUESTION_ID", questionId)
         }
         noWordLauncher.launch(intent)
     }
@@ -337,17 +412,20 @@ class MainGame : AppCompatActivity() {
 
 
 
+
+
     private fun setupNoWordClickListeners() {
         binding.noWord200.setOnClickListener {
-            openNoWordQr(NoWordData.noWord200)
+            openNoWordQr(NoWordData.noWord200, "no_word_200")
         }
         binding.noWord400.setOnClickListener {
-            openNoWordQr(NoWordData.noWord400)
+            openNoWordQr(NoWordData.noWord400, "no_word_400")
         }
         binding.noWord600.setOnClickListener {
-            openNoWordQr(NoWordData.noWord600)
+            openNoWordQr(NoWordData.noWord600, "no_word_600")
         }
     }
+
 
 
 

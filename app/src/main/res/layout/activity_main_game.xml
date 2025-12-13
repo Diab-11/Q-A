@@ -523,5 +523,23 @@
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/ver1"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@color/Primary"
+            app:layout_constraintStart_toEndOf="@id/section_cars"/>
+        <View
+            android:id="@+id/ver2"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@color/Primary"
+            app:layout_constraintStart_toEndOf="@id/section_common_knowledge"/>
+        <View
+            android:id="@+id/hor1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/Primary"
+            app:layout_constraintTop_toTopOf="@id/section_flags_countries"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
