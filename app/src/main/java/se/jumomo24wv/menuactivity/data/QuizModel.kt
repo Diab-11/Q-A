@@ -51,7 +51,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country’s flag consists of green, white, and orange vertical stripes?",
+            question = "Which country dose this flag belongs to?",
             imageRes = R.drawable.ireland,
             answer = "Ireland",
             points = 200
@@ -585,7 +585,7 @@ object QuizData {
             question = "Which Italian company produces the Huracán?",
             answer = "Lamborghini",
             points = 200,
-            imageRes = R.drawable.`huracan`
+            imageRes = R.drawable.huracan
         ),
         QuizQuestion(
             category = "Cars",
@@ -628,7 +628,7 @@ object QuizData {
             question = "Which car uses the Quattro all-wheel drive system?",
             answer = "Audi",
             points = 400,
-            imageRes = R.drawable.maserati
+            imageRes = R.drawable.quattro
         ),
         QuizQuestion(
             category = "Cars",
@@ -636,7 +636,7 @@ object QuizData {
             question = "Which company makes the luxury brand Lexus?",
             answer = "Toyota",
             points = 400,
-            imageRes = R.drawable.quattro
+            imageRes = R.drawable.lexus
         ),
         QuizQuestion(
             category = "Cars",
@@ -644,7 +644,7 @@ object QuizData {
             question = "Which BMW car has a V10 engine?",
             answer = " BMW M5 E60",
             points = 400,
-            imageRes = R.drawable.lexus
+            imageRes = R.drawable.e60
         ),
         QuizQuestion(
             category = "Cars",
@@ -652,7 +652,7 @@ object QuizData {
             question = "Which car uses the 4MATIC all-wheel drive system?",
             answer = "Mercedes-Benz",
             points = 400,
-            imageRes = R.drawable.e60
+            imageRes = R.drawable.mercedes_4matic
         ),
         QuizQuestion(
             category = "Cars",
@@ -660,7 +660,7 @@ object QuizData {
             question = "Which brand's logo features a trident?",
             answer = "Maserati",
             points = 400,
-            imageRes = R.drawable.mercedes_4matic
+            imageRes = R.drawable.maserati
         ),
         QuizQuestion(
             category = "Cars",
@@ -695,7 +695,7 @@ object QuizData {
             question = "What is the exact top speed of the Bugatti Chiron Super Sport 300+ in km/h?",
             answer = "490 km/h",
             points = 600,
-            imageRes = R.drawable.vw_group
+            imageRes = R.drawable.bugatti_chiron
         ),
         QuizQuestion(
             category = "Cars",
@@ -703,7 +703,7 @@ object QuizData {
             question = "Which company did Nils Bohlin work for when he invented the three-point seatbelt?",
             answer = "Volvo",
             points = 600,
-            imageRes = R.drawable.bugatti_chiron
+            imageRes = R.drawable.volvo
         ),
         QuizQuestion(
             category = "Cars",
@@ -711,7 +711,7 @@ object QuizData {
             question = "When did the Hummer brand stop production?",
             answer = "2010",
             points = 600,
-            imageRes = R.drawable.seat_belt
+            imageRes = R.drawable.hummer
         ),
         QuizQuestion(
             category = "Cars",
@@ -719,7 +719,7 @@ object QuizData {
             question = "Which brand produced the rare supercar named the 'F1' in the 1990s?",
             answer = "McLaren",
             points = 600,
-            imageRes = R.drawable.hummer
+            imageRes = R.drawable.f1_1990s
         ),
         QuizQuestion(
             category = "Cars",
@@ -727,7 +727,7 @@ object QuizData {
             question = "Which company was the first to use front windshield wipers?",
             answer = "Cadillac",
             points = 600,
-            imageRes = R.drawable.gle
+            imageRes = R.drawable.cadillac
         ),
         QuizQuestion(
             category = "Cars",
@@ -735,7 +735,7 @@ object QuizData {
             question = "What is the name of this Toyota model?",
             answer = "RAV4",
             points = 600,
-            imageRes = R.drawable.cadillac
+            imageRes = R.drawable.rav4
         ),
         QuizQuestion(
             category = "Cars",
@@ -743,7 +743,7 @@ object QuizData {
             question = "What is the name of this Audi model?",
             answer = "Audi RQ8",
             points = 600,
-            imageRes = R.drawable.rav4
+            imageRes = R.drawable.audi_rq8
         ),
         QuizQuestion(
             category = "Cars",
@@ -751,7 +751,7 @@ object QuizData {
             question = "What is the name of this Mercedes model?",
             answer = "GLE Coupe",
             points = 600,
-            imageRes = R.drawable.audi_rq8
+            imageRes = R.drawable.gle
         ),
         QuizQuestion(
             category = "Cars",
@@ -768,8 +768,8 @@ object QuizData {
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "easy",
-            question = "Which planet has the fastest rotation speed in our solar system?",
-            imageRes = null,
+            question = "What is the largest planet in the solar system?",
+            imageRes = R.drawable.solar_system,
             answer = "Jupiter",
             points = 200
         ),
@@ -777,7 +777,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "What is the largest organ in the human body?",
-            imageRes = null,
+            imageRes = R.drawable.skin,
             answer = "Skin",
             points = 200
         ),
@@ -785,7 +785,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "Which country is the largest by land area in the world?",
-            imageRes = null,
+            imageRes = R.drawable.map_of_world,
             answer = "Russia",
             points = 200
         ),
@@ -793,7 +793,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "Which bird is known for its impressive mimicry skills and intelligence?",
-            imageRes = null,
+            imageRes = R.drawable.animals,
             answer = "Parrot",
             points = 200
         ),
@@ -801,7 +801,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "What is the chemical formula of table salt?",
-            imageRes = null,
+            imageRes = R.drawable.periodic_table,
             answer = "NaCl",
             points = 200
         ),
@@ -809,7 +809,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "Which natural disaster is measured with a Richter scale?",
-            imageRes = null,
+            imageRes = R.drawable.natural_disater,
             answer = "Earthquake",
             points = 200
         ),
@@ -817,7 +817,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "Which ocean is the Bermuda Triangle located in?",
-            imageRes = null,
+            imageRes = R.drawable.oceans,
             answer = "Atlantic Ocean",
             points = 200
         ),
@@ -825,7 +825,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "What is the smallest prime number?",
-            imageRes = null,
+            imageRes = R.drawable.math,
             answer = "2",
             points = 200
         ),
@@ -833,15 +833,15 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "easy",
             question = "Which famous scientist introduced the three laws of motion?",
-            imageRes = null,
+            imageRes = R.drawable.three_laws,
             answer = "Isaac Newton",
             points = 200
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "easy",
-            question = "Which country is famous for inventing the compass?",
-            imageRes = null,
+            question = "Which country is the world’s largest producer of rice",
+            imageRes = R.drawable.rice,
             answer = "China",
             points = 200
         )
@@ -851,81 +851,81 @@ object QuizData {
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "What is the term for animals that are active during twilight hours?",
-            imageRes = null,
-            answer = "Crepuscular",
+            question = "In which year was Palestine fully occupied by Israel",
+            imageRes = R.drawable.palestine1948,
+            answer = "1948",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
             question = "Which language has the most native speakers worldwide?",
-            imageRes = null,
+            imageRes = R.drawable.mandarin,
             answer = "Mandarin Chinese",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which chemical element has the highest melting point?",
-            imageRes = null,
-            answer = "Tungsten",
+            question = "When did the Syrian uprising against Bashar al-Assad begin?",
+            imageRes = R.drawable.syrian_uprising,
+            answer = "March 2011",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which planet has a moon called Titan?",
-            imageRes = null,
-            answer = "Saturn",
+            question = "Who was the first person to attempt flight using artificial wings in the 9th century",
+            imageRes = R.drawable.abbas,
+            answer = "Abbas Ibn Firnas",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
             question = "In which year did the first human land on the Moon?",
-            imageRes = null,
+            imageRes = R.drawable.moon,
             answer = "1969",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which gas is primarily responsible for the greenhouse effect on Earth?",
-            imageRes = null,
-            answer = "Carbon dioxide",
+            question = "Which are the main Scandinavian countries",
+            imageRes = R.drawable.scandinavian,
+            answer = "Sweden, Norway, Denmark، Finland and Iceland",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which country was formerly known as Ceylon?",
-            imageRes = null,
-            answer = "Sri Lanka",
+            question = "What compound do plants produce during photosynthesis that serves as an energy source ?",
+            imageRes = R.drawable.photosynthesis,
+            answer = "Glucose",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "What is the study of fungi called?",
-            imageRes = null,
-            answer = "Mycology",
+            question = "Which country invented Bluetooth technology",
+            imageRes = R.drawable.bluetooth,
+            answer = "Sweden",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which city is known as the 'City of a Hundred Spires'?",
-            imageRes = null,
-            answer = "Prague",
+            question = "When was the last time Sweden participated in an actual war?",
+            imageRes = R.drawable.sweden1814,
+            answer = "1814",
             points = 400
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "Which metal is liquid at room temperature?",
-            imageRes = null,
-            answer = "Mercury",
+            question = "Which country is considered the capital of luxury perfumes?",
+            imageRes = R.drawable.perfumes,
+            answer = "France",
             points = 400
         )
     )
@@ -935,7 +935,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which philosopher is famous for the statement 'I think, therefore I am'?",
-            imageRes = null,
+            imageRes = R.drawable.rene_descartes,
             answer = "René Descartes",
             points = 600
         ),
@@ -943,7 +943,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "What is the rarest naturally occurring element on Earth?",
-            imageRes = null,
+            imageRes = R.drawable.periodic_table,
             answer = "Astatine",
             points = 600
         ),
@@ -951,7 +951,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which city is the headquarters of the European Union?",
-            imageRes = null,
+            imageRes = R.drawable.eu,
             answer = "Brussels",
             points = 600
         ),
@@ -959,7 +959,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which mammal is capable of true flight?",
-            imageRes = null,
+            imageRes = R.drawable.animals,
             answer = "Bat",
             points = 600
         ),
@@ -967,23 +967,23 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which is the only continent without reptiles or snakes?",
-            imageRes = null,
+            imageRes = R.drawable.oceans,
             answer = "Antarctica",
             points = 600
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "hard",
-            question = "What is the study of ancient inscriptions called?",
-            imageRes = null,
-            answer = "Epigraphy",
+            question = "In which year did Napoleon Bonaparte die?",
+            imageRes = R.drawable.napoleon,
+            answer = "1821",
             points = 600
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which vitamin is produced when skin is exposed to sunlight?",
-            imageRes = null,
+            imageRes = R.drawable.sun,
             answer = "Vitamin D",
             points = 600
         ),
@@ -991,7 +991,7 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "Which European country has the longest continuous coastline?",
-            imageRes = null,
+            imageRes = R.drawable.coastline,
             answer = "Norway",
             points = 600
         ),
@@ -999,16 +999,16 @@ object QuizData {
             category = "Common Knowledge",
             difficulty = "hard",
             question = "What is the largest internal organ by mass in the human body?",
-            imageRes = null,
+            imageRes = R.drawable.skin,
             answer = "Liver",
             points = 600
         ),
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "hard",
-            question = "Which mathematician is known for the Last Theorem proved in 1994?",
-            imageRes = null,
-            answer = "Pierre de Fermat",
+            question = "During which years did World War I take place",
+            imageRes = R.drawable.world_war1,
+            answer = "1914 – 1918",
             points = 600
         )
     )
@@ -1019,15 +1019,15 @@ object QuizData {
             category = "Sports",
             difficulty = "easy",
             question = "Which sport is known as 'the beautiful game'?",
-            imageRes = null,
-            answer = "Soccer",
+            imageRes = R.drawable.allsports,
+            answer = "Football",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
             question = "In which sport is a 'slam dunk' performed?",
-            imageRes = null,
+            imageRes = R.drawable.allsports,
             answer = "Basketball",
             points = 200
         ),
@@ -1035,7 +1035,7 @@ object QuizData {
             category = "Sports",
             difficulty = "easy",
             question = "How many players are there in a standard volleyball team on the court?",
-            imageRes = null,
+            imageRes = R.drawable.volleyball,
             answer = "Six",
             points = 200
         ),
@@ -1043,55 +1043,55 @@ object QuizData {
             category = "Sports",
             difficulty = "easy",
             question = "Which sport uses a shuttlecock?",
-            imageRes = null,
+            imageRes = R.drawable.shuttlecock,
             answer = "Badminton",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
-            question = "Which sport is associated with Wimbledon?",
-            imageRes = null,
-            answer = "Tennis",
+            question = "Which football club has won the most UEFA Champions League titles?",
+            imageRes = R.drawable.champions,
+            answer = "Real Madrid",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
-            question = "In which country were the first modern Olympics held?",
-            imageRes = null,
-            answer = "Greece",
+            question = "What do the five rings in the Olympic logo represent?",
+            imageRes = R.drawable.olympic,
+            answer = "The five major continents",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
             question = "Which sport is played on an ice rink with a puck?",
-            imageRes = null,
+            imageRes = R.drawable.ice_rink,
             answer = "Ice Hockey",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
-            question = "In which sport would you perform a 'snatch' or 'clean and jerk'?",
-            imageRes = null,
-            answer = "Weightlifting",
+            question = "Which country has won the most FIFA World Cup titles?",
+            imageRes = R.drawable.world_cup,
+            answer = "Brazil",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
-            question = "Which sport uses a pommel horse?",
-            imageRes = null,
-            answer = "Gymnastics",
+            question = "How many losses has Islam Makhachev suffered in his UFC career so far?",
+            imageRes = R.drawable.islam,
+            answer = "One loss",
             points = 200
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "easy",
             question = "Which sport features the 'Heisman Trophy'?",
-            imageRes = null,
+            imageRes = R.drawable.heisman_trophy,
             answer = "American Football",
             points = 200
         )
@@ -1102,80 +1102,80 @@ object QuizData {
             category = "Sports",
             difficulty = "medium",
             question = "Which country won the FIFA World Cup in 2018?",
-            imageRes = null,
+            imageRes = R.drawable.world_cup,
             answer = "France",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "Which tennis player has won the most Grand Slam singles titles?",
-            imageRes = null,
-            answer = "Serena Williams",
+            question = "How many UEFA Champions League titles has AC Milan won to date?",
+            imageRes = R.drawable.ac_milan,
+            answer = "7",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "In Formula 1, how many wheels does a car have, including spare wheels?",
-            imageRes = null,
-            answer = "Four",
+            question = "When did FC Barcelona last win the UEFA Champions League?",
+            imageRes = R.drawable.barca,
+            answer = "2015",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "Which sport has positions called 'skip', 'lead', and 'third'?",
-            imageRes = null,
-            answer = "Curling",
+            question = "Which team does basketball player LeBron James currently play for?",
+            imageRes = R.drawable.lebron_james,
+            answer = "Los Angeles Lakers",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
             question = "In which country did the sport of judo originate?",
-            imageRes = null,
+            imageRes = R.drawable.judo,
             answer = "Japan",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "Which NFL team is known as 'The Patriots'?",
-            imageRes = null,
-            answer = "New England Patriots",
+            question = "Which club has won the most titles since the league was rebranded in 1992 ?",
+            imageRes = R.drawable.premier_league,
+            answer = "Manchester United",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "In cricket, what is the term for a bowler taking three wickets in three consecutive balls?",
-            imageRes = null,
+            question = "What is it called when a football player scores three goals in a single match?",
+            imageRes = R.drawable.hat_trick,
             answer = "Hat-trick",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "Which Olympic event combines cross-country skiing and rifle shooting?",
-            imageRes = null,
-            answer = "Biathlon",
+            question = "Which basketball team has won the most NBA championships?",
+            imageRes = R.drawable.nba_championship,
+            answer = "Boston Celtics",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
             question = "Which country hosts the famous cycling race 'Tour de France'?",
-            imageRes = null,
+            imageRes = R.drawable.tour_de_france,
             answer = "France",
             points = 400
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "medium",
-            question = "In swimming, what is the term for a race done entirely underwater?",
-            imageRes = null,
-            answer = "Underwater swimming or dolphin kick",
+            question = "What is the second most popular and widely played sport in Sweden after football?",
+            imageRes = R.drawable.allsports,
+            answer = "Ice Hockey",
             points = 400
         )
     )
@@ -1184,80 +1184,80 @@ object QuizData {
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which country has won the most Olympic gold medals in men's ice hockey?",
-            imageRes = null,
-            answer = "Canada",
+            question = "Who is the Swedish athlete who won a gold medal at the most recent Olympic Games?",
+            imageRes = R.drawable.armand_duplantis,
+            answer = "Armand Duplantis",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which golfer is nicknamed 'The Golden Bear'?",
-            imageRes = null,
-            answer = "Jack Nicklaus",
+            question = "Where was the 2010 FIFA World Cup held?",
+            imageRes = R.drawable.world_cup,
+            answer = "South Africa",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which sport has a move called the 'Iron Cross'?",
-            imageRes = null,
-            answer = "Gymnastics (on rings)",
+            question = "Who is the all-time top scorer in the UEFA Champions League?",
+            imageRes = R.drawable.cr7,
+            answer = "Cristiano Ronaldo",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "In rugby, what is the maximum number of players allowed on the field per team?",
-            imageRes = null,
-            answer = "15",
+            question = "Who is the all-time top scorer for the Swedish national football team?",
+            imageRes = R.drawable.swedish_team,
+            answer = "Zlatan Ibrahimović",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which NBA player is known as 'The Black Mamba'?",
-            imageRes = null,
-            answer = "Kobe Bryant",
+            question = "Which Scandinavian national team has won the UEFA European Championship?",
+            imageRes = R.drawable.european_championship,
+            answer = "Denmark",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
             question = "Which country won the first ever FIFA World Cup in 1930?",
-            imageRes = null,
+            imageRes = R.drawable.world_cup,
             answer = "Uruguay",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which Olympic event consists of fencing, swimming, equestrian show jumping, shooting, and running?",
-            imageRes = null,
-            answer = "Modern Pentathlon",
+            question = "Which Swedish club ranks second in most Allsvenskan (Swedish league) titles after Malmö?",
+            imageRes = R.drawable.allsvenska,
+            answer = "IFK Göteborg",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "In Formula 1, who holds the record for the most World Drivers’ Championships?",
-            imageRes = null,
-            answer = "Lewis Hamilton / Michael Schumacher (tie, 7 titles each)",
+            question = "Which coach led Real Madrid to win three consecutive UEFA Champions League titles?",
+            imageRes = R.drawable.champions,
+            answer = "Zinedine Zidane",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Which country hosts the annual tennis tournament known as the Queen’s Club Championships?",
-            imageRes = null,
-            answer = "United Kingdom",
+            question = "How many times has the Spanish national football team won the FIFA World Cup?",
+            imageRes = R.drawable.world_cup,
+            answer = "Once",
             points = 600
         ),
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
             question = "In boxing, what is the term for a fight where no gloves are worn?",
-            imageRes = null,
+            imageRes = R.drawable.bare_knuckle_boxing,
             answer = "Bare-knuckle boxing",
             points = 600
         )
