@@ -13,9 +13,8 @@ class NoWordQrActivity : AppCompatActivity() {
     private val actingLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val intent = result.data ?: Intent()
-                intent.putExtra("ANSWERED_QUESTION_ID", intent.getStringExtra("ANSWERED_QUESTION_ID"))
-                setResult(Activity.RESULT_OK, intent)
+                // skicka bara vidare resultatet till MainGame
+                setResult(Activity.RESULT_OK, result.data)
                 finish()
             }
         }
@@ -32,7 +31,6 @@ class NoWordQrActivity : AppCompatActivity() {
         val teamAName = intent.getStringExtra("TEAM_A_NAME")
         val teamBName = intent.getStringExtra("TEAM_B_NAME")
         val answer = intent.getStringExtra("NO_WORD_ANSWER")
-        val questionId = intent.getStringExtra("ANSWERED_QUESTION_ID")
 
 
         val qrBitmap = generateQrBitmap(url)
@@ -45,7 +43,6 @@ class NoWordQrActivity : AppCompatActivity() {
                 putExtra("TEAM_A_NAME", teamAName)
                 putExtra("TEAM_B_NAME", teamBName)
                 putExtra("NO_WORD_ANSWER",answer)
-                putExtra("ANSWERED_QUESTION_ID", questionId)
             }
             actingLauncher.launch(actIntent)
         }

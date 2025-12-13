@@ -41,8 +41,80 @@ class MainGame : AppCompatActivity() {
     private var isBonusMode = false
     private val preBonusAnsweredQuestions = mutableSetOf<String>()
     private val preBonusGameQuestions = mutableMapOf<String, QuizQuestion>()
+    private var loadingAnimator: android.animation.ObjectAnimator? = null
+
+
+    private fun showLoadingPulse(message: String = "Loading...") {
+        binding.loadingText.text = message
+        binding.loadingOverlay.visibility = View.VISIBLE
+
+        // om den redan kör, starta inte igen
+        if (loadingAnimator?.isRunning == true) return
+
+        // pulserar skalan på loggan
+        loadingAnimator = android.animation.ObjectAnimator.ofFloat(
+            binding.loadingLogo,
+            View.SCALE_X,
+            1f, 1.08f, 1f
+        ).apply {
+            duration = 900
+            repeatCount = android.animation.ValueAnimator.INFINITE
+            repeatMode = android.animation.ValueAnimator.RESTART
+        }
+
+        // vi vill pulse på både X och Y
+        val scaleYAnimator = android.animation.ObjectAnimator.ofFloat(
+            binding.loadingLogo,
+            View.SCALE_Y,
+            1f, 1.08f, 1f
+        ).apply {
+            duration = 900
+            repeatCount = android.animation.ValueAnimator.INFINITE
+            repeatMode = android.animation.ValueAnimator.RESTART
+        }
+
+        loadingAnimator?.start()
+        scaleYAnimator.start()
+
+        // spara Y-animator också så vi kan stoppa båda
+        binding.loadingLogo.tag = scaleYAnimator
+    }
+
+    private fun hideLoadingPulse() {
+        binding.loadingOverlay.visibility = View.GONE
+
+        loadingAnimator?.cancel()
+        loadingAnimator = null
+
+        val yAnim = binding.loadingLogo.tag as? android.animation.ObjectAnimator
+        yAnim?.cancel()
+        binding.loadingLogo.tag = null
+
+        // återställ skala
+        binding.loadingLogo.scaleX = 1f
+        binding.loadingLogo.scaleY = 1f
+    }
+    private fun playBonusRoundIntroAnimation() {
+        val board = binding.main  // root layout i activity_main_game.xml
+
+        board.animate()
+            .scaleX(0.96f)
+            .scaleY(0.96f)
+            .alpha(0.7f)
+            .setDuration(120)
+            .withEndAction {
+                board.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .alpha(1f)
+                    .setDuration(180)
+                    .start()
+            }
+            .start()
+    }
 
     private val questionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        hideLoadingPulse()
         val wasInBonusMode = isBonusMode
         if (isBonusMode) {
             isBonusMode = false // Exit bonus mode immediately
@@ -80,9 +152,11 @@ class MainGame : AppCompatActivity() {
         // After any round (bonus or normal, completed or cancelled), refresh the visual state of the board.
         restoreBoardState()
         updateTurnHighlight()
+        checkGameOver()
     }
     private val noWordLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            hideLoadingPulse()
             val wasInNoWordBonusMode = isBonusMode
             if (isBonusMode) {
                 isBonusMode = false // Exit bonus mode immediately
@@ -119,6 +193,7 @@ class MainGame : AppCompatActivity() {
                 // byt tur efter avslutad no-word-runda
                 isTeamATurn = !isTeamATurn
                 updateTurnHighlight()
+                checkGameOver()
             }
         }
 
@@ -169,33 +244,73 @@ class MainGame : AppCompatActivity() {
         isBonusMode = true
         usedBonusButtons.add(bonusButtonId)
 
+        // 🔥 Intro animation (din)
+        playBonusRoundIntroAnimation()
+
+        // Spara state före bonus
         preBonusGameQuestions.clear()
         preBonusGameQuestions.putAll(gameQuestions)
         preBonusAnsweredQuestions.clear()
         preBonusAnsweredQuestions.addAll(answeredQuestions)
 
+        // Ladda om frågor för vald kategori
         refreshCategoryQuestions(category)
 
-        for ((buttonId, question) in gameQuestions) {
+        // Fasta knapp-id:n för kategorin
+        val allowedQuestionIds = when (category) {
+            "Cars" -> listOf("cars_200", "cars_400", "cars_600")
+            "Common Knowledge" -> listOf("common_knowledge_200", "common_knowledge_400", "common_knowledge_600")
+            "Sports" -> listOf("sports_200", "sports_400", "sports_600")
+            "Geography" -> listOf("geography_200", "geography_400", "geography_600")
+            "Flags and Countries" -> listOf("flags_countries_200", "flags_countries_400", "flags_countries_600")
+            else -> emptyList()
+        }
+
+        // ✅ VIKTIGT: gör rutorna klickbara i bonus genom att ta bort dem från answeredQuestions
+        answeredQuestions.removeAll(allowedQuestionIds.toSet())
+
+        // Aktivera endast bonus-kategorins tre rutor, disable resten
+        val allowedSet = allowedQuestionIds.toSet()
+        for (buttonId in gameQuestions.keys) {
             val resId = resources.getIdentifier(buttonId, "id", packageName)
             if (resId != 0) {
                 val button = findViewById<View>(resId)
-                if (question.category == category) {
+                if (allowedSet.contains(buttonId)) {
                     button.isEnabled = true
-                    (button as? MaterialButton)?.setBackgroundColor(ContextCompat.getColor(this, R.color.Secondry))
+                    (button as? MaterialButton)
+                        ?.setBackgroundColor(ContextCompat.getColor(this, R.color.Secondry))
                 } else {
                     button.isEnabled = false
                 }
             }
         }
+
+        // (valfritt) Poppa in de tre bonusrutorna
+        for (buttonId in allowedQuestionIds) {
+            val resId = resources.getIdentifier(buttonId, "id", packageName)
+            if (resId != 0) {
+                val b = findViewById<MaterialButton>(resId)
+                b.scaleX = 0.85f
+                b.scaleY = 0.85f
+                b.alpha = 0f
+                b.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(220).start()
+            }
+        }
+
+        // Disable bonus-knapparna under bonusrundan
         setAllBonusButtonsEnabled(false)
+        binding.noWordBonus.isEnabled = false
     }
+
+
 
     private fun triggerNoWordBonusRound(bonusButtonId: String) {
         if (isBonusMode || usedBonusButtons.contains(bonusButtonId)) return
 
         isBonusMode = true
         usedBonusButtons.add(bonusButtonId)
+
+        playBonusRoundIntroAnimation()
 
         // Save state
         preBonusGameQuestions.clear()
@@ -277,34 +392,25 @@ class MainGame : AppCompatActivity() {
         }
 
 
-        val bonusCategories = mapOf(
-            "cars_bonus" to "Cars",
-            "common_knowledge_bonus" to "Common Knowledge",
-            "sports_bonus" to "Sports",
-            "geography_bonus" to "Geography",
-            "flags_countries_bonus" to "Flags and Countries"
+        val bonusRules = listOf(
+            Triple(binding.carsBonus, listOf("cars_200", "cars_400", "cars_600"), "cars_bonus"),
+            Triple(binding.commonKnowledgeBonus, listOf("common_knowledge_200", "common_knowledge_400", "common_knowledge_600"), "common_knowledge_bonus"),
+            Triple(binding.sportsBonus, listOf("sports_200", "sports_400", "sports_600"), "sports_bonus"),
+            Triple(binding.geographyBonus, listOf("geography_200", "geography_400", "geography_600"), "geography_bonus"),
+            Triple(binding.flagsCountriesBonus, listOf("flags_countries_200", "flags_countries_400", "flags_countries_600"), "flags_countries_bonus"),
         )
 
-        for ((bonusButtonId, category) in bonusCategories) {
-            val resId = resources.getIdentifier(bonusButtonId, "id", packageName)
-            if (resId != 0) {
-                val button = findViewById<MaterialButton>(resId)
-                if (usedBonusButtons.contains(bonusButtonId)) {
-                    button.isEnabled = false
-                    button.setBackgroundColor(Color.GRAY)
-                } else {
-                    val questionIdsForCategory = gameQuestions.filter { it.value.category == category }.keys
-                    val allAnswered = questionIdsForCategory.size == 3 && answeredQuestions.containsAll(questionIdsForCategory)
-
-                    button.isEnabled = allAnswered
-                    if (allAnswered) {
-                        button.setBackgroundColor(ContextCompat.getColor(this, R.color.ripplePrimary))
-                    } else {
-                        button.setBackgroundColor(Color.GRAY)
-                    }
-                }
+        for ((button, ids, bonusId) in bonusRules) {
+            if (usedBonusButtons.contains(bonusId)) {
+                button.isEnabled = false
+                button.setBackgroundColor(Color.GRAY)
+            } else {
+                val unlocked = answeredQuestions.containsAll(ids)
+                button.isEnabled = unlocked
+                button.setBackgroundColor(if (unlocked) ContextCompat.getColor(this, R.color.ripplePrimary) else Color.GRAY)
             }
         }
+
         val noWordButtons = listOf("no_word_200", "no_word_400", "no_word_600")
         for (buttonId in noWordButtons) {
             val resId = resources.getIdentifier(buttonId, "id", packageName)
@@ -385,6 +491,7 @@ class MainGame : AppCompatActivity() {
                 putExtra("QUESTION_ID", questionId)
                 putExtra("IS_TEAM_A_TURN", isTeamATurn)
             }
+            showLoadingPulse("Loading question...")
             questionLauncher.launch(intent)
         }
     }
@@ -405,9 +512,59 @@ class MainGame : AppCompatActivity() {
             putExtra("TEAM_B_NAME", teamBName)
             putExtra("ANSWERED_QUESTION_ID", questionId)
         }
+        showLoadingPulse("Loading question...")
         noWordLauncher.launch(intent)
     }
 
+    private var gameOverTriggered = false
+
+    private fun checkGameOver() {
+        if (gameOverTriggered) return
+
+        val allRegularAnswered = answeredQuestions.size == gameQuestions.size
+        val allNoWordAnswered = answeredNoWordQuestions.containsAll(listOf("no_word_200", "no_word_400", "no_word_600"))
+
+        if (!allRegularAnswered || !allNoWordAnswered) return
+
+        // vilka bonusar är upplåsta just nu?
+        val unlockedBonuses = mutableSetOf<String>()
+
+        if (answeredQuestions.containsAll(listOf("cars_200", "cars_400", "cars_600"))) unlockedBonuses.add("cars_bonus")
+        if (answeredQuestions.containsAll(listOf("common_knowledge_200", "common_knowledge_400", "common_knowledge_600"))) unlockedBonuses.add("common_knowledge_bonus")
+        if (answeredQuestions.containsAll(listOf("sports_200", "sports_400", "sports_600"))) unlockedBonuses.add("sports_bonus")
+        if (answeredQuestions.containsAll(listOf("geography_200", "geography_400", "geography_600"))) unlockedBonuses.add("geography_bonus")
+        if (answeredQuestions.containsAll(listOf("flags_countries_200", "flags_countries_400", "flags_countries_600"))) unlockedBonuses.add("flags_countries_bonus")
+        if (allNoWordAnswered) unlockedBonuses.add("no_word_bonus")
+
+        val allUnlockedBonusesUsed = usedBonusButtons.containsAll(unlockedBonuses)
+
+        if (!allUnlockedBonusesUsed) {
+            Toast.makeText(this, "Bonus rounds remaining!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        gameOverTriggered = true
+
+        val winnerName: String
+        val winnerScore: Int
+        if (teamAScore > teamBScore) {
+            winnerName = teamAName ?: "Team A"
+            winnerScore = teamAScore
+        } else if (teamBScore > teamAScore) {
+            winnerName = teamBName ?: "Team B"
+            winnerScore = teamBScore
+        } else {
+            winnerName = "It's a tie!"
+            winnerScore = teamAScore
+        }
+
+        val intent = Intent(this, WinnerActivity::class.java).apply {
+            putExtra("WINNER_NAME", winnerName)
+            putExtra("WINNER_SCORE", winnerScore)
+        }
+        startActivity(intent)
+        finish()
+    }
 
 
 
