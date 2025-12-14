@@ -19,6 +19,8 @@ class NoWordActActivity : AppCompatActivity() {
     private var teamAName: String? = null
     private var teamBName: String? = null
 
+    private var answeredQuestionId: String? = null
+
     private val revealLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -34,9 +36,11 @@ class NoWordActActivity : AppCompatActivity() {
                 val resultIntent = Intent().apply {
                     putExtra("TEAM_A_POINTS_GAINED", teamAPoints)
                     putExtra("TEAM_B_POINTS_GAINED", teamBPoints)
+                    putExtra("ANSWERED_QUESTION_ID", answeredQuestionId)
                 }
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish()
+
             }
         }
 
@@ -46,6 +50,7 @@ class NoWordActActivity : AppCompatActivity() {
 
         timerText = findViewById(R.id.timer_text)
         finishButton = findViewById(R.id.round_finished_button)
+        answeredQuestionId = intent.getStringExtra("ANSWERED_QUESTION_ID")
 
         points = intent.getIntExtra("NO_WORD_POINTS", 0)
         answer = intent.getStringExtra("NO_WORD_ANSWER").toString()

@@ -20,14 +20,13 @@ data class QuizQuestion(
 ) : Parcelable
 
 
-
 object QuizData {
 
     val flagsEasy = listOf(
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.france,
             answer = "France",
             points = 200
@@ -35,7 +34,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.canda,
             answer = "Canada",
             points = 200
@@ -51,7 +50,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.ireland,
             answer = "Ireland",
             points = 200
@@ -59,7 +58,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.japanflag,
             answer = "Japan",
             points = 200
@@ -75,7 +74,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.usa_flag,
             answer = "United States",
             points = 200
@@ -91,7 +90,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_cuba,
             answer = "Cuba",
             points = 200
@@ -125,7 +124,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_palestine,
             answer = "Palestine",
             points = 400
@@ -133,7 +132,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_iraq,
             answer = "Irak",
             points = 400
@@ -149,7 +148,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_syria,
             answer = "Syria",
             points = 400
@@ -157,7 +156,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "hard",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_morocco,
             answer = "Morocco",
             points = 400
@@ -165,7 +164,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_thailand,
             answer = "Thailand",
             points = 400
@@ -173,7 +172,7 @@ object QuizData {
         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "medium",
-            question = "Which country dose this flag belongs to?",
+            question = "Which country does this flag belongs to?",
             imageRes = R.drawable.flag_somalia,
             answer = "Somalia",
             points = 400
@@ -182,7 +181,7 @@ object QuizData {
         QuizQuestion(
         category = "Flags and Countries",
         difficulty = "hard",
-        question = "Which country dose this flag belongs to?",
+        question = "Which country does this flag belongs to?",
         imageRes = R.drawable.flag_sweden,
         answer = "Sweden",
         points = 400
@@ -1200,9 +1199,9 @@ object QuizData {
         QuizQuestion(
             category = "Sports",
             difficulty = "hard",
-            question = "Who is the all-time top scorer in the UEFA Champions League?",
+            question = "In which season did Cristiano Ronaldo score the most goals across all competitions?",
             imageRes = R.drawable.cr7,
-            answer = "Cristiano Ronaldo",
+            answer = "2014–2015",
             points = 600
         ),
         QuizQuestion(

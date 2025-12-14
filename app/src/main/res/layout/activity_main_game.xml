@@ -518,7 +518,7 @@
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
-                android.letterSpacing="0.1"
+                android:letterSpacing="0.1"
                 android:text="bonus !"
                 android:textColor="@color/Primary" />
         </LinearLayout>

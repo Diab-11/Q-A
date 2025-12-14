@@ -15,10 +15,7 @@
             android:name=".NoWordActActivity"
             android:exported="false"
             android:screenOrientation="landscape"/>
-    <activity
-            android:name=".WinnerActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+
 
         <receiver
             android:name=".MyAppWidgetReceiver"
@@ -31,7 +28,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/my_app_widget_info" />
         </receiver>
-
+        <activity
+            android:name=".WinnerActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".LoginTest"
             android:exported="false"

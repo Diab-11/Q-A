@@ -18,6 +18,8 @@ import se.jumomo24wv.menuactivity.data.QuizQuestion
 import se.jumomo24wv.menuactivity.databinding.ActivityMainGameBinding
 import se.jumomo24wv.menuactivity.data.NoWordData
 import se.jumomo24wv.menuactivity.data.NoWordQuestion
+import androidx.activity.addCallback
+
 
 
 
@@ -200,6 +202,10 @@ class MainGame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainGameBinding.inflate(layoutInflater)
+        onBackPressedDispatcher.addCallback(this) {
+            showExitWarning()
+        }
+
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
@@ -377,6 +383,8 @@ class MainGame : AppCompatActivity() {
     }
 
     private fun restoreBoardState() {
+        val unlockAllBonusesNow = isAllMainQuestionsDone()
+
         for (buttonId in gameQuestions.keys) {
             val resId = resources.getIdentifier(buttonId, "id", packageName)
             if (resId != 0) {
@@ -393,21 +401,25 @@ class MainGame : AppCompatActivity() {
 
 
         val bonusRules = listOf(
-            Triple(binding.carsBonus, listOf("cars_200", "cars_400", "cars_600"), "cars_bonus"),
-            Triple(binding.commonKnowledgeBonus, listOf("common_knowledge_200", "common_knowledge_400", "common_knowledge_600"), "common_knowledge_bonus"),
-            Triple(binding.sportsBonus, listOf("sports_200", "sports_400", "sports_600"), "sports_bonus"),
-            Triple(binding.geographyBonus, listOf("geography_200", "geography_400", "geography_600"), "geography_bonus"),
-            Triple(binding.flagsCountriesBonus, listOf("flags_countries_200", "flags_countries_400", "flags_countries_600"), "flags_countries_bonus"),
+            Pair(binding.carsBonus, "cars_bonus"),
+            Pair(binding.commonKnowledgeBonus, "common_knowledge_bonus"),
+            Pair(binding.sportsBonus, "sports_bonus"),
+            Pair(binding.geographyBonus, "geography_bonus"),
+            Pair(binding.flagsCountriesBonus, "flags_countries_bonus"),
         )
 
-        for ((button, ids, bonusId) in bonusRules) {
+        for ((button, bonusId) in bonusRules) {
             if (usedBonusButtons.contains(bonusId)) {
                 button.isEnabled = false
                 button.setBackgroundColor(Color.GRAY)
             } else {
-                val unlocked = answeredQuestions.containsAll(ids)
-                button.isEnabled = unlocked
-                button.setBackgroundColor(if (unlocked) ContextCompat.getColor(this, R.color.ripplePrimary) else Color.GRAY)
+                button.isEnabled = unlockAllBonusesNow
+                button.setBackgroundColor(
+                    if (unlockAllBonusesNow)
+                        ContextCompat.getColor(this, R.color.ripplePrimary)
+                    else
+                        Color.GRAY
+                )
             }
         }
 
@@ -426,13 +438,14 @@ class MainGame : AppCompatActivity() {
             }
         }
 
-        val allNoWordAnswered = answeredNoWordQuestions.containsAll(listOf("no_word_200", "no_word_400", "no_word_600"))
-        binding.noWordBonus.isEnabled = allNoWordAnswered && !usedBonusButtons.contains("no_word_bonus")
-        if (binding.noWordBonus.isEnabled) {
-            binding.noWordBonus.setBackgroundColor(ContextCompat.getColor(this, R.color.ripplePrimary))
-        } else {
-            binding.noWordBonus.setBackgroundColor(Color.GRAY)
-        }
+        binding.noWordBonus.isEnabled = unlockAllBonusesNow && !usedBonusButtons.contains("no_word_bonus")
+        binding.noWordBonus.setBackgroundColor(
+            if (binding.noWordBonus.isEnabled)
+                ContextCompat.getColor(this, R.color.ripplePrimary)
+            else
+                Color.GRAY
+        )
+
     }
 
     private fun initializeNewGame() {
@@ -516,33 +529,32 @@ class MainGame : AppCompatActivity() {
         noWordLauncher.launch(intent)
     }
 
+
     private var gameOverTriggered = false
 
     private fun checkGameOver() {
         if (gameOverTriggered) return
 
-        val allRegularAnswered = answeredQuestions.size == gameQuestions.size
-        val allNoWordAnswered = answeredNoWordQuestions.containsAll(listOf("no_word_200", "no_word_400", "no_word_600"))
+        // 1) Vänta tills alla vanliga frågor + no word är klara
+        if (!isAllMainQuestionsDone()) return
 
-        if (!allRegularAnswered || !allNoWordAnswered) return
+        // 2) När allt är klart, måste alla bonusar användas innan Winner
+        val allBonusIds = setOf(
+            "cars_bonus",
+            "common_knowledge_bonus",
+            "sports_bonus",
+            "geography_bonus",
+            "flags_countries_bonus",
+            "no_word_bonus"
+        )
 
-        // vilka bonusar är upplåsta just nu?
-        val unlockedBonuses = mutableSetOf<String>()
-
-        if (answeredQuestions.containsAll(listOf("cars_200", "cars_400", "cars_600"))) unlockedBonuses.add("cars_bonus")
-        if (answeredQuestions.containsAll(listOf("common_knowledge_200", "common_knowledge_400", "common_knowledge_600"))) unlockedBonuses.add("common_knowledge_bonus")
-        if (answeredQuestions.containsAll(listOf("sports_200", "sports_400", "sports_600"))) unlockedBonuses.add("sports_bonus")
-        if (answeredQuestions.containsAll(listOf("geography_200", "geography_400", "geography_600"))) unlockedBonuses.add("geography_bonus")
-        if (answeredQuestions.containsAll(listOf("flags_countries_200", "flags_countries_400", "flags_countries_600"))) unlockedBonuses.add("flags_countries_bonus")
-        if (allNoWordAnswered) unlockedBonuses.add("no_word_bonus")
-
-        val allUnlockedBonusesUsed = usedBonusButtons.containsAll(unlockedBonuses)
-
-        if (!allUnlockedBonusesUsed) {
-            Toast.makeText(this, "Bonus rounds remaining!", Toast.LENGTH_SHORT).show()
+        val allBonusesUsed = usedBonusButtons.containsAll(allBonusIds)
+        if (!allBonusesUsed) {
+            Toast.makeText(this, "Bonus rounds remaining! Use them before finishing.", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // 3) Nu avslutar vi
         gameOverTriggered = true
 
         val winnerName: String
@@ -571,6 +583,7 @@ class MainGame : AppCompatActivity() {
 
 
 
+
     private fun setupNoWordClickListeners() {
         binding.noWord200.setOnClickListener {
             openNoWordQr(NoWordData.noWord200, "no_word_200")
@@ -583,7 +596,26 @@ class MainGame : AppCompatActivity() {
         }
     }
 
+    private fun isAllMainQuestionsDone(): Boolean {
+        val allRegularAnswered = answeredQuestions.size == gameQuestions.size
+        val allNoWordAnswered = answeredNoWordQuestions.containsAll(
+            listOf("no_word_200", "no_word_400", "no_word_600")
+        )
+        return allRegularAnswered && allNoWordAnswered
+    }
 
+    private fun showExitWarning() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Leave match?")
+            .setMessage("If you go back, the current match will end and you will need to start a new one.")
+            .setPositiveButton("Leave") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 
 
 

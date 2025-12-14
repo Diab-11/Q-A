@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WinnerActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/trophyIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_trophy"
+        android:contentDescription="Trophy"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/Congrats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="34sp"
+        android:text="WINNER!"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:letterSpacing="0.15"
         android:textColor="@color/Primary"
-        android:text="Congrats to the winner!"
-        app:layout_constraintBottom_toTopOf="@+id/winner_textview"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@id/trophyIcon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="18dp"/>
+
     <TextView
         android:id="@+id/winner_textview"
         android:layout_width="wrap_content"
@@ -27,19 +42,35 @@
         android:textSize="34sp"
         android:textStyle="bold"
         android:textColor="@color/Primary"
-        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@id/Congrats"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/winner_score_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/Secondary"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@id/winner_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/go_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:text="Back to menu"
+        android:textStyle="bold"
         android:backgroundTint="@color/Secondary"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/winner_textview" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

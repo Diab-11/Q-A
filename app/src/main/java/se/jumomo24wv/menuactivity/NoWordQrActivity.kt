@@ -36,15 +36,21 @@ class NoWordQrActivity : AppCompatActivity() {
         val qrBitmap = generateQrBitmap(url)
         qrImage.setImageBitmap(qrBitmap)
 
-        startActingButton.text = "Start acting"
+        startActingButton.text = "Ready to act ->"
         startActingButton.setOnClickListener {
+            val answeredId = intent.getStringExtra("ANSWERED_QUESTION_ID")
+            val answer = intent.getStringExtra("NO_WORD_ANSWER")
+
             val actIntent = Intent(this, NoWordActActivity::class.java).apply {
                 putExtra("NO_WORD_POINTS", points)
                 putExtra("TEAM_A_NAME", teamAName)
                 putExtra("TEAM_B_NAME", teamBName)
-                putExtra("NO_WORD_ANSWER",answer)
+                putExtra("ANSWERED_QUESTION_ID", answeredId)
+                putExtra("NO_WORD_ANSWER", answer)
             }
+
             actingLauncher.launch(actIntent)
         }
+
     }
 }
