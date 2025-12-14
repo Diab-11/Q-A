@@ -11,21 +11,23 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuActivity">
-
-
-
-
+        <activity
+            android:name=".RegisterPage"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".NoWordActActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
-
-
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WinnerActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
 
         <activity
             android:name=".WinnerActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
 
         <activity
             android:name=".RulesAndPolicy"

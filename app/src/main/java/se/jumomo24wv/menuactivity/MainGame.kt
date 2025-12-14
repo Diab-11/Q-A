@@ -14,12 +14,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import se.jumomo24wv.menuactivity.data.QuizData
+import se.jumomo24wv.menuactivity.data.QuizDataSV
 import se.jumomo24wv.menuactivity.data.QuizQuestion
 import se.jumomo24wv.menuactivity.databinding.ActivityMainGameBinding
 import se.jumomo24wv.menuactivity.data.NoWordData
 import se.jumomo24wv.menuactivity.data.NoWordQuestion
-import androidx.activity.addCallback
+import se.jumomo24wv.menuactivity.data.NoWordDataSV
 
+import androidx.activity.addCallback
+import se.jumomo24wv.menuactivity.data.LanguageManager
 
 
 
@@ -342,6 +345,27 @@ class MainGame : AppCompatActivity() {
     }
 
     private fun refreshCategoryQuestions(category: String) {
+
+
+        val flagsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsEasy else QuizData.flagsEasy
+        val flagsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsMedium else QuizData.flagsMedium
+        val flagsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsHard else QuizData.flagsHard
+
+        val geographyEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyEasy else QuizData.geographyEasy
+        val geographyMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyMedium else QuizData.geographyMedium
+        val geographyHard = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyHard else QuizData.geographyHard
+
+        val carsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.carsEasy else QuizData.carsEasy
+        val carsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.carsMedium else QuizData.carsMedium
+        val carsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.carsHard else QuizData.carsHard
+
+        val commonKnowledgeEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeEasy else QuizData.commonKnowledgeEasy
+        val commonKnowledgeMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeMedium else QuizData.commonKnowledgeMedium
+        val commonKnowledgeHard = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeHard else QuizData.commonKnowledgeHard
+
+        val sportsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsEasy else QuizData.sportsEasy
+        val sportsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsMedium else QuizData.sportsMedium
+        val sportsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsHard else QuizData.sportsHard
         fun updateQuestion(buttonId: String, questionPool: List<QuizQuestion>) {
             val newQuestion = questionPool.filter { it !in presentedQuestions }.randomOrNull()
             val questionToUse = newQuestion ?: questionPool.random() // Fallback to any random question if uniques run out
@@ -351,33 +375,34 @@ class MainGame : AppCompatActivity() {
         }
 
         when (category) {
+
             "Flags and Countries" -> {
-                updateQuestion("flags_countries_200", QuizData.flagsEasy)
-                updateQuestion("flags_countries_400", QuizData.flagsMedium)
-                updateQuestion("flags_countries_600", QuizData.flagsHard)
+                updateQuestion("flags_countries_200", flagsEasy)
+                updateQuestion("flags_countries_400", flagsMedium)
+                updateQuestion("flags_countries_600", flagsHard)
             }
             "Geography" -> {
-                updateQuestion("geography_200", QuizData.geographyEasy)
+                updateQuestion("geography_200", geographyEasy)
                 updateQuestion(
                     "geography_400",
                     QuizData.geographyMedium
                 )
-                updateQuestion("geography_600", QuizData.geographyHard)
+                updateQuestion("geography_600", geographyHard)
             }
             "Cars" -> {
-                updateQuestion("cars_200", QuizData.carsEasy)
-                updateQuestion("cars_400", QuizData.carsMedium)
-                updateQuestion("cars_600", QuizData.carsHard)
+                updateQuestion("cars_200", carsEasy)
+                updateQuestion("cars_400", carsMedium)
+                updateQuestion("cars_600", carsHard)
             }
             "Common Knowledge" -> {
-                updateQuestion("common_knowledge_200", QuizData.commonKnowledgeEasy)
-                updateQuestion("common_knowledge_400", QuizData.commonKnowledgeMedium)
-                updateQuestion("common_knowledge_600", QuizData.commonKnowledgeHard)
+                updateQuestion("common_knowledge_200", commonKnowledgeEasy)
+                updateQuestion("common_knowledge_400", commonKnowledgeMedium)
+                updateQuestion("common_knowledge_600", commonKnowledgeHard)
             }
             "Sports" -> {
-                updateQuestion("sports_200", QuizData.sportsEasy)
-                updateQuestion("sports_400", QuizData.sportsMedium)
-                updateQuestion("sports_600", QuizData.sportsHard)
+                updateQuestion("sports_200", sportsEasy)
+                updateQuestion("sports_400", sportsMedium)
+                updateQuestion("sports_600", sportsHard)
             }
         }
     }
@@ -585,14 +610,30 @@ class MainGame : AppCompatActivity() {
 
 
     private fun setupNoWordClickListeners() {
+        val noWord200 =
+            if (LanguageManager.isSwedish(this))
+                NoWordDataSV.noWord200
+            else
+                NoWordData.noWord200
+        val noWord400 =
+            if (LanguageManager.isSwedish(this))
+                NoWordDataSV.noWord400
+            else
+                NoWordData.noWord400
+        val noWord600 =
+            if (LanguageManager.isSwedish(this))
+                NoWordDataSV.noWord600
+            else
+                NoWordData.noWord600
+
         binding.noWord200.setOnClickListener {
-            openNoWordQr(NoWordData.noWord200, "no_word_200")
+            openNoWordQr(noWord200, "no_word_200")
         }
         binding.noWord400.setOnClickListener {
-            openNoWordQr(NoWordData.noWord400, "no_word_400")
+            openNoWordQr(noWord400, "no_word_400")
         }
         binding.noWord600.setOnClickListener {
-            openNoWordQr(NoWordData.noWord600, "no_word_600")
+            openNoWordQr(noWord600, "no_word_600")
         }
     }
 

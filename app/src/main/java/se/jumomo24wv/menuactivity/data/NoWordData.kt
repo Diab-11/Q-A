@@ -122,7 +122,7 @@ object NoWordData {
             points = 400
         ),
 
-    )
+        )
 
     val noWord600 = listOf(
         NoWordQuestion(

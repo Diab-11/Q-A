@@ -46,6 +46,11 @@ class Login : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        binding.signupPrompt.setOnClickListener {
+            val intent = Intent(this, RegisterPage::class.java)
+            startActivity(intent)
+        }
+
 
         // Initialize Firebase Auth
         firebaseAuth = Firebase.auth

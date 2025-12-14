@@ -31,7 +31,7 @@ object QuizData {
             answer = "France",
             points = 200
         ),
-        QuizQuestion(
+         QuizQuestion(
             category = "Flags and Countries",
             difficulty = "easy",
             question = "Which country does this flag belongs to?",
@@ -850,7 +850,7 @@ object QuizData {
         QuizQuestion(
             category = "Common Knowledge",
             difficulty = "medium",
-            question = "In which year was Palestine fully occupied by Israel",
+            question = "In which year was Palestine occupied by Israel",
             imageRes = R.drawable.palestine1948,
             answer = "1948",
             points = 400

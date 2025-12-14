@@ -66,17 +66,20 @@
             </LinearLayout>
 
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/languageDropdownLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="12dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/textcolor"
-                android:text="@string/swedish_label"
-                android:textSize="16sp"
-                app:thumbTint="@color/switch_thumb_color"
-                app:trackTint="@color/Primary"
-                app:useMaterialThemeColors="false"/>
+                android:layout_marginTop="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="@string/language">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/languageDropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
