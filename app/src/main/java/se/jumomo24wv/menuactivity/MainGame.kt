@@ -617,9 +617,6 @@ class MainGame : AppCompatActivity() {
             .show()
     }
 
-
-
-
     private fun updateScores() {
         binding.mainGameTeam1Score.text = teamAScore.toString()
         binding.mainGameTeam2Score.text = teamBScore.toString()

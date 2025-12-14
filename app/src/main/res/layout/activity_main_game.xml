@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
-            android:text="Team1"
+            android:text="@string/main_game_team1_name"
             android:textAlignment="center"
             android:textColor="@color/Primary"
             app:layout_constraintBottom_toTopOf="@id/main_game_team1_score"
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
-            android:text="0"
+            android:text="@string/team_1_score_default"
             android:textAlignment="center"
             android:textColor="@color/Primary"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
-            android:text="Game Name"
+            android:text="@string/main_game_game_name"
             android:textAlignment="center"
             android:textColor="@color/Primary"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
-            android:text="Team 2"
+            android:text="@string/team_2"
             android:textAlignment="center"
             android:textColor="@color/Primary"
             app:layout_constraintBottom_toTopOf="@id/main_game_team2_score"
@@ -75,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
-            android:text="0"
+            android:text="@string/team_2_score_default"
             android:textAlignment="center"
             android:textColor="@color/Primary"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +113,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="Cars"
+                android:text="@string/cars_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -126,7 +126,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -138,7 +138,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -150,7 +150,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -163,7 +163,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -184,7 +184,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="Common Knowledge"
+                android:text="@string/common_knowledge_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -197,7 +197,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -209,7 +209,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -221,7 +221,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -234,7 +234,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -255,7 +255,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="Sports"
+                android:text="@string/sports_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -268,7 +268,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -280,7 +280,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -292,7 +292,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -305,7 +305,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -327,7 +327,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="Geography"
+                android:text="@string/geography_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -340,7 +340,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -352,7 +352,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -364,7 +364,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -377,7 +377,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -398,7 +398,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="Flags &amp; Countries"
+                android:text="@string/flags_countries_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -411,7 +411,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -423,7 +423,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -433,9 +433,9 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/Secondary"
+                android.backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -448,7 +448,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -469,7 +469,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:text="No Word"
+                android:text="@string/no_word_category"
                 android:textAlignment="center"
                 android:textColor="@color/Primary" />
 
@@ -482,7 +482,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="200"
+                android:text="@string/points_200"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -494,7 +494,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="400"
+                android:text="@string/points_400"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -506,7 +506,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/Secondary"
                 android:letterSpacing="0.1"
-                android:text="600"
+                android:text="@string/points_600"
                 android:textColor="@color/Primary" />
 
             <com.google.android.material.button.MaterialButton
@@ -519,7 +519,7 @@
                 android:autoSizeTextType="uniform"
                 android:backgroundTint="@color/ripplePrimary"
                 android:letterSpacing="0.1"
-                android:text="bonus !"
+                android:text="@string/bonus_button"
                 android:textColor="@color/Primary" />
         </LinearLayout>
 
@@ -569,14 +569,14 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:src="@mipmap/logo_round"
-                android:contentDescription="Loading"
+                android:contentDescription="@string/loading_content_description"
                 android:scaleType="fitCenter"/>
 
             <TextView
                 android:id="@+id/loadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loading..."
+                android:text="@string/loading_text"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="12dp"/>

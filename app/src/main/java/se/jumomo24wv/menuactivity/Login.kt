@@ -51,7 +51,6 @@ class Login : AppCompatActivity() {
         firebaseAuth = Firebase.auth
 
         // Configure Google Sign-In
-        // Use R.string.default_web_client_id which is automatically generated from your google-services.json
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()

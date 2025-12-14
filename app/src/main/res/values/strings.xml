@@ -68,5 +68,52 @@
         <item>Dark</item>
         <item>System Default</item>
     </string-array>
+    <string name="no_word_qr_title">Let one player scan this QR code</string>
+    <string name="start_acting_button">Start acting</string>
+    <string name="ready_to_act_button">Ready to act -></string>
+    <string name="start_button">Start</string>
+    <string name="login_signup_title">Login / Sign Up</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="or_divider">OR</string>
+    <string name="google_signin_button">Sign in with Google</string>
+    <string name="signup_prompt">Don\'t have an account? Sign up</string>
+    <string name="team_1_score_default">0</string>
+    <string name="team_2_score_default">0</string>
+    <string name="cars_category">Cars</string>
+    <string name="common_knowledge_category">Common Knowledge</string>
+    <string name="sports_category">Sports</string>
+    <string name="geography_category">Geography</string>
+    <string name="flags_countries_category">Flags &amp; Countries</string>
+    <string name="no_word_category">No Word</string>
+    <string name="bonus_button">bonus !</string>
+    <string name="points_200">200</string>
+    <string name="points_400">400</string>
+    <string name="points_600">600</string>
+    <string name="no_word_act_timer_default">01:30</string>
+    <string name="no_word_act_instruction">Start acting this word without speaking</string>
+    <string name="reveal_answer_button">Reveal Answer</string>
+    <string name="question_view_timer_default">00:00</string>
+    <string name="question_placeholder">Question will be displayed here</string>
+    <string name="team_a_score_label">Team A: %1$d</string>
+    <string name="team_b_score_label">Team B: %1$d</string>
+    <string name="question_points_label">%1$s : %2$d</string>
+    <string name="right_answer_prompt">The right answer is :</string>
+    <string name="who_got_it_right">Who got it right?</string>
+    <string name="none_got_it_right">None Got It Right</string>
+    <string name="main_game_team1_name">Team1</string>
+    <string name="main_game_game_name">Game Name</string>
+    <string name="loading_content_description">Loading</string>
+    <string name="loading_text">Loading...</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="settings_title">Settings</string>
+    <string name="theme_label">Theme</string>
+    <string name="swedish_label">Swedish</string>
+    <string name="logout_button_text">Log out</string>
+    <string name="winner_congrats">WINNER!</string>
+    <string name="back_to_menu_button_text">Back to menu</string>
+    <string name="trophy_content_description">Trophy</string>
 
 </resources>
