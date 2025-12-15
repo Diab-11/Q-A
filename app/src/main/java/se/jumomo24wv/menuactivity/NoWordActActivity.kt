@@ -40,7 +40,6 @@ class NoWordActActivity : AppCompatActivity() {
                 }
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish()
-
             }
         }
 
@@ -61,9 +60,7 @@ class NoWordActActivity : AppCompatActivity() {
         startTimerForPoints(points)
 
         finishButton.setOnClickListener {
-            // gå till samma view som vanliga frågor använder
             val intent = Intent(this, RevealAnswerActivity::class.java).apply {
-                // vi behöver inte visa ordet, men vi kan sätta en text
                 putExtra("ANSWER", answer)
                 putExtra("TEAM_A_NAME", teamAName)
                 putExtra("TEAM_B_NAME", teamBName)
@@ -74,14 +71,14 @@ class NoWordActActivity : AppCompatActivity() {
 
     private fun startTimerForPoints(points: Int) {
         val millis = when (points) {
-            200 -> 90_000L   // 1.5 min
-            400 -> 60_000L   // 1 min
-            600 -> 45_000L   // 45 s
-            else -> 60_000L
+            POINTS_200 -> TIMER_FOR_200_MS   // 1.5 min
+            POINTS_400 -> TIMER_FOR_400_MS   // 1 min
+            POINTS_600 -> TIMER_FOR_600_MS   // 45 s
+            else -> TIMER_DEFAULT_MS
         }
 
         timer?.cancel()
-        timer = object : CountDownTimer(millis, 1_000L) {
+        timer = object : CountDownTimer(millis, TIMER_TICK_MS) {
             override fun onTick(millisUntilFinished: Long) {
                 val totalSeconds = millisUntilFinished / 1000
                 val minutes = totalSeconds / 60
@@ -98,5 +95,18 @@ class NoWordActActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         timer?.cancel()
+    }
+
+    companion object {
+        private const val POINTS_200 = 200
+        private const val POINTS_400 = 400
+        private const val POINTS_600 = 600
+
+        private const val TIMER_FOR_200_MS = 90_000L
+        private const val TIMER_FOR_400_MS = 60_000L
+        private const val TIMER_FOR_600_MS = 45_000L
+        private const val TIMER_DEFAULT_MS = 60_000L
+
+        private const val TIMER_TICK_MS = 1_000L
     }
 }

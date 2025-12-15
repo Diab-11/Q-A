@@ -6,7 +6,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
 
-fun generateQrBitmap(text: String, size: Int = 800): Bitmap {
+fun generateQrBitmap(text: String, size: Int = DEFAULT_QR_SIZE): Bitmap {
     val bitMatrix: BitMatrix = MultiFormatWriter().encode(
         text,
         BarcodeFormat.QR_CODE,
@@ -22,3 +22,5 @@ fun generateQrBitmap(text: String, size: Int = 800): Bitmap {
     }
     return bmp
 }
+
+private const val DEFAULT_QR_SIZE = 800

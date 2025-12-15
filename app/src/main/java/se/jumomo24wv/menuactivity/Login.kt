@@ -51,7 +51,6 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // Initialize Firebase Auth
         firebaseAuth = Firebase.auth
 

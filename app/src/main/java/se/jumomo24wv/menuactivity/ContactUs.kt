@@ -52,9 +52,9 @@ fun ContactUsScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(16.dp),
+                .padding(PADDING_SCREEN.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(SPACING_LARGE.dp)
         ) {
             item {
                 ProfileCard(
@@ -76,39 +76,44 @@ fun ContactUsScreen() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileCard(name: String, description: String, email: String, instagramId: String) {
     val context = LocalContext.current
+
     Card(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = CARD_ELEVATION.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(PADDING_CARD.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 imageVector = Icons.Default.Person,
                 contentDescription = "$name's Profile Picture",
                 modifier = Modifier
-                    .size(100.dp)
-                    .padding(bottom = 8.dp)
+                    .size(PROFILE_IMAGE_SIZE.dp)
+                    .padding(bottom = PADDING_SMALL.dp)
             )
+
             Text(
                 text = name,
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
             )
-            Spacer(modifier = Modifier.height(8.dp))
+
+            Spacer(modifier = Modifier.height(PADDING_SMALL.dp))
+
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(horizontal = 8.dp)
+                modifier = Modifier.padding(horizontal = PADDING_SMALL.dp)
             )
-            Spacer(modifier = Modifier.height(16.dp))
+
+            Spacer(modifier = Modifier.height(PADDING_CARD.dp))
+
             Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(PADDING_CARD.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ContactIcon(
@@ -120,11 +125,15 @@ fun ProfileCard(name: String, description: String, email: String, instagramId: S
                     }
                     context.startActivity(intent)
                 }
+
                 ContactIcon(
-                    icon = R.drawable.ic_instagram, // Assumes you have an instagram icon in res/drawable
+                    icon = R.drawable.ic_instagram,
                     contentDescription = "Visit $name's Instagram"
                 ) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/$instagramId"))
+                    val intent = Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("http://instagram.com/_u/$instagramId")
+                    )
                     context.startActivity(intent)
                 }
             }
@@ -135,20 +144,33 @@ fun ProfileCard(name: String, description: String, email: String, instagramId: S
 @Composable
 fun ContactIcon(icon: Any, contentDescription: String, onClick: () -> Unit) {
     val tintColor = MaterialTheme.colorScheme.onSurfaceVariant
+
     IconButton(onClick = onClick) {
         when (icon) {
             is ImageVector -> Icon(
-                imageVector = icon, 
-                contentDescription = contentDescription, 
-                modifier = Modifier.size(28.dp),
+                imageVector = icon,
+                contentDescription = contentDescription,
+                modifier = Modifier.size(ICON_SIZE.dp),
                 tint = tintColor
             )
+
             is Int -> Image(
-                painter = painterResource(id = icon), 
-                contentDescription = contentDescription, 
-                modifier = Modifier.size(28.dp),
+                painter = painterResource(id = icon),
+                contentDescription = contentDescription,
+                modifier = Modifier.size(ICON_SIZE.dp),
                 colorFilter = ColorFilter.tint(tintColor)
             )
         }
     }
 }
+
+/* -------- Constants (only numbers) -------- */
+
+private const val PADDING_SCREEN = 16
+private const val PADDING_CARD = 16
+private const val PADDING_SMALL = 8
+private const val SPACING_LARGE = 24
+
+private const val PROFILE_IMAGE_SIZE = 100
+private const val ICON_SIZE = 28
+private const val CARD_ELEVATION = 4

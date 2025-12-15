@@ -24,6 +24,31 @@ import se.jumomo24wv.menuactivity.data.NoWordDataSV
 import androidx.activity.addCallback
 import se.jumomo24wv.menuactivity.data.LanguageManager
 
+private const val SCORE_START = 0
+private const val RESOURCE_NOT_FOUND = 0
+
+private const val LOADING_PULSE_DURATION_MS = 900L
+
+private const val BOARD_INTRO_DURATION_IN_MS = 120L
+private const val BOARD_INTRO_RETURN_DURATION_MS = 180L
+private const val BONUS_TILE_ANIM_DURATION_MS = 220L
+
+private const val TEAM_A_STARTS = true
+
+private const val EMPTY = ""
+
+private const val EXTRA_TEAM_A_POINTS_GAINED = "TEAM_A_POINTS_GAINED"
+private const val EXTRA_TEAM_B_POINTS_GAINED = "TEAM_B_POINTS_GAINED"
+private const val EXTRA_ANSWERED_QUESTION_ID = "ANSWERED_QUESTION_ID"
+private const val SCALE_START = 1f
+private const val SCALE_PULSE = 1.08f
+
+private const val BOARD_INTRO_SCALE = 0.96f
+private const val BOARD_INTRO_ALPHA = 0.7f
+
+private const val BONUS_TILE_START_SCALE = 0.85f
+private const val ALPHA_ZERO = 0f
+private const val ALPHA_FULL = 1f
 
 
 class MainGame : AppCompatActivity() {
@@ -33,7 +58,7 @@ class MainGame : AppCompatActivity() {
     private var teamBScore = 0
     private var teamAName: String? = null
     private var teamBName: String? = null
-    private var isTeamATurn = true // Team A starts
+    private var isTeamATurn = TEAM_A_STARTS // Team A starts
 
     // Current game state
     private val gameQuestions = mutableMapOf<String, QuizQuestion>()
@@ -49,20 +74,21 @@ class MainGame : AppCompatActivity() {
     private var loadingAnimator: android.animation.ObjectAnimator? = null
 
 
-    private fun showLoadingPulse(message: String = "Loading...") {
+
+    private fun showLoadingPulse(message: String = getString(R.string.loading_default)) {
         binding.loadingText.text = message
         binding.loadingOverlay.visibility = View.VISIBLE
 
-        // om den redan kör, starta inte igen
         if (loadingAnimator?.isRunning == true) return
 
-        // pulserar skalan på loggan
         loadingAnimator = android.animation.ObjectAnimator.ofFloat(
             binding.loadingLogo,
             View.SCALE_X,
-            1f, 1.08f, 1f
+            SCALE_START,
+            SCALE_PULSE,
+            SCALE_START
         ).apply {
-            duration = 900
+            duration = LOADING_PULSE_DURATION_MS
             repeatCount = android.animation.ValueAnimator.INFINITE
             repeatMode = android.animation.ValueAnimator.RESTART
         }
@@ -71,9 +97,11 @@ class MainGame : AppCompatActivity() {
         val scaleYAnimator = android.animation.ObjectAnimator.ofFloat(
             binding.loadingLogo,
             View.SCALE_Y,
-            1f, 1.08f, 1f
+            SCALE_START,
+            SCALE_PULSE,
+            SCALE_START
         ).apply {
-            duration = 900
+            duration = LOADING_PULSE_DURATION_MS
             repeatCount = android.animation.ValueAnimator.INFINITE
             repeatMode = android.animation.ValueAnimator.RESTART
         }
@@ -95,29 +123,27 @@ class MainGame : AppCompatActivity() {
         yAnim?.cancel()
         binding.loadingLogo.tag = null
 
-        // återställ skala
-        binding.loadingLogo.scaleX = 1f
-        binding.loadingLogo.scaleY = 1f
+        binding.loadingLogo.scaleX = SCALE_START
+        binding.loadingLogo.scaleY = SCALE_START
     }
     private fun playBonusRoundIntroAnimation() {
-        val board = binding.main  // root layout i activity_main_game.xml
+        val board = binding.main
 
         board.animate()
-            .scaleX(0.96f)
-            .scaleY(0.96f)
-            .alpha(0.7f)
-            .setDuration(120)
+            .scaleX(BOARD_INTRO_SCALE)
+            .scaleY(BOARD_INTRO_SCALE)
+            .alpha(BOARD_INTRO_ALPHA)
+            .setDuration(BOARD_INTRO_DURATION_IN_MS)
             .withEndAction {
                 board.animate()
-                    .scaleX(1f)
-                    .scaleY(1f)
-                    .alpha(1f)
-                    .setDuration(180)
+                    .scaleX(SCALE_START)
+                    .scaleY(SCALE_START)
+                    .alpha(ALPHA_FULL)
+                    .setDuration(BOARD_INTRO_RETURN_DURATION_MS)
                     .start()
             }
             .start()
     }
-
     private val questionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         hideLoadingPulse()
         val wasInBonusMode = isBonusMode
@@ -128,13 +154,13 @@ class MainGame : AppCompatActivity() {
 
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
-            val teamAPointsGained = data?.getIntExtra("TEAM_A_POINTS_GAINED", 0) ?: 0
-            val teamBPointsGained = data?.getIntExtra("TEAM_B_POINTS_GAINED", 0) ?: 0
+            val teamAPointsGained = data?.getIntExtra(EXTRA_TEAM_A_POINTS_GAINED, SCORE_START) ?: SCORE_START
+            val teamBPointsGained = data?.getIntExtra(EXTRA_TEAM_B_POINTS_GAINED, SCORE_START) ?: SCORE_START
             teamAScore += teamAPointsGained
             teamBScore += teamBPointsGained
             updateScores()
 
-            val answeredQuestionId = data?.getStringExtra("ANSWERED_QUESTION_ID")
+            val answeredQuestionId = data?.getStringExtra(EXTRA_ANSWERED_QUESTION_ID)
 
             if (wasInBonusMode) {
                 gameQuestions.clear()
@@ -201,16 +227,15 @@ class MainGame : AppCompatActivity() {
                 checkGameOver()
             }
         }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainGameBinding.inflate(layoutInflater)
-        onBackPressedDispatcher.addCallback(this) {
-            showExitWarning()
-        }
+
+        onBackPressedDispatcher.addCallback(this) { showExitWarning() }
 
         enableEdgeToEdge()
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -219,18 +244,16 @@ class MainGame : AppCompatActivity() {
 
         teamAName = intent.getStringExtra(CreateGame.ARG_TXT1)
         teamBName = intent.getStringExtra(CreateGame.ARG_TXT2)
-        val gameNameText = intent.getStringExtra(CreateGame.ARG_GAMETXT)
 
-        binding.mainGameTeam1.text = teamAName ?: ""
-        binding.mainGameTeam2.text = teamBName ?: ""
-        binding.mainGameName.text = gameNameText ?: ""
+        binding.mainGameTeam1.text = teamAName ?: EMPTY
+        binding.mainGameTeam2.text = teamBName ?: EMPTY
+
         updateScores()
         initializeNewGame()
-        setupButtonClickListeners()
         setupBonusButtonClickListeners()
         setupNoWordClickListeners()
-        restoreBoardState() // Set initial state of all buttons
-        updateTurnHighlight() // Set initial highlight
+        restoreBoardState()
+        updateTurnHighlight()
     }
 
     private fun updateTurnHighlight() {
@@ -246,6 +269,7 @@ class MainGame : AppCompatActivity() {
             binding.mainGameTeam2Score.setTextColor(Color.YELLOW)
         }
     }
+
 
     private fun triggerBonusRound(category: String, bonusButtonId: String) {
         if (isBonusMode || usedBonusButtons.contains(bonusButtonId)) return
@@ -299,10 +323,10 @@ class MainGame : AppCompatActivity() {
             val resId = resources.getIdentifier(buttonId, "id", packageName)
             if (resId != 0) {
                 val b = findViewById<MaterialButton>(resId)
-                b.scaleX = 0.85f
-                b.scaleY = 0.85f
-                b.alpha = 0f
-                b.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(220).start()
+                b.scaleX = BONUS_TILE_START_SCALE
+                b.scaleY = BONUS_TILE_START_SCALE
+                b.alpha = ALPHA_ZERO
+                b.animate().alpha(ALPHA_FULL).scaleX(ALPHA_FULL).scaleY(ALPHA_FULL).setDuration(BONUS_TILE_ANIM_DURATION_MS).start()
             }
         }
 
@@ -647,14 +671,10 @@ class MainGame : AppCompatActivity() {
 
     private fun showExitWarning() {
         androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("Leave match?")
-            .setMessage("If you go back, the current match will end and you will need to start a new one.")
-            .setPositiveButton("Leave") { _, _ ->
-                finish()
-            }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
-            }
+            .setTitle(R.string.dialog_leave_match_title)
+            .setMessage(R.string.dialog_leave_match_message)
+            .setPositiveButton(R.string.dialog_leave_match_positive) { _, _ -> finish() }
+            .setNegativeButton(R.string.dialog_leave_match_negative) { dialog, _ -> dialog.dismiss() }
             .show()
     }
 
@@ -663,3 +683,5 @@ class MainGame : AppCompatActivity() {
         binding.mainGameTeam2Score.text = teamBScore.toString()
     }
 }
+
+

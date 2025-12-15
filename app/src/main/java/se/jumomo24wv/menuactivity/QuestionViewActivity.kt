@@ -14,7 +14,7 @@ import com.google.android.material.button.MaterialButton
 import se.jumomo24wv.menuactivity.data.QuizQuestion
 
 class QuestionViewActivity : AppCompatActivity() {
-    private lateinit var questionPoints : MaterialButton
+    private lateinit var questionPoints: MaterialButton
     private lateinit var questionText: TextView
     private lateinit var questionImage: ImageView
     private lateinit var timerText: TextView
@@ -30,14 +30,15 @@ class QuestionViewActivity : AppCompatActivity() {
     private var teamBName: String? = "Team B"
     private var timer: CountDownTimer? = null
 
-    private val revealAnswerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data
-            val teamACorrect = data?.getBooleanExtra("TEAM_A_CORRECT", false) ?: false
-            val teamBCorrect = data?.getBooleanExtra("TEAM_B_CORRECT", false) ?: false
-            awardPoints(teamA = teamACorrect, teamB = teamBCorrect)
+    private val revealAnswerLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                val teamACorrect = data?.getBooleanExtra("TEAM_A_CORRECT", false) ?: false
+                val teamBCorrect = data?.getBooleanExtra("TEAM_B_CORRECT", false) ?: false
+                awardPoints(teamA = teamACorrect, teamB = teamBCorrect)
+            }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,8 +52,8 @@ class QuestionViewActivity : AppCompatActivity() {
         revealAnswerButton = findViewById(R.id.reveal_answer_button)
         questionPoints = findViewById(R.id.question_points)
 
-        teamAScoreValue = intent.getIntExtra("TEAM_A_SCORE", 0)
-        teamBScoreValue = intent.getIntExtra("TEAM_B_SCORE", 0)
+        teamAScoreValue = intent.getIntExtra("TEAM_A_SCORE", DEFAULT_SCORE)
+        teamBScoreValue = intent.getIntExtra("TEAM_B_SCORE", DEFAULT_SCORE)
         teamAName = intent.getStringExtra("TEAM_A_NAME") ?: "Team A"
         teamBName = intent.getStringExtra("TEAM_B_NAME") ?: "Team B"
         updateScores()
@@ -64,7 +65,6 @@ class QuestionViewActivity : AppCompatActivity() {
             displayQuestion()
             startTimer()
         } else {
-            // Handle error: No question provided
             finish()
         }
 
@@ -87,7 +87,7 @@ class QuestionViewActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-        timer = object : CountDownTimer(60000, 1000) { // 60 second timer
+        timer = object : CountDownTimer(QUESTION_TIMER_TOTAL_MS, QUESTION_TIMER_TICK_MS) { // 60 second timer
             override fun onTick(millisUntilFinished: Long) {
                 val seconds = millisUntilFinished / 1000
                 timerText.text = String.format("%02d:%02d", seconds / 60, seconds % 60)
@@ -137,5 +137,11 @@ class QuestionViewActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         timer?.cancel()
+    }
+
+    companion object {
+        private const val DEFAULT_SCORE = 0
+        private const val QUESTION_TIMER_TOTAL_MS = 60_000L
+        private const val QUESTION_TIMER_TICK_MS = 1_000L
     }
 }

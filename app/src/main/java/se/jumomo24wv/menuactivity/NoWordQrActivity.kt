@@ -27,11 +27,10 @@ class NoWordQrActivity : AppCompatActivity() {
         val startActingButton: Button = findViewById(R.id.doneButton)
 
         val url = intent.getStringExtra("NO_WORD_URL") ?: return
-        val points = intent.getIntExtra("NO_WORD_POINTS", 0)
+        val points = intent.getIntExtra("NO_WORD_POINTS", DEFAULT_POINTS)
         val teamAName = intent.getStringExtra("TEAM_A_NAME")
         val teamBName = intent.getStringExtra("TEAM_B_NAME")
         val answer = intent.getStringExtra("NO_WORD_ANSWER")
-
 
         val qrBitmap = generateQrBitmap(url)
         qrImage.setImageBitmap(qrBitmap)
@@ -51,6 +50,9 @@ class NoWordQrActivity : AppCompatActivity() {
 
             actingLauncher.launch(actIntent)
         }
+    }
 
+    companion object {
+        private const val DEFAULT_POINTS = 0
     }
 }

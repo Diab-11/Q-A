@@ -117,4 +117,14 @@
     <string name="back_to_menu_button_text">Back to menu</string>
     <string name="trophy_content_description">Trophy</string>
 
+
+
+
+
+    <string name="dialog_leave_match_title">Leave match?</string>
+    <string name="dialog_leave_match_positive">Leave</string>
+    <string name="dialog_leave_match_negative">Cancel</string>
+    <string name="loading_default">Loading...</string>
+    <string name="dialog_leave_match_message">If you go back, the current match will end and you will need to start a new one.</string>
+
 </resources>
