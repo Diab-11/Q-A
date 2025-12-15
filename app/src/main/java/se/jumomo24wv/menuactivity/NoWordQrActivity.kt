@@ -35,7 +35,7 @@ class NoWordQrActivity : AppCompatActivity() {
         val qrBitmap = generateQrBitmap(url)
         qrImage.setImageBitmap(qrBitmap)
 
-        startActingButton.text = "Ready to act ->"
+        startActingButton.setText(R.string.ready_to_act_button)
         startActingButton.setOnClickListener {
             val answeredId = intent.getStringExtra("ANSWERED_QUESTION_ID")
             val answer = intent.getStringExtra("NO_WORD_ANSWER")

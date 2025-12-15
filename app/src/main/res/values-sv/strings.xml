@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Q&amp;A</string>
+
+    <string name="default_web_client_id">316253336830-74omkii0igd9qh7l6tmsst6nbkhe4od8.apps.googleusercontent.com</string>
+
+    <string name="full_app_name">Frågor och svar</string>
+    <string name="enter_game_name">Ange spelnamn</string>
+    <string name="team_1">Lag 1</string>
+    <string name="team_2">Lag 2</string>
+    <string name="Start_Game_Btn">Starta spel</string>
+    <string name="Login_Sign_up_Btn">Logga in / Registrera</string>
+    <string name="Setting_Btn">Inställningar</string>
+    <string name="Contact_us_Btn">Kontakta oss</string>
+    <string name="Rule_and_policy_Btn">Regler och policy</string>
+    <string name="language">Svenska</string>
+
+    <!-- Rules Text -->
+
+    <string name="rules_title">Spelregler</string>
+    <string name="rules_overview_title">Översikt</string>
+    <string name="rules_points_title">Poäng</string>
+    <string name="rules_gameplay_title">Spelupplägg</string>
+    <string name="rules_bonus_title">Bonusregel</string>
+    <string name="rules_endgame_title">Spelets slut</string>
+
+    <string name="rules_overview_text">
+        • Två lag tävlar i ett frågespel.\n
+        • Spelet har 6 kategorier.\n
+        • Varje kategori innehåller 3 svårighetsgrader + 1 bonusfråga.
+    </string>
+
+    <string name="rules_points_text">
+        • Enkel fråga: 200 poäng\n
+        • Medelsvår fråga: 400 poäng\n
+        • Svår fråga: 600 poäng\n
+        • Bonusfråga: svårighetsgrad väljs av spelaren
+    </string>
+
+    <string name="rules_gameplay_text">
+        • Välj en kategori.\n
+        • Välj svårighetsgrad.\n
+        • En timer startar för diskussion.\n
+        • Laget låser sitt svar.\n
+        • Båda lagen svarar, tryck sedan Visa svar.\n
+        • Rätt lag tilldelas poäng.
+    </string>
+
+    <string name="rules_bonus_text">
+        • Bonus låser upp tidigare besvarade frågor.\n
+        • Du kan välja en annan fråga med samma svårighetsgrad.\n
+        • Bonus kan endast användas en gång per kategori.
+    </string>
+
+    <string name="rules_endgame_text">
+        • Spelet avslutas när alla frågor är besvarade.\n
+        • Slutpoäng visas.\n
+        • Om du är inloggad sparas resultaten.
+    </string>
+
+    <string name="title_activity_login_test">Inloggningstest</string>
+    <string name="app_widget_description">Min app-widget</string>
+
+    <string-array name="theme_options">
+        <item>Ljust</item>
+        <item>Mörkt</item>
+        <item>Systemstandard</item>
+    </string-array>
+
+    <string name="no_word_qr_title">Låt en spelare skanna denna QR-kod</string>
+    <string name="start_acting_button">Börja agera</string>
+    <string name="ready_to_act_button">Redo att agera →</string>
+    <string name="start_button">Starta</string>
+    <string name="team_correct_format">%1$s Rätt</string>
+
+    <string name="login_signup_title">Logga in / Registrera</string>
+    <string name="email_hint">E-post</string>
+    <string name="password_hint">Lösenord</string>
+    <string name="login_button">Logga in</string>
+    <string name="or_divider">ELLER</string>
+    <string name="google_signin_button">Logga in med Google</string>
+    <string name="signup_prompt">Har du inget konto? Registrera dig</string>
+
+    <string name="team_1_score_default">0</string>
+    <string name="team_2_score_default">0</string>
+
+    <string name="cars_category">Bilar</string>
+    <string name="common_knowledge_category">Allmän kunskap</string>
+    <string name="sports_category">Sport</string>
+    <string name="geography_category">Geografi</string>
+    <string name="flags_countries_category">Flaggor &amp; länder</string>
+    <string name="no_word_category">Inget ord</string>
+
+    <string name="bonus_button">bonus!</string>
+
+    <string name="points_200">200</string>
+    <string name="points_400">400</string>
+    <string name="points_600">600</string>
+
+    <string name="no_word_act_timer_default">01:30</string>
+    <string name="no_word_act_instruction">Agera ordet utan att prata</string>
+
+    <string name="reveal_answer_button">Visa svar</string>
+    <string name="question_view_timer_default">00:00</string>
+    <string name="question_placeholder">Frågan visas här</string>
+
+    <string name="team_a_score_label">Lag A: %1$d</string>
+    <string name="team_b_score_label">Lag B: %1$d</string>
+    <string name="question_points_label">%1$s : %2$d</string>
+
+    <string name="right_answer_prompt">Rätt svar är:</string>
+    <string name="who_got_it_right">Vem hade rätt?</string>
+    <string name="none_got_it_right">Ingen hade rätt</string>
+
+    <string name="main_game_team1_name">Lag 1</string>
+    <string name="main_game_game_name">Spelnamn</string>
+
+    <string name="loading_content_description">Laddar</string>
+    <string name="loading_text">Laddar...</string>
+
+    <string name="team_a">Lag A</string>
+    <string name="team_b">Lag B</string>
+
+    <string name="settings_title">Inställningar</string>
+    <string name="theme_label">Tema</string>
+    <string name="swedish_label">Svenska</string>
+    <string name="logout_button_text">Logga ut</string>
+
+    <string name="winner_congrats">VINNARE!</string>
+    <string name="back_to_menu_button_text">Tillbaka till menyn</string>
+    <string name="trophy_content_description">Pokal</string>
+
+    <string name="dialog_leave_match_title">Lämna match?</string>
+    <string name="dialog_leave_match_positive">Lämna</string>
+    <string name="dialog_leave_match_negative">Avbryt</string>
+    <string name="loading_default">Laddar...</string>
+    <string name="dialog_leave_match_message">
+        Om du går tillbaka avslutas den aktuella matchen och du måste starta en ny.
+    </string>
+
+</resources>

@@ -251,6 +251,7 @@ class MainGame : AppCompatActivity() {
         updateScores()
         initializeNewGame()
         setupBonusButtonClickListeners()
+        setupButtonClickListeners()
         setupNoWordClickListeners()
         restoreBoardState()
         updateTurnHighlight()
@@ -407,10 +408,7 @@ class MainGame : AppCompatActivity() {
             }
             "Geography" -> {
                 updateQuestion("geography_200", geographyEasy)
-                updateQuestion(
-                    "geography_400",
-                    QuizData.geographyMedium
-                )
+                updateQuestion("geography_400", geographyMedium)
                 updateQuestion("geography_600", geographyHard)
             }
             "Cars" -> {

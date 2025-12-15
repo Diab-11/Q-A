@@ -119,6 +119,7 @@
 
 
 
+    <string name="team_correct_format">%1$s Correct</string>
 
 
     <string name="dialog_leave_match_title">Leave match?</string>

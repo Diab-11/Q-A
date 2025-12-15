@@ -24,12 +24,14 @@ class RevealAnswerActivity : AppCompatActivity() {
         noneCorrectButton = findViewById(R.id.none_correct_button)
 
         val answer = intent.getStringExtra("ANSWER")
-        val teamAName = intent.getStringExtra("TEAM_A_NAME") ?: "Team A"
-        val teamBName = intent.getStringExtra("TEAM_B_NAME") ?: "Team B"
+        val teamAName = intent.getStringExtra("TEAM_A_NAME") ?: getString(R.string.team_a)
+        val teamBName = intent.getStringExtra("TEAM_B_NAME") ?: getString(R.string.team_b)
         answerText.text = answer
 
-        teamACorrectButton.text = "$teamAName Correct"
-        teamBCorrectButton.text = "$teamBName Correct"
+        teamACorrectButton.text = getString(R.string.team_correct_format, teamAName)
+
+        teamBCorrectButton.text = getString(R.string.team_correct_format, teamBName)
+
 
         teamACorrectButton.setOnClickListener { setResultAndFinish(true, false) }
         teamBCorrectButton.setOnClickListener { setResultAndFinish(false, true) }
