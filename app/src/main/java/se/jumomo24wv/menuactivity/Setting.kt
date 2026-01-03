@@ -20,6 +20,7 @@ import se.jumomo24wv.menuactivity.data.LanguageManager
 
 class Setting : AppCompatActivity() {
 
+    // konstanter för tema o språk, använd för att undvika magiska nummer.
     private companion object {
         private const val THEME_PREF = "ThemePref"
         private const val THEME_POS_KEY = "theme_pos"
@@ -30,9 +31,11 @@ class Setting : AppCompatActivity() {
 
         private const val LANG_CODE_SWEDISH = "sv"
         private const val LANG_CODE_ENGLISH = "en"
+        private const val LANG_CODE_ARABIC = "ar"
+        
         private const val LANG_DISPLAY_SWEDISH = "Svenska"
         private const val LANG_DISPLAY_ENGLISH = "English"
-        private const val LANG_POS_SWEDISH = 1
+        private const val LANG_DISPLAY_ARABIC = "العربية"
     }
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -61,9 +64,11 @@ class Setting : AppCompatActivity() {
      */
     private fun setupThemeDropdown() {
         val dropdown = findViewById<MaterialAutoCompleteTextView>(R.id.themeDropdown)
+        // SharedPreferences används för att spara användarens temaval
         val sharedPreferences = getSharedPreferences(THEME_PREF, Context.MODE_PRIVATE)
 
         val themes = resources.getStringArray(R.array.theme_options).toList()
+        // Kopplar listan till dropdownen
         dropdown.setAdapter(ArrayAdapter(this, android.R.layout.simple_list_item_1, themes))
 
         val savedThemePos = sharedPreferences.getInt(THEME_POS_KEY, THEME_SYSTEM).coerceIn(themes.indices)
@@ -101,18 +106,26 @@ class Setting : AppCompatActivity() {
     private fun setupLanguageDropdown() {
         val dropdown = findViewById<MaterialAutoCompleteTextView>(R.id.languageDropdown)
 
-        val items = listOf(LANG_DISPLAY_ENGLISH, LANG_DISPLAY_SWEDISH)
+        val items = listOf(LANG_DISPLAY_ENGLISH, LANG_DISPLAY_SWEDISH, LANG_DISPLAY_ARABIC)
+        // Kopplar listan till dropdownen
         dropdown.setAdapter(ArrayAdapter(this, android.R.layout.simple_list_item_1, items))
-
+        
+        // Hämtar nuvarande språk som sparats lokalt
         val current = LanguageManager.getLanguage(this)
-        dropdown.setText(
-            if (current == LANG_CODE_SWEDISH) LANG_DISPLAY_SWEDISH else LANG_DISPLAY_ENGLISH,
-            false
-        )
+        val initialText = when (current) {
+            LANG_CODE_SWEDISH -> LANG_DISPLAY_SWEDISH
+            LANG_CODE_ARABIC -> LANG_DISPLAY_ARABIC
+            else -> LANG_DISPLAY_ENGLISH
+        }
+        dropdown.setText(initialText, false)
 
         dropdown.setOnItemClickListener { _, _, position, _ ->
-            val selectedLang =
-                if (position == LANG_POS_SWEDISH) LANG_CODE_SWEDISH else LANG_CODE_ENGLISH
+            val selectedLang = when (position) {
+                0 -> LANG_CODE_ENGLISH
+                1 -> LANG_CODE_SWEDISH
+                2 -> LANG_CODE_ARABIC
+                else -> LANG_CODE_ENGLISH
+            }
 
             if (selectedLang == current) return@setOnItemClickListener
 

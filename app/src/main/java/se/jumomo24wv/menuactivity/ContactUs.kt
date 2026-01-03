@@ -26,6 +26,7 @@ import se.jumomo24wv.menuactivity.ui.theme.MenuActivityTheme
 class ContactUs : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // setContent ersätter setContentView
         setContent {
             MenuActivityTheme {
                 ContactUsScreen()
@@ -35,7 +36,7 @@ class ContactUs : ComponentActivity() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Composable
+@Composable // @Composable betyder att funktionen beskriver UI
 fun ContactUsScreen() {
     Scaffold(
         topBar = {
@@ -48,6 +49,7 @@ fun ContactUsScreen() {
             )
         }
     ) { paddingValues ->
+        // LazyColumn är en scrollbar lista
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()

@@ -15,11 +15,13 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import se.jumomo24wv.menuactivity.data.QuizData
 import se.jumomo24wv.menuactivity.data.QuizDataSV
+import se.jumomo24wv.menuactivity.data.QuizDataAR
 import se.jumomo24wv.menuactivity.data.QuizQuestion
 import se.jumomo24wv.menuactivity.databinding.ActivityMainGameBinding
 import se.jumomo24wv.menuactivity.data.NoWordData
 import se.jumomo24wv.menuactivity.data.NoWordQuestion
 import se.jumomo24wv.menuactivity.data.NoWordDataSV
+import se.jumomo24wv.menuactivity.data.NoWordDataAR
 
 import androidx.activity.addCallback
 import se.jumomo24wv.menuactivity.data.LanguageManager
@@ -58,6 +60,7 @@ class MainGame : AppCompatActivity() {
     private var teamBScore = 0
     private var teamAName: String? = null
     private var teamBName: String? = null
+    private var gameName: String? = null
     private var isTeamATurn = TEAM_A_STARTS // Team A starts
 
     // Current game state
@@ -244,9 +247,11 @@ class MainGame : AppCompatActivity() {
 
         teamAName = intent.getStringExtra(CreateGame.ARG_TXT1)
         teamBName = intent.getStringExtra(CreateGame.ARG_TXT2)
+        gameName = intent.getStringExtra(CreateGame.ARG_GAMETXT)
 
         binding.mainGameTeam1.text = teamAName ?: EMPTY
         binding.mainGameTeam2.text = teamBName ?: EMPTY
+        binding.mainGameName.text = gameName ?: EMPTY
 
         updateScores()
         initializeNewGame()
@@ -371,26 +376,86 @@ class MainGame : AppCompatActivity() {
 
     private fun refreshCategoryQuestions(category: String) {
 
+        val flagsEasy = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.flagsEasy
+            LanguageManager.isSwedish(this) -> QuizDataSV.flagsEasy
+            else -> QuizData.flagsEasy
+        }
+        val flagsMedium = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.flagsMedium
+            LanguageManager.isSwedish(this) -> QuizDataSV.flagsMedium
+            else -> QuizData.flagsMedium
+        }
+        val flagsHard = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.flagsHard
+            LanguageManager.isSwedish(this) -> QuizDataSV.flagsHard
+            else -> QuizData.flagsHard
+        }
 
-        val flagsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsEasy else QuizData.flagsEasy
-        val flagsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsMedium else QuizData.flagsMedium
-        val flagsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.flagsHard else QuizData.flagsHard
+        val geographyEasy = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.geographyEasy
+            LanguageManager.isSwedish(this) -> QuizDataSV.geographyEasy
+            else -> QuizData.geographyEasy
+        }
+        val geographyMedium = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.geographyMedium
+            LanguageManager.isSwedish(this) -> QuizDataSV.geographyMedium
+            else -> QuizData.geographyMedium
+        }
+        val geographyHard = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.geographyHard
+            LanguageManager.isSwedish(this) -> QuizDataSV.geographyHard
+            else -> QuizData.geographyHard
+        }
 
-        val geographyEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyEasy else QuizData.geographyEasy
-        val geographyMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyMedium else QuizData.geographyMedium
-        val geographyHard = if (LanguageManager.isSwedish(this)) QuizDataSV.geographyHard else QuizData.geographyHard
+        val carsEasy = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.carsEasy
+            LanguageManager.isSwedish(this) -> QuizDataSV.carsEasy
+            else -> QuizData.carsEasy
+        }
+        val carsMedium = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.carsMedium
+            LanguageManager.isSwedish(this) -> QuizDataSV.carsMedium
+            else -> QuizData.carsMedium
+        }
+        val carsHard = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.carsHard
+            LanguageManager.isSwedish(this) -> QuizDataSV.carsHard
+            else -> QuizData.carsHard
+        }
 
-        val carsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.carsEasy else QuizData.carsEasy
-        val carsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.carsMedium else QuizData.carsMedium
-        val carsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.carsHard else QuizData.carsHard
+        val commonKnowledgeEasy = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.commonKnowledgeEasy
+            LanguageManager.isSwedish(this) -> QuizDataSV.commonKnowledgeEasy
+            else -> QuizData.commonKnowledgeEasy
+        }
+        val commonKnowledgeMedium = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.commonKnowledgeMedium
+            LanguageManager.isSwedish(this) -> QuizDataSV.commonKnowledgeMedium
+            else -> QuizData.commonKnowledgeMedium
+        }
+        val commonKnowledgeHard = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.commonKnowledgeHard
+            LanguageManager.isSwedish(this) -> QuizDataSV.commonKnowledgeHard
+            else -> QuizData.commonKnowledgeHard
+        }
 
-        val commonKnowledgeEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeEasy else QuizData.commonKnowledgeEasy
-        val commonKnowledgeMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeMedium else QuizData.commonKnowledgeMedium
-        val commonKnowledgeHard = if (LanguageManager.isSwedish(this)) QuizDataSV.commonKnowledgeHard else QuizData.commonKnowledgeHard
+        val sportsEasy = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.sportsEasy
+            LanguageManager.isSwedish(this) -> QuizDataSV.sportsEasy
+            else -> QuizData.sportsEasy
+        }
+        val sportsMedium = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.sportsMedium
+            LanguageManager.isSwedish(this) -> QuizDataSV.sportsMedium
+            else -> QuizData.sportsMedium
+        }
+        val sportsHard = when {
+            LanguageManager.isArabic(this) -> QuizDataAR.sportsHard
+            LanguageManager.isSwedish(this) -> QuizDataSV.sportsHard
+            else -> QuizData.sportsHard
+        }
 
-        val sportsEasy = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsEasy else QuizData.sportsEasy
-        val sportsMedium = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsMedium else QuizData.sportsMedium
-        val sportsHard = if (LanguageManager.isSwedish(this)) QuizDataSV.sportsHard else QuizData.sportsHard
         fun updateQuestion(buttonId: String, questionPool: List<QuizQuestion>) {
             val newQuestion = questionPool.filter { it !in presentedQuestions }.randomOrNull()
             val questionToUse = newQuestion ?: questionPool.random() // Fallback to any random question if uniques run out
@@ -585,7 +650,7 @@ class MainGame : AppCompatActivity() {
         // 1) Vänta tills alla vanliga frågor + no word är klara
         if (!isAllMainQuestionsDone()) return
 
-        // 2) När allt är klart, måste alla bonusar användas innan Winner
+        // 2) När allt är klart, muste alla bonusar användas innan Winner
         val allBonusIds = setOf(
             "cars_bonus",
             "common_knowledge_bonus",
@@ -632,21 +697,21 @@ class MainGame : AppCompatActivity() {
 
 
     private fun setupNoWordClickListeners() {
-        val noWord200 =
-            if (LanguageManager.isSwedish(this))
-                NoWordDataSV.noWord200
-            else
-                NoWordData.noWord200
-        val noWord400 =
-            if (LanguageManager.isSwedish(this))
-                NoWordDataSV.noWord400
-            else
-                NoWordData.noWord400
-        val noWord600 =
-            if (LanguageManager.isSwedish(this))
-                NoWordDataSV.noWord600
-            else
-                NoWordData.noWord600
+        val noWord200 = when {
+            LanguageManager.isArabic(this) -> NoWordDataAR.noWord200
+            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord200
+            else -> NoWordData.noWord200
+        }
+        val noWord400 = when {
+            LanguageManager.isArabic(this) -> NoWordDataAR.noWord400
+            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord400
+            else -> NoWordData.noWord400
+        }
+        val noWord600 = when {
+            LanguageManager.isArabic(this) -> NoWordDataAR.noWord600
+            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord600
+            else -> NoWordData.noWord600
+        }
 
         binding.noWord200.setOnClickListener {
             openNoWordQr(noWord200, "no_word_200")
@@ -681,5 +746,3 @@ class MainGame : AppCompatActivity() {
         binding.mainGameTeam2Score.text = teamBScore.toString()
     }
 }
-
-

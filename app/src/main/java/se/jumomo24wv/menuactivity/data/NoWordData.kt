@@ -178,31 +178,6 @@ object NoWordData {
     )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//SWEDISH TRANSLATION /////
-
-
-
-
-
 object NoWordDataSV {
 
     val noWord200 = listOf(
@@ -367,5 +342,24 @@ object NoWordDataSV {
             url = "https://mohamedlutfi.github.io/noword-pages/bush.html",
             points = 600
         )
+    )
+}
+
+object NoWordDataAR {
+    val noWord200 = listOf(
+        NoWordQuestion(answer = "دب بني", url = "https://mohamedlutfi.github.io/noword-pages/bear.html", points = 200),
+        NoWordQuestion(answer = "نحلة", url = "https://mohamedlutfi.github.io/noword-pages/bee.html", points = 200),
+        NoWordQuestion(answer = "موز", url = "https://mohamedlutfi.github.io/noword-pages/banana.html", points = 200),
+        NoWordQuestion(answer = "تاج ذهبي", url = "https://mohamedlutfi.github.io/noword-pages/goldcrown.html", points = 200),
+        NoWordQuestion(answer = "ثلج", url = "https://mohamedlutfi.github.io/noword-pages/ice.html", points = 200)
+    )
+    val noWord400 = listOf(
+        NoWordQuestion(answer = "درع", url = "https://mohamedlutfi.github.io/noword-pages/armor.html", points = 400),
+        NoWordQuestion(answer = "رائد فضاء", url = "https://mohamedlutfi.github.io/noword-pages/astronaut.html", points = 400),
+        NoWordQuestion(answer = "باتمان", url = "https://mohamedlutfi.github.io/noword-pages/batman.html", points = 400)
+    )
+    val noWord600 = listOf(
+        NoWordQuestion(answer = "طبق طائر", url = "https://mohamedlutfi.github.io/noword-pages/ufo.html", points = 600),
+        NoWordQuestion(answer = "عميل سري", url = "https://mohamedlutfi.github.io/noword-pages/secretagent.html", points = 600)
     )
 }

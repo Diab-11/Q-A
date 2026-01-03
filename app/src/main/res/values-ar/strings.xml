@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Q&amp;A</string>
+    <string name="full_app_name">سؤال وجواب</string>
+    <string name="enter_game_name">أدخل اسم اللعبة</string>
+    <string name="team_1">الفريق ١</string>
+    <string name="team_2">الفريق ٢</string>
+    <string name="Start_Game_Btn">ابدأ اللعبة</string>
+    <string name="Login_Sign_up_Btn">تسجيل الدخول / إنشاء حساب</string>
+    <string name="Setting_Btn">الإعدادات</string>
+    <string name="Contact_us_Btn">اتصل بنا</string>
+    <string name="Rule_and_policy_Btn">القواعد والسياسة</string>
+    <string name="language">العربية</string>
+
+    <string name="rules_title">قواعد اللعبة</string>
+    <string name="rules_overview_title">نظرة عامة</string>
+    <string name="rules_points_title">النقاط</string>
+    <string name="rules_gameplay_title">طريقة اللعب</string>
+    <string name="rules_bonus_title">قاعدة المكافأة</string>
+    <string name="rules_endgame_title">نهاية اللعبة</string>
+
+    <string name="rules_overview_text">
+        • يتنافس فريقان في تحدي سؤال وجواب.\n
+        • اللعبة تحتوي على 6 فئات.\n
+        • كل فئة تحتوي على 3 مستويات صعوبة + سؤال مكافأة واحد.
+    </string>
+
+    <string name="rules_points_text">
+        • سؤال سهل: 200 نقطة\n
+        • سؤال متوسط: 400 نقطة\n
+        • سؤال صعب: 600 نقطة\n
+        • سؤال المكافأة: يختار اللاعب مستوى الصعوبة
+    </string>
+
+    <string name="rules_gameplay_text">
+        • اختر فئة.\n
+        • اختر مستوى الصعوبة.\n
+        • يبدأ مؤقت للمناقشة بين اللاعبين.\n
+        • يثبت الفريق الإجابة.\n
+        • يجيب كلا الفريقين، ثم اضغط على كشف الإجابة.\n
+        • الفريق الصحيح يحصل على النقاط.
+    </string>
+
+    <string name="rules_bonus_text">
+        • المكافأة تفتح الأسئلة التي تمت الإجابة عليها مسبقاً.\n
+        • يمكنك اختيار سؤال آخر من نفس مستوى الصعوبة.\n
+        • يمكن استخدام المكافأة مرة واحدة فقط لكل فئة.
+    </string>
+
+    <string name="rules_endgame_text">
+        • تنتهي اللعبة عند الإجابة على جميع الأسئلة.\n
+        • تظهر النتائج النهائية.\n
+        • إذا كنت مسجلاً للدخول، يتم حفظ النتائج.
+    </string>
+
+    <string-array name="theme_options">
+        <item>فاتح</item>
+        <item>داكن</item>
+        <item>تلقائي</item>
+    </string-array>
+
+    <string name="login_signup_title">تسجيل الدخول / إنشاء حساب</string>
+    <string name="email_hint">البريد الإلكتروني</string>
+    <string name="password_hint">كلمة المرور</string>
+    <string name="login_button">تسجيل الدخول</string>
+    <string name="or_divider">أو</string>
+    <string name="google_signin_button">تسجيل الدخول باستخدام جوجل</string>
+    <string name="signup_prompt">ليس لديك حساب؟ سجل الآن</string>
+
+    <string name="cars_category">سيارات</string>
+    <string name="common_knowledge_category">معلومات عامة</string>
+    <string name="sports_category">رياضة</string>
+    <string name="geography_category">جغرافيا</string>
+    <string name="flags_countries_category">أعلام ودول</string>
+    <string name="no_word_category">بدون كلمات</string>
+
+    <string name="bonus_button">مكافأة !</string>
+    <string name="reveal_answer_button">كشف الإجابة</string>
+    <string name="settings_title">الإعدادات</string>
+    <string name="theme_label">المظهر</string>
+    <string name="logout_button_text">تسجيل الخروج</string>
+    <string name="winner_congrats">الفائز!</string>
+    <string name="back_to_menu_button_text">العودة للقائمة</string>
+
+    <string name="dialog_leave_match_title">مغادرة المباراة؟</string>
+    <string name="dialog_leave_match_positive">مغادرة</string>
+    <string name="dialog_leave_match_negative">إلغاء</string>
+    <string name="dialog_leave_match_message">إذا عدت للخلف، ستنتهي المباراة الحالية وستحتاج لبدء مباراة جديدة.</string>
+</resources>

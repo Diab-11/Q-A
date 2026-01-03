@@ -28,6 +28,7 @@ class Login : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        // Kontrollera om användaren slutförde inloggningen korrekt
         if (result.resultCode == RESULT_OK) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             handleSignInResult(task)

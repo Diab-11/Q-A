@@ -95,7 +95,6 @@ class QuestionViewActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 timerText.text = "00:00"
-                revealAnswer()
             }
         }.start()
     }
