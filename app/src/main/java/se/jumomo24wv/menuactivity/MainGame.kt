@@ -50,9 +50,8 @@ private const val BONUS_TILE_START_SCALE = 0.85f
 private const val ALPHA_ZERO = 0f
 private const val ALPHA_FULL = 1f
 
-// Number of quiz category slots on the board (the teams pick this many categories
-// on the SelectCategoriesActivity screen). "No Word" is always an additional,
-// fixed 7th column and is not part of this count.
+// Number of quiz category slots on the board (the teams pick this many categories,
+// possibly including "No Word", on the SelectCategoriesActivity screen).
 private const val SLOT_COUNT = 6
 
 
@@ -67,10 +66,17 @@ class MainGame : AppCompatActivity() {
     private var isTeamATurn = TEAM_A_STARTS // Team A starts
 
     // The categories the teams picked, in slot order: index 0 -> slot1, ... index 5 -> slot6.
+    // "No Word" may or may not be one of these six, exactly like any other category.
     private var selectedCategories: List<String> = emptyList()
     private val slotIds = listOf("slot1", "slot2", "slot3", "slot4", "slot5", "slot6")
     private lateinit var slotToCategory: Map<String, String>
     private lateinit var categoryToSlot: Map<String, String>
+
+    // All 18 point-button ids on the board (3 per slot), regardless of which
+    // category (regular or "No Word") ends up in each slot.
+    private val allQuestionButtonIds: List<String> by lazy {
+        slotIds.flatMap { slot -> listOf("${slot}_200", "${slot}_400", "${slot}_600") }
+    }
 
     private data class SlotViews(
         val title: TextView,
@@ -87,7 +93,6 @@ class MainGame : AppCompatActivity() {
     private val answeredQuestions = mutableSetOf<String>()
     private val usedBonusButtons = mutableSetOf<String>()
     private val presentedQuestions = mutableSetOf<QuizQuestion>() // Tracks all questions shown to user
-    private val answeredNoWordQuestions = mutableSetOf<String>()
 
     // State for bonus round
     private var isBonusMode = false
@@ -207,48 +212,6 @@ class MainGame : AppCompatActivity() {
         updateTurnHighlight()
         checkGameOver()
     }
-    private val noWordLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            hideLoadingPulse()
-            val wasInNoWordBonusMode = isBonusMode
-            if (isBonusMode) {
-                isBonusMode = false // Exit bonus mode immediately
-            }
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data = result.data
-                val teamAPoints = data?.getIntExtra("TEAM_A_POINTS_GAINED", 0) ?: 0
-                val teamBPoints = data?.getIntExtra("TEAM_B_POINTS_GAINED", 0) ?: 0
-                val answeredQuestionId = data?.getStringExtra("ANSWERED_QUESTION_ID")
-
-                if (wasInNoWordBonusMode) {
-                    // Restore pre-bonus state for no-word questions
-                    answeredNoWordQuestions.clear()
-                    answeredNoWordQuestions.addAll(preBonusAnsweredQuestions)
-                    if (answeredQuestionId != null) {
-                        answeredNoWordQuestions.add(answeredQuestionId)
-                    }
-                    // Restore other questions
-                    gameQuestions.clear()
-                    gameQuestions.putAll(preBonusGameQuestions)
-                    answeredQuestions.clear()
-                    answeredQuestions.addAll(preBonusAnsweredQuestions.filter { !it.startsWith("no_word") })
-
-                } else {
-                    if (answeredQuestionId != null) {
-                        answeredNoWordQuestions.add(answeredQuestionId)
-                    }
-                }
-
-                teamAScore += teamAPoints
-                teamBScore += teamBPoints
-                updateScores()
-                restoreBoardState()
-                // byt tur efter avslutad no-word-runda
-                isTeamATurn = !isTeamATurn
-                updateTurnHighlight()
-                checkGameOver()
-            }
-        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainGameBinding.inflate(layoutInflater)
@@ -264,6 +227,10 @@ class MainGame : AppCompatActivity() {
             insets
         }
 
+        // The old fixed "No Word" column is no longer used: "No Word" is now just
+        // one of the 6 dynamic slots when the teams choose to pick it.
+        binding.sectionNoWord.visibility = View.GONE
+
         teamAName = intent.getStringExtra(CreateGame.ARG_TXT1)
         teamBName = intent.getStringExtra(CreateGame.ARG_TXT2)
         gameName = intent.getStringExtra(CreateGame.ARG_GAMETXT)
@@ -278,7 +245,6 @@ class MainGame : AppCompatActivity() {
         initializeNewGame()
         setupBonusButtonClickListeners()
         setupButtonClickListeners()
-        setupNoWordClickListeners()
         restoreBoardState()
         updateTurnHighlight()
     }
@@ -348,6 +314,11 @@ class MainGame : AppCompatActivity() {
     }
 
 
+    /**
+     * Starts a bonus round for whichever slot [category] lives in. Works the same way
+     * for a regular category (re-rolls its 3 questions) and for "No Word" (its 3
+     * buttons just get re-enabled — new cards are picked at click time anyway).
+     */
     private fun triggerBonusRound(category: String, bonusButtonId: String) {
         if (isBonusMode || usedBonusButtons.contains(bonusButtonId)) return
         val slot = categoryToSlot[category] ?: return
@@ -364,8 +335,10 @@ class MainGame : AppCompatActivity() {
         preBonusAnsweredQuestions.clear()
         preBonusAnsweredQuestions.addAll(answeredQuestions)
 
-        // Ladda om frågor för vald kategori
-        refreshCategoryQuestions(category)
+        // Ladda om frågor för vald kategori (inte relevant för "No Word", som slumpar kort vid klick)
+        if (category != QuizRepository.NO_WORD_CATEGORY) {
+            refreshCategoryQuestions(category)
+        }
 
         // Fasta knapp-id:n för den slot kategorin ligger i
         val allowedQuestionIds = listOf("${slot}_200", "${slot}_400", "${slot}_600")
@@ -375,7 +348,7 @@ class MainGame : AppCompatActivity() {
 
         // Aktivera endast bonus-kategorins tre rutor, disable resten
         val allowedSet = allowedQuestionIds.toSet()
-        for (buttonId in gameQuestions.keys) {
+        for (buttonId in allQuestionButtonIds) {
             val button = findButtonView(buttonId) ?: continue
             if (allowedSet.contains(buttonId)) {
                 button.isEnabled = true
@@ -396,37 +369,6 @@ class MainGame : AppCompatActivity() {
 
         // Disable bonus-knapparna under bonusrundan
         setAllBonusButtonsEnabled(false)
-        binding.noWordBonus.isEnabled = false
-    }
-
-
-
-    private fun triggerNoWordBonusRound(bonusButtonId: String) {
-        if (isBonusMode || usedBonusButtons.contains(bonusButtonId)) return
-
-        isBonusMode = true
-        usedBonusButtons.add(bonusButtonId)
-
-        playBonusRoundIntroAnimation()
-
-        // Save state
-        preBonusGameQuestions.clear()
-        preBonusGameQuestions.putAll(gameQuestions)
-        preBonusAnsweredQuestions.clear()
-        preBonusAnsweredQuestions.addAll(answeredQuestions)
-        // Also save no word answered questions
-        preBonusAnsweredQuestions.addAll(answeredNoWordQuestions)
-
-
-        // Refresh "No Word" questions for bonus round (re-enable them)
-        answeredNoWordQuestions.clear()
-        restoreBoardState() // this will re-enable the no word buttons
-
-        // Disable all other categories
-        for (buttonId in gameQuestions.keys) {
-            findButtonView(buttonId)?.isEnabled = false
-        }
-        setAllBonusButtonsEnabled(false) // disable other bonus buttons
     }
 
     /** Refreshes the 3 questions (easy/medium/hard) shown for one category, in whichever slot it's in. */
@@ -450,7 +392,7 @@ class MainGame : AppCompatActivity() {
     private fun restoreBoardState() {
         val unlockAllBonusesNow = isAllMainQuestionsDone()
 
-        for (buttonId in gameQuestions.keys) {
+        for (buttonId in allQuestionButtonIds) {
             val button = findButtonView(buttonId) ?: continue
             if (answeredQuestions.contains(buttonId)) {
                 button.isEnabled = false
@@ -477,44 +419,35 @@ class MainGame : AppCompatActivity() {
                 )
             }
         }
-
-        val noWordButtons = listOf("no_word_200", "no_word_400", "no_word_600")
-        for (buttonId in noWordButtons) {
-            val resId = resources.getIdentifier(buttonId, "id", packageName)
-            if (resId != 0) {
-                val button = findViewById<View>(resId)
-                if (answeredNoWordQuestions.contains(buttonId)) {
-                    button.isEnabled = false
-                    button.setBackgroundColor(Color.GRAY)
-                } else {
-                    button.isEnabled = true
-                    (button as? MaterialButton)?.setBackgroundColor(ContextCompat.getColor(this, R.color.Secondry))
-                }
-            }
-        }
-
-        binding.noWordBonus.isEnabled = unlockAllBonusesNow && !usedBonusButtons.contains("no_word_bonus")
-        binding.noWordBonus.setBackgroundColor(
-            if (binding.noWordBonus.isEnabled)
-                ContextCompat.getColor(this, R.color.ripplePrimary)
-            else
-                Color.GRAY
-        )
-
     }
 
     private fun initializeNewGame() {
         presentedQuestions.clear()
         for (category in selectedCategories) {
-            refreshCategoryQuestions(category)
+            if (category != QuizRepository.NO_WORD_CATEGORY) {
+                refreshCategoryQuestions(category)
+            }
         }
     }
 
+    /**
+     * Wires up the 3 point-buttons for every slot. A slot holding "No Word" opens the
+     * acting/QR flow; any other slot opens the normal question flow.
+     */
     private fun setupButtonClickListeners() {
-        for (buttonId in gameQuestions.keys) {
-            val button = findButtonView(buttonId) ?: continue
-            button.setOnClickListener {
-                openQuestion(buttonId)
+        for ((slot, category) in slotToCategory) {
+            val index = slotIds.indexOf(slot)
+            val views = slotViews[index]
+
+            if (category == QuizRepository.NO_WORD_CATEGORY) {
+                val pools = noWordPoolsForCurrentLanguage()
+                views.btn200.setOnClickListener { openNoWordQr(pools.first, "${slot}_200") }
+                views.btn400.setOnClickListener { openNoWordQr(pools.second, "${slot}_400") }
+                views.btn600.setOnClickListener { openNoWordQr(pools.third, "${slot}_600") }
+            } else {
+                views.btn200.setOnClickListener { openQuestion("${slot}_200") }
+                views.btn400.setOnClickListener { openQuestion("${slot}_400") }
+                views.btn600.setOnClickListener { openQuestion("${slot}_600") }
             }
         }
     }
@@ -533,10 +466,6 @@ class MainGame : AppCompatActivity() {
         for ((slot, category) in slotToCategory) {
             val index = slotIds.indexOf(slot)
             slotViews[index].bonus.setOnClickListener { triggerBonusRound(category, "${slot}_bonus") }
-        }
-
-        binding.noWordBonus.setOnClickListener {
-            triggerNoWordBonusRound("no_word_bonus")
         }
     }
 
@@ -557,6 +486,15 @@ class MainGame : AppCompatActivity() {
         }
     }
 
+    /** Returns the (easy, medium, hard) No-Word card pools for the current app language. */
+    private fun noWordPoolsForCurrentLanguage(): Triple<List<NoWordQuestion>, List<NoWordQuestion>, List<NoWordQuestion>> {
+        return when {
+            LanguageManager.isArabic(this) -> Triple(NoWordDataAR.noWord200, NoWordDataAR.noWord400, NoWordDataAR.noWord600)
+            LanguageManager.isSwedish(this) -> Triple(NoWordDataSV.noWord200, NoWordDataSV.noWord400, NoWordDataSV.noWord600)
+            else -> Triple(NoWordData.noWord200, NoWordData.noWord400, NoWordData.noWord600)
+        }
+    }
+
     private fun openNoWordQr(list: List<NoWordQuestion>, questionId: String) {
         if (list.isEmpty()) {
             Toast.makeText(this, "No No-Word cards configured yet.", Toast.LENGTH_SHORT).show()
@@ -574,7 +512,8 @@ class MainGame : AppCompatActivity() {
             putExtra("ANSWERED_QUESTION_ID", questionId)
         }
         showLoadingPulse("Loading question...")
-        noWordLauncher.launch(intent)
+        // Same result contract/shape as a normal question, so it can share questionLauncher.
+        questionLauncher.launch(intent)
     }
 
 
@@ -583,11 +522,11 @@ class MainGame : AppCompatActivity() {
     private fun checkGameOver() {
         if (gameOverTriggered) return
 
-        // 1) Vänta tills alla vanliga frågor + no word är klara
+        // 1) Vänta tills alla 6 kategoriers frågor är klara
         if (!isAllMainQuestionsDone()) return
 
         // 2) När allt är klart, måste alla bonusar användas innan Winner
-        val allBonusIds = slotIds.map { "${it}_bonus" }.toSet() + "no_word_bonus"
+        val allBonusIds = slotIds.map { "${it}_bonus" }.toSet()
 
         val allBonusesUsed = usedBonusButtons.containsAll(allBonusIds)
         if (!allBonusesUsed) {
@@ -619,46 +558,8 @@ class MainGame : AppCompatActivity() {
         finish()
     }
 
-
-
-
-
-
-
-    private fun setupNoWordClickListeners() {
-        val noWord200 = when {
-            LanguageManager.isArabic(this) -> NoWordDataAR.noWord200
-            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord200
-            else -> NoWordData.noWord200
-        }
-        val noWord400 = when {
-            LanguageManager.isArabic(this) -> NoWordDataAR.noWord400
-            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord400
-            else -> NoWordData.noWord400
-        }
-        val noWord600 = when {
-            LanguageManager.isArabic(this) -> NoWordDataAR.noWord600
-            LanguageManager.isSwedish(this) -> NoWordDataSV.noWord600
-            else -> NoWordData.noWord600
-        }
-
-        binding.noWord200.setOnClickListener {
-            openNoWordQr(noWord200, "no_word_200")
-        }
-        binding.noWord400.setOnClickListener {
-            openNoWordQr(noWord400, "no_word_400")
-        }
-        binding.noWord600.setOnClickListener {
-            openNoWordQr(noWord600, "no_word_600")
-        }
-    }
-
     private fun isAllMainQuestionsDone(): Boolean {
-        val allRegularAnswered = answeredQuestions.size == gameQuestions.size
-        val allNoWordAnswered = answeredNoWordQuestions.containsAll(
-            listOf("no_word_200", "no_word_400", "no_word_600")
-        )
-        return allRegularAnswered && allNoWordAnswered
+        return answeredQuestions.size == allQuestionButtonIds.size
     }
 
     private fun showExitWarning() {
