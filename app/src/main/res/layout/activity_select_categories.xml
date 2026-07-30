@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:paddingBottom="16dp"
+        tools:context=".SelectCategoriesActivity">
+
+        <TextView
+            android:id="@+id/select_categories_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/allerta_stencil"
+            android:gravity="center"
+            android:letterSpacing="0.5"
+            android:lines="1"
+            android:text="@string/select_categories_title"
+            android:textColor="@color/Primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/select_categories_instruction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/select_categories_instruction"
+            android:textColor="@color/Primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_categories_title"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <TextView
+            android:id="@+id/select_categories_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/ripplePrimary"
+            android:textStyle="bold"
+            android:text="@string/select_categories_counter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_categories_instruction" />
+
+        <LinearLayout
+            android:id="@+id/category_grid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_categories_counter"
+            app:layout_constraintWidth_percent="0.85">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 3" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 5" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 7" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 8" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/select_categories_continue_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="24dp"
+            android:autoSizeTextType="uniform"
+            android:backgroundTint="@color/Primary"
+            android:enabled="false"
+            android:text="@string/start_button"
+            android:textColor="@color/Secondary"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/category_grid"
+            app:layout_constraintWidth_percent="0.5"
+            app:rippleColor="@color/ripplePrimary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
