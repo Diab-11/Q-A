@@ -88,6 +88,9 @@
     <string name="geography_category">Geography</string>
     <string name="flags_countries_category">Flags &amp; Countries</string>
     <string name="no_word_category">No Word</string>
+    <string name="history_category">History</string>
+    <string name="movies_category">Movies</string>
+    <string name="science_category">Science</string>
     <string name="bonus_button">bonus !</string>
     <string name="points_200">200</string>
     <string name="points_400">400</string>
@@ -116,6 +119,11 @@
     <string name="winner_congrats">WINNER!</string>
     <string name="back_to_menu_button_text">Back to menu</string>
     <string name="trophy_content_description">Trophy</string>
+
+    <string name="select_categories_title">Choose Your Categories</string>
+    <string name="select_categories_instruction">Both teams pick 6 categories together for this match.</string>
+    <string name="select_categories_counter">%1$d / %2$d selected</string>
+    <string name="select_categories_limit_reached">You can only pick %1$d categories. Deselect one first.</string>
 
 
 
