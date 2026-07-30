@@ -194,6 +194,31 @@
                     tools:text="Category 8" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_toggle_9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:textColor="@color/Primary"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="@color/ripplePrimary"
+                    tools:text="Category 9" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton

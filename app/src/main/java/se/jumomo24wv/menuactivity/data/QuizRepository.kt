@@ -8,8 +8,9 @@ import se.jumomo24wv.menuactivity.R
  *
  * - ALL_CATEGORIES holds the fixed, language-independent internal keys used
  *   throughout the app (selection screen, MainGame slots, bonus logic).
- * - "No Word" is intentionally NOT included here: it is always part of every
- *   game and is handled separately in MainGame (own layout, own mechanic).
+ * - "No Word" (NO_WORD_CATEGORY) IS included here: it's just another entry
+ *   teams can pick or skip. When picked it uses its own acting/QR mechanic
+ *   instead of a QuizQuestion pool — see MainGame's handling of this key.
  *
  * To add a new selectable category to the game:
  * 1. Add its easy/medium/hard question lists to QuizData / QuizDataSV / QuizDataAR
@@ -20,6 +21,14 @@ import se.jumomo24wv.menuactivity.R
  */
 object QuizRepository {
 
+    /**
+     * "No Word" is a regular, selectable category like any other: teams can pick it
+     * or leave it out. When picked, it occupies one of the 6 board slots and uses the
+     * acting/QR-code flow (NoWordData / NoWordQrActivity) instead of a QuizQuestion pool
+     * — see MainGame's handling of this key.
+     */
+    const val NO_WORD_CATEGORY = "No Word"
+
     val ALL_CATEGORIES: List<String> = listOf(
         "Flags and Countries",
         "Geography",
@@ -28,7 +37,8 @@ object QuizRepository {
         "Sports",
         "History",
         "Movies",
-        "Science"
+        "Science",
+        NO_WORD_CATEGORY
     )
 
     const val CATEGORIES_TO_PICK = 6
@@ -41,7 +51,8 @@ object QuizRepository {
         "Sports" to R.string.sports_category,
         "History" to R.string.history_category,
         "Movies" to R.string.movies_category,
-        "Science" to R.string.science_category
+        "Science" to R.string.science_category,
+        NO_WORD_CATEGORY to R.string.no_word_category
     )
 
     fun displayName(context: Context, categoryKey: String): String {
@@ -51,7 +62,8 @@ object QuizRepository {
 
     /**
      * difficulty must be one of "easy", "medium", "hard" (matches point buttons
-     * 200 / 400 / 600 respectively).
+     * 200 / 400 / 600 respectively). Not used for NO_WORD_CATEGORY — MainGame
+     * special-cases that one and reads from NoWordData instead.
      */
     fun getPool(context: Context, categoryKey: String, difficulty: String): List<QuizQuestion> {
         val useArabic = LanguageManager.isArabic(context)

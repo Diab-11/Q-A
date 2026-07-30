@@ -13,7 +13,8 @@ import se.jumomo24wv.menuactivity.databinding.ActivitySelectCategoriesBinding
 /**
  * Lets both teams jointly pick exactly CATEGORIES_TO_PICK quiz categories
  * out of the full pool before the board is built in MainGame.
- * "No Word" is not part of this selection: it is always included in every game.
+ * "No Word" is just another entry in the pool here — teams can pick it or
+ * leave it out like any other category.
  */
 class SelectCategoriesActivity : AppCompatActivity() {
 
@@ -52,7 +53,8 @@ class SelectCategoriesActivity : AppCompatActivity() {
             binding.categoryToggle5,
             binding.categoryToggle6,
             binding.categoryToggle7,
-            binding.categoryToggle8
+            binding.categoryToggle8,
+            binding.categoryToggle9
         )
 
         val categories = QuizRepository.ALL_CATEGORIES
