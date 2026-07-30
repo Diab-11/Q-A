@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Secondary"
+    tools:context=".MainGame">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_game_names_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/Secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/main_game_team1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/main_game_team1_name"
+            android:textAlignment="center"
+            android:textColor="@color/Primary"
+            app:layout_constraintBottom_toTopOf="@id/main_game_team1_score"
+            app:layout_constraintEnd_toStartOf="@id/main_game_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/main_game_team1_score"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/team_1_score_default"
+            android:textAlignment="center"
+            android:textColor="@color/Primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/main_game_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_game_team1" />
+
+        <TextView
+            android:id="@+id/main_game_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/main_game_game_name"
+            android:textAlignment="center"
+            android:textColor="@color/Primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/main_game_team2"
+            app:layout_constraintStart_toEndOf="@id/main_game_team1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/main_game_team2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/team_2"
+            android:textAlignment="center"
+            android:textColor="@color/Primary"
+            app:layout_constraintBottom_toTopOf="@id/main_game_team2_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/main_game_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/main_game_team2_score"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/team_2_score_default"
+            android:textAlignment="center"
+            android:textColor="@color/Primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/main_game_name"
+            app:layout_constraintTop_toBottomOf="@id/main_game_team2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--
+        Quiz board: 6 dynamic category slots (slot1..slot6), populated at runtime by
+        MainGame.kt from whatever 6 categories the teams picked on the selection
+        screen, plus a fixed "No Word" column that is always part of every game.
+        Arranged as a 4-column x 2-row grid (7 cells used, 1 spacer) so column
+        widths stay identical between both rows.
+    -->
+    <LinearLayout
+        android:id="@+id/main_game_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_game_names_section">
+
+        <!-- Row 1: slot1 - slot4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/section_slot1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot1_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot1_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot1_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot1_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot1_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_slot2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot2_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot2_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot2_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot2_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot2_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_slot3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot3_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot3_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot3_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot3_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot3_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_slot4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot4_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot4_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot4_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot4_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot4_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Row 2: slot5, slot6, No Word (fixed), spacer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/section_slot5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot5_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot5_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot5_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot5_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot5_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_slot6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/slot6_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary"
+                    tools:text="Category" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot6_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot6_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot6_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/slot6_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_no_word"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/section_no_word_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:text="@string/no_word_category"
+                    android:textAlignment="center"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/no_word_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_200"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/no_word_400"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_400"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/no_word_600"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/Secondary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/points_600"
+                    android:textColor="@color/Primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/no_word_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
+                    android:backgroundTint="@color/ripplePrimary"
+                    android:letterSpacing="0.1"
+                    android:text="@string/bonus_button"
+                    android:textColor="@color/Primary" />
+            </LinearLayout>
+
+            <!-- Spacer to keep all 4 columns the same width as row 1 -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Loading Overlay -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="#99000000"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/loadingLogo"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@mipmap/logo_round"
+                android:contentDescription="@string/loading_content_description"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:id="@+id/loadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading_text"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
