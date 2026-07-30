@@ -193,6 +193,78 @@ object QuizData {
         QuizQuestion("Sports", "hard", "How many times has the Spanish national football team won the FIFA World Cup?", R.drawable.world_cup, "Once", 600),
         QuizQuestion("Sports", "hard", "In boxing, what is the term for a fight where no gloves are worn?", R.drawable.bare_knuckle_boxing, "Bare-knuckle boxing", 600)
     )
+    val historyEasy = listOf(
+        QuizQuestion("History", "easy", "Who was the first president of the United States?", null, "George Washington", 200),
+        QuizQuestion("History", "easy", "In which year did World War II end?", null, "1945", 200),
+        QuizQuestion("History", "easy", "Which ancient civilization built the pyramids of Giza?", null, "The Ancient Egyptians", 200),
+        QuizQuestion("History", "easy", "Who was the British Prime Minister during most of World War II?", null, "Winston Churchill", 200),
+        QuizQuestion("History", "easy", "Which wall divided East and West Berlin until 1989?", null, "The Berlin Wall", 200),
+        QuizQuestion("History", "easy", "In which year did the Titanic sink?", null, "1912", 200)
+    )
+    val historyMedium = listOf(
+        QuizQuestion("History", "medium", "Which empire was ruled by Genghis Khan?", null, "The Mongol Empire", 400),
+        QuizQuestion("History", "medium", "In which year did the French Revolution begin?", null, "1789", 400),
+        QuizQuestion("History", "medium", "Who was the first Caliph of Islam after the Prophet Muhammad?", null, "Abu Bakr", 400),
+        QuizQuestion("History", "medium", "Which country was the first to grant women the right to vote nationally, in 1893?", null, "New Zealand", 400),
+        QuizQuestion("History", "medium", "What was the name of the ship that brought the Pilgrims to America in 1620?", null, "The Mayflower", 400),
+        QuizQuestion("History", "medium", "Which ancient empire built the Colosseum in Rome?", null, "The Roman Empire", 400)
+    )
+    val historyHard = listOf(
+        QuizQuestion("History", "hard", "Which Swedish king died at the Battle of Fredrikshald in 1718?", null, "Charles XII (Karl XII)", 600),
+        QuizQuestion("History", "hard", "In which year did the Ottoman Empire officially come to an end?", null, "1922", 600),
+        QuizQuestion("History", "hard", "What was the name of the treaty that officially ended World War I?", null, "The Treaty of Versailles", 600),
+        QuizQuestion("History", "hard", "Which Islamic dynasty, ruling from Baghdad, is known for a golden age of science and learning?", null, "The Abbasid Caliphate", 600),
+        QuizQuestion("History", "hard", "Who was the first emperor to unify China, in 221 BC?", null, "Qin Shi Huang", 600),
+        QuizQuestion("History", "hard", "Who was the last active pharaoh of Ptolemaic Egypt?", null, "Cleopatra VII", 600)
+    )
+    val moviesEasy = listOf(
+        QuizQuestion("Movies", "easy", "Which movie franchise features a boy wizard named Harry Potter?", null, "Harry Potter", 200),
+        QuizQuestion("Movies", "easy", "Who directed the movie \"Titanic\" (1997)?", null, "James Cameron", 200),
+        QuizQuestion("Movies", "easy", "Which animation studio created \"Toy Story\"?", null, "Pixar", 200),
+        QuizQuestion("Movies", "easy", "What is the name of the ring in \"The Lord of the Rings\"?", null, "The One Ring", 200),
+        QuizQuestion("Movies", "easy", "Which superhero is known as the \"Man of Steel\"?", null, "Superman", 200),
+        QuizQuestion("Movies", "easy", "In which movie franchise does the character Luke Skywalker appear?", null, "Star Wars", 200)
+    )
+    val moviesMedium = listOf(
+        QuizQuestion("Movies", "medium", "Which actor played the Joker in \"The Dark Knight\" (2008)?", null, "Heath Ledger", 400),
+        QuizQuestion("Movies", "medium", "Which 1994 movie tells the story of a man named Forrest Gump?", null, "Forrest Gump", 400),
+        QuizQuestion("Movies", "medium", "Which movie won the Academy Award for Best Picture in 2020, the first non-English-language film to do so?", null, "Parasite", 400),
+        QuizQuestion("Movies", "medium", "Who composed the music score for \"Star Wars\"?", null, "John Williams", 400),
+        QuizQuestion("Movies", "medium", "What is the name of the fictional African country in \"Black Panther\"?", null, "Wakanda", 400),
+        QuizQuestion("Movies", "medium", "Which studio produces the James Bond film series?", null, "Eon Productions", 400)
+    )
+    val moviesHard = listOf(
+        QuizQuestion("Movies", "hard", "Who directed the movie \"Inception\" (2010)?", null, "Christopher Nolan", 600),
+        QuizQuestion("Movies", "hard", "Which film was the first ever to win the Academy Award for Best Picture, in 1929?", null, "Wings", 600),
+        QuizQuestion("Movies", "hard", "Which 1975 movie, directed by Steven Spielberg, is considered the first summer blockbuster?", null, "Jaws", 600),
+        QuizQuestion("Movies", "hard", "Who played the lead role in the 1962 film \"Lawrence of Arabia\"?", null, "Peter O'Toole", 600),
+        QuizQuestion("Movies", "hard", "Which actress has received the most Academy Award nominations in history?", null, "Meryl Streep", 600),
+        QuizQuestion("Movies", "hard", "What was the name of the first feature-length animated movie ever released, by Disney in 1937?", null, "Snow White and the Seven Dwarfs", 600)
+    )
+    val scienceEasy = listOf(
+        QuizQuestion("Science", "easy", "What planet is known as the Red Planet?", null, "Mars", 200),
+        QuizQuestion("Science", "easy", "What gas do humans need to breathe to survive?", null, "Oxygen", 200),
+        QuizQuestion("Science", "easy", "What is the boiling point of water in Celsius?", null, "100°C", 200),
+        QuizQuestion("Science", "easy", "How many bones are in the adult human body?", null, "206", 200),
+        QuizQuestion("Science", "easy", "What is the powerhouse of the cell called?", null, "Mitochondria", 200),
+        QuizQuestion("Science", "easy", "What force pulls objects toward the Earth?", null, "Gravity", 200)
+    )
+    val scienceMedium = listOf(
+        QuizQuestion("Science", "medium", "What is the chemical symbol for gold?", null, "Au", 400),
+        QuizQuestion("Science", "medium", "Which scientist developed the theory of relativity?", null, "Albert Einstein", 400),
+        QuizQuestion("Science", "medium", "What is the hardest natural substance on Earth?", null, "Diamond", 400),
+        QuizQuestion("Science", "medium", "What type of animal is a Komodo dragon?", null, "A lizard (reptile)", 400),
+        QuizQuestion("Science", "medium", "Which planet has the most known moons in the solar system?", null, "Saturn", 400),
+        QuizQuestion("Science", "medium", "What is the study of earthquakes called?", null, "Seismology", 400)
+    )
+    val scienceHard = listOf(
+        QuizQuestion("Science", "hard", "What is the name of the process by which stars produce energy?", null, "Nuclear fusion", 600),
+        QuizQuestion("Science", "hard", "Which particle, discovered in 2012, is linked to giving mass to other particles?", null, "The Higgs boson", 600),
+        QuizQuestion("Science", "hard", "What is the speed of light in a vacuum (approximately)?", null, "Approximately 300,000 km/second", 600),
+        QuizQuestion("Science", "hard", "Which scientist first proposed the laws of genetic inheritance?", null, "Gregor Mendel", 600),
+        QuizQuestion("Science", "hard", "What is the name of the galaxy that contains our solar system?", null, "The Milky Way", 600),
+        QuizQuestion("Science", "hard", "Which element has the atomic number 1?", null, "Hydrogen", 600)
+    )
 }
 
 object QuizDataSV {
@@ -374,6 +446,78 @@ object QuizDataSV {
         QuizQuestion("Sports", "hard", "Hur många gånger har Spaniens herrlandslag vunnit fotbolls-VM?", R.drawable.world_cup, "En gång", 600),
         QuizQuestion("Sports", "hard", "Inom boxning: vad kallas en match där man inte använder handskar?", R.drawable.bare_knuckle_boxing, "Barhandsboxning", 600)
     )
+    val historyEasy = listOf(
+        QuizQuestion("History", "easy", "Vem var USA:s förste president?", null, "George Washington", 200),
+        QuizQuestion("History", "easy", "Vilket år tog andra världskriget slut?", null, "1945", 200),
+        QuizQuestion("History", "easy", "Vilken forntida civilisation byggde pyramiderna i Giza?", null, "De forntida egyptierna", 200),
+        QuizQuestion("History", "easy", "Vem var Storbritanniens premiärminister under större delen av andra världskriget?", null, "Winston Churchill", 200),
+        QuizQuestion("History", "easy", "Vilken mur delade Öst- och Västberlin fram till 1989?", null, "Berlinmuren", 200),
+        QuizQuestion("History", "easy", "Vilket år sjönk Titanic?", null, "1912", 200)
+    )
+    val historyMedium = listOf(
+        QuizQuestion("History", "medium", "Vilket imperium styrdes av Djingis khan?", null, "Mongolväldet", 400),
+        QuizQuestion("History", "medium", "Vilket år bröt franska revolutionen ut?", null, "1789", 400),
+        QuizQuestion("History", "medium", "Vem var den första kalifen inom islam efter profeten Muhammed?", null, "Abu Bakr", 400),
+        QuizQuestion("History", "medium", "Vilket land var först i världen med att ge kvinnor rösträtt på nationell nivå, år 1893?", null, "Nya Zeeland", 400),
+        QuizQuestion("History", "medium", "Vad hette skeppet som förde pilgrimerna till Amerika 1620?", null, "Mayflower", 400),
+        QuizQuestion("History", "medium", "Vilket forntida imperium byggde Colosseum i Rom?", null, "Romerska riket", 400)
+    )
+    val historyHard = listOf(
+        QuizQuestion("History", "hard", "Vilken svensk kung dog i slaget vid Fredrikshald 1718?", null, "Karl XII", 600),
+        QuizQuestion("History", "hard", "Vilket år upphörde Osmanska riket officiellt att existera?", null, "1922", 600),
+        QuizQuestion("History", "hard", "Vad hette freden som officiellt avslutade första världskriget?", null, "Versaillesfreden", 600),
+        QuizQuestion("History", "hard", "Vilken islamisk dynasti, med säte i Bagdad, är känd för en guldålder inom vetenskap och lärdom?", null, "Abbasidkalifatet", 600),
+        QuizQuestion("History", "hard", "Vem var den förste kejsaren att ena Kina, år 221 f.Kr.?", null, "Qin Shi Huang", 600),
+        QuizQuestion("History", "hard", "Vem var den siste aktiva faraon i det ptolemaiska Egypten?", null, "Kleopatra VII", 600)
+    )
+    val moviesEasy = listOf(
+        QuizQuestion("Movies", "easy", "Vilken filmserie handlar om en ung trollkarl vid namn Harry Potter?", null, "Harry Potter", 200),
+        QuizQuestion("Movies", "easy", "Vem regisserade filmen \"Titanic\" (1997)?", null, "James Cameron", 200),
+        QuizQuestion("Movies", "easy", "Vilken animationsstudio skapade \"Toy Story\"?", null, "Pixar", 200),
+        QuizQuestion("Movies", "easy", "Vad heter ringen i \"Sagan om ringen\"?", null, "Den enda ringen", 200),
+        QuizQuestion("Movies", "easy", "Vilken superhjälte kallas \"Stålmannen\"?", null, "Superman", 200),
+        QuizQuestion("Movies", "easy", "I vilken filmserie förekommer karaktären Luke Skywalker?", null, "Star Wars", 200)
+    )
+    val moviesMedium = listOf(
+        QuizQuestion("Movies", "medium", "Vilken skådespelare spelade Jokern i \"The Dark Knight\" (2008)?", null, "Heath Ledger", 400),
+        QuizQuestion("Movies", "medium", "Vilken film från 1994 handlar om en man vid namn Forrest Gump?", null, "Forrest Gump", 400),
+        QuizQuestion("Movies", "medium", "Vilken film vann Oscar för bästa film 2020 och blev den första icke-engelskspråkiga filmen att göra det?", null, "Parasite", 400),
+        QuizQuestion("Movies", "medium", "Vem komponerade filmmusiken till \"Star Wars\"?", null, "John Williams", 400),
+        QuizQuestion("Movies", "medium", "Vad heter det fiktiva afrikanska landet i \"Black Panther\"?", null, "Wakanda", 400),
+        QuizQuestion("Movies", "medium", "Vilken studio producerar filmserien om James Bond?", null, "Eon Productions", 400)
+    )
+    val moviesHard = listOf(
+        QuizQuestion("Movies", "hard", "Vem regisserade filmen \"Inception\" (2010)?", null, "Christopher Nolan", 600),
+        QuizQuestion("Movies", "hard", "Vilken film var den första någonsin att vinna en Oscar för bästa film, 1929?", null, "Wings", 600),
+        QuizQuestion("Movies", "hard", "Vilken film från 1975, regisserad av Steven Spielberg, räknas som den första sommarblockbustern?", null, "Jaws (Hajen)", 600),
+        QuizQuestion("Movies", "hard", "Vem spelade huvudrollen i filmen \"Lawrence of Arabia\" från 1962?", null, "Peter O'Toole", 600),
+        QuizQuestion("Movies", "hard", "Vilken skådespelerska har fått flest Oscarsnomineringar genom tiderna?", null, "Meryl Streep", 600),
+        QuizQuestion("Movies", "hard", "Vad hette den första animerade långfilmen någonsin, utgiven av Disney 1937?", null, "Snövit och de sju dvärgarna", 600)
+    )
+    val scienceEasy = listOf(
+        QuizQuestion("Science", "easy", "Vilken planet kallas den röda planeten?", null, "Mars", 200),
+        QuizQuestion("Science", "easy", "Vilken gas behöver människor andas för att överleva?", null, "Syre", 200),
+        QuizQuestion("Science", "easy", "Vid vilken temperatur i Celsius kokar vatten?", null, "100°C", 200),
+        QuizQuestion("Science", "easy", "Hur många ben har en vuxen människa i kroppen?", null, "206", 200),
+        QuizQuestion("Science", "easy", "Vad kallas cellens kraftverk?", null, "Mitokondrier", 200),
+        QuizQuestion("Science", "easy", "Vilken kraft drar föremål mot jorden?", null, "Gravitation", 200)
+    )
+    val scienceMedium = listOf(
+        QuizQuestion("Science", "medium", "Vilken kemisk symbol har guld?", null, "Au", 400),
+        QuizQuestion("Science", "medium", "Vilken vetenskapsman utvecklade relativitetsteorin?", null, "Albert Einstein", 400),
+        QuizQuestion("Science", "medium", "Vilket är det hårdaste naturligt förekommande ämnet på jorden?", null, "Diamant", 400),
+        QuizQuestion("Science", "medium", "Vilken typ av djur är en komodovaran?", null, "En ödla (reptil)", 400),
+        QuizQuestion("Science", "medium", "Vilken planet har flest kända månar i solsystemet?", null, "Saturnus", 400),
+        QuizQuestion("Science", "medium", "Vad kallas läran om jordbävningar?", null, "Seismologi", 400)
+    )
+    val scienceHard = listOf(
+        QuizQuestion("Science", "hard", "Vad kallas processen där stjärnor producerar energi?", null, "Kärnfusion", 600),
+        QuizQuestion("Science", "hard", "Vilken partikel, upptäckt 2012, är kopplad till att ge massa åt andra partiklar?", null, "Higgsbosonen", 600),
+        QuizQuestion("Science", "hard", "Vad är ljusets hastighet i vakuum (ungefär)?", null, "Cirka 300 000 km/sekund", 600),
+        QuizQuestion("Science", "hard", "Vilken vetenskapsman lade grunden för de genetiska nedärvningslagarna?", null, "Gregor Mendel", 600),
+        QuizQuestion("Science", "hard", "Vad heter galaxen som vårt solsystem tillhör?", null, "Vintergatan", 600),
+        QuizQuestion("Science", "hard", "Vilket grundämne har atomnummer 1?", null, "Väte", 600)
+    )
 }
 
 object QuizDataAR {
@@ -554,5 +698,77 @@ object QuizDataAR {
         QuizQuestion("الرياضة", "hard", "أي مدرب قاد ريال مدريد للفوز بثلاث بطولات دوري أبطال أوروبا متتالية؟", R.drawable.champions, "زين الدين زيدان", 600),
         QuizQuestion("الرياضة", "hard", "كم مرة فاز المنتخب الإسباني بكأس العالم لكرة القدم؟", R.drawable.world_cup, "مرة واحدة", 600),
         QuizQuestion("الرياضة", "hard", "في الملاكمة، ما المصطلح الخاص بالمباراة التي لا يُرتدى فيها قفازات؟", R.drawable.bare_knuckle_boxing, "ملاكمة بدون قفازات", 600)
+    )
+    val historyEasy = listOf(
+        QuizQuestion("التاريخ", "easy", "من كان أول رئيس للولايات المتحدة؟", null, "جورج واشنطن", 200),
+        QuizQuestion("التاريخ", "easy", "في أي عام انتهت الحرب العالمية الثانية؟", null, "1945", 200),
+        QuizQuestion("التاريخ", "easy", "أي حضارة قديمة بنت أهرامات الجيزة؟", null, "المصريون القدماء", 200),
+        QuizQuestion("التاريخ", "easy", "من كان رئيس وزراء بريطانيا خلال معظم فترة الحرب العالمية الثانية؟", null, "ونستون تشرشل", 200),
+        QuizQuestion("التاريخ", "easy", "أي سور فصل بين برلين الشرقية والغربية حتى عام 1989؟", null, "سور برلين", 200),
+        QuizQuestion("التاريخ", "easy", "في أي عام غرقت سفينة تيتانيك؟", null, "1912", 200)
+    )
+    val historyMedium = listOf(
+        QuizQuestion("التاريخ", "medium", "أي إمبراطورية حكمها جنكيز خان؟", null, "الإمبراطورية المغولية", 400),
+        QuizQuestion("التاريخ", "medium", "في أي عام اندلعت الثورة الفرنسية؟", null, "1789", 400),
+        QuizQuestion("التاريخ", "medium", "من كان أول خليفة للمسلمين بعد النبي محمد؟", null, "أبو بكر الصديق", 400),
+        QuizQuestion("التاريخ", "medium", "أي دولة كانت أول من منح المرأة حق التصويت على المستوى الوطني عام 1893؟", null, "نيوزيلندا", 400),
+        QuizQuestion("التاريخ", "medium", "ما اسم السفينة التي نقلت الحجاج إلى أمريكا عام 1620؟", null, "ماي فلاور", 400),
+        QuizQuestion("التاريخ", "medium", "أي إمبراطورية قديمة بنت الكولوسيوم في روما؟", null, "الإمبراطورية الرومانية", 400)
+    )
+    val historyHard = listOf(
+        QuizQuestion("التاريخ", "hard", "أي ملك سويدي توفي في معركة فريدريكسهالد عام 1718؟", null, "تشارلز الثاني عشر (كارل الثاني عشر)", 600),
+        QuizQuestion("التاريخ", "hard", "في أي عام انتهت الدولة العثمانية رسميًا؟", null, "1922", 600),
+        QuizQuestion("التاريخ", "hard", "ما اسم المعاهدة التي أنهت رسميًا الحرب العالمية الأولى؟", null, "معاهدة فرساي", 600),
+        QuizQuestion("التاريخ", "hard", "أي دولة إسلامية، ومقرها بغداد، تشتهر بعصر ذهبي للعلم والمعرفة؟", null, "الخلافة العباسية", 600),
+        QuizQuestion("التاريخ", "hard", "من كان أول إمبراطور وحّد الصين عام 221 قبل الميلاد؟", null, "تشين شي هوانغ", 600),
+        QuizQuestion("التاريخ", "hard", "من كانت آخر ملكة حاكمة فعليًا في مصر البطلمية؟", null, "كليوباترا السابعة", 600)
+    )
+    val moviesEasy = listOf(
+        QuizQuestion("السينما", "easy", "أي سلسلة أفلام تدور حول ساحر صغير يدعى هاري بوتر؟", null, "هاري بوتر", 200),
+        QuizQuestion("السينما", "easy", "من أخرج فيلم \"تايتانيك\" (1997)؟", null, "جيمس كاميرون", 200),
+        QuizQuestion("السينما", "easy", "أي استوديو رسوم متحركة أنتج فيلم \"توي ستوري\"؟", null, "بيكسار", 200),
+        QuizQuestion("السينما", "easy", "ما اسم الخاتم في سلسلة \"سيد الخواتم\"؟", null, "الخاتم الواحد", 200),
+        QuizQuestion("السينما", "easy", "أي بطل خارق يُلقب بـ\"رجل الفولاذ\"؟", null, "سوبرمان", 200),
+        QuizQuestion("السينما", "easy", "في أي سلسلة أفلام تظهر شخصية لوك سكاي ووكر؟", null, "حرب النجوم", 200)
+    )
+    val moviesMedium = listOf(
+        QuizQuestion("السينما", "medium", "أي ممثل لعب دور الجوكر في فيلم \"The Dark Knight\" (2008)؟", null, "هيث ليدجر", 400),
+        QuizQuestion("السينما", "medium", "أي فيلم من عام 1994 يحكي قصة رجل يدعى فورست غامب؟", null, "فورست غامب", 400),
+        QuizQuestion("السينما", "medium", "أي فيلم فاز بجائزة الأوسكار لأفضل فيلم عام 2020، ليصبح أول فيلم غير ناطق بالإنجليزية يفوز بها؟", null, "باراسايت", 400),
+        QuizQuestion("السينما", "medium", "من ألّف الموسيقى التصويرية لسلسلة \"حرب النجوم\"؟", null, "جون ويليامز", 400),
+        QuizQuestion("السينما", "medium", "ما اسم الدولة الأفريقية الخيالية في فيلم \"Black Panther\"؟", null, "واكاندا", 400),
+        QuizQuestion("السينما", "medium", "أي استوديو ينتج سلسلة أفلام جيمس بوند؟", null, "إيون برودكشنز", 400)
+    )
+    val moviesHard = listOf(
+        QuizQuestion("السينما", "hard", "من أخرج فيلم \"Inception\" (2010)؟", null, "كريستوفر نولان", 600),
+        QuizQuestion("السينما", "hard", "أي فيلم كان أول فيلم في التاريخ يفوز بجائزة الأوسكار لأفضل فيلم عام 1929؟", null, "Wings", 600),
+        QuizQuestion("السينما", "hard", "أي فيلم من عام 1975، من إخراج ستيفن سبيلبرغ، يعتبر أول فيلم بلوكباستر صيفي؟", null, "الفك المفترس (Jaws)", 600),
+        QuizQuestion("السينما", "hard", "من لعب دور البطولة في فيلم \"لورنس العرب\" عام 1962؟", null, "بيتر أوتول", 600),
+        QuizQuestion("السينما", "hard", "أي ممثلة حصلت على أكبر عدد من ترشيحات الأوسكار في التاريخ؟", null, "ميريل ستريب", 600),
+        QuizQuestion("السينما", "hard", "ما اسم أول فيلم رسوم متحركة طويل في التاريخ، أنتجته ديزني عام 1937؟", null, "سنو وايت والأقزام السبعة", 600)
+    )
+    val scienceEasy = listOf(
+        QuizQuestion("العلوم", "easy", "أي كوكب يُعرف بالكوكب الأحمر؟", null, "المريخ", 200),
+        QuizQuestion("العلوم", "easy", "أي غاز يحتاج البشر لتنفسه من أجل البقاء على قيد الحياة؟", null, "الأكسجين", 200),
+        QuizQuestion("العلوم", "easy", "عند أي درجة حرارة مئوية يغلي الماء؟", null, "100 درجة مئوية", 200),
+        QuizQuestion("العلوم", "easy", "كم عدد عظام جسم الإنسان البالغ؟", null, "206", 200),
+        QuizQuestion("العلوم", "easy", "ما اسم \"مصنع الطاقة\" داخل الخلية؟", null, "الميتوكوندريا", 200),
+        QuizQuestion("العلوم", "easy", "أي قوة تجذب الأجسام نحو الأرض؟", null, "الجاذبية", 200)
+    )
+    val scienceMedium = listOf(
+        QuizQuestion("العلوم", "medium", "ما هو الرمز الكيميائي للذهب؟", null, "Au", 400),
+        QuizQuestion("العلوم", "medium", "أي عالم طور نظرية النسبية؟", null, "ألبرت أينشتاين", 400),
+        QuizQuestion("العلوم", "medium", "ما هي أصلب مادة طبيعية على وجه الأرض؟", null, "الألماس", 400),
+        QuizQuestion("العلوم", "medium", "ما نوع حيوان تنين كومودو؟", null, "زاحف (سحلية)", 400),
+        QuizQuestion("العلوم", "medium", "أي كوكب يمتلك أكبر عدد من الأقمار المعروفة في المجموعة الشمسية؟", null, "زحل", 400),
+        QuizQuestion("العلوم", "medium", "ما اسم علم دراسة الزلازل؟", null, "علم الزلازل", 400)
+    )
+    val scienceHard = listOf(
+        QuizQuestion("العلوم", "hard", "ما اسم العملية التي تنتج بها النجوم طاقتها؟", null, "الاندماج النووي", 600),
+        QuizQuestion("العلوم", "hard", "أي جسيم، اكتُشف عام 2012، يرتبط بإعطاء الكتلة لجسيمات أخرى؟", null, "بوزون هيغز", 600),
+        QuizQuestion("العلوم", "hard", "ما هي سرعة الضوء تقريبًا في الفراغ؟", null, "حوالي 300,000 كيلومتر في الثانية", 600),
+        QuizQuestion("العلوم", "hard", "أي عالم وضع أسس قوانين الوراثة الجينية؟", null, "غريغور مندل", 600),
+        QuizQuestion("العلوم", "hard", "ما اسم المجرة التي يقع فيها نظامنا الشمسي؟", null, "درب التبانة", 600),
+        QuizQuestion("العلوم", "hard", "ما هو العنصر الذي رقمه الذري 1؟", null, "الهيدروجين", 600)
     )
 }
