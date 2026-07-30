@@ -72,6 +72,9 @@
     <string name="geography_category">جغرافيا</string>
     <string name="flags_countries_category">أعلام ودول</string>
     <string name="no_word_category">بدون كلمات</string>
+    <string name="history_category">التاريخ</string>
+    <string name="movies_category">السينما</string>
+    <string name="science_category">العلوم</string>
 
     <string name="bonus_button">مكافأة !</string>
     <string name="reveal_answer_button">كشف الإجابة</string>
@@ -80,6 +83,11 @@
     <string name="logout_button_text">تسجيل الخروج</string>
     <string name="winner_congrats">الفائز!</string>
     <string name="back_to_menu_button_text">العودة للقائمة</string>
+
+    <string name="select_categories_title">اختارا فئاتكما</string>
+    <string name="select_categories_instruction">يختار الفريقان معًا 6 فئات لهذه المباراة.</string>
+    <string name="select_categories_counter">%1$d / %2$d تم اختيارها</string>
+    <string name="select_categories_limit_reached">يمكنكما اختيار %1$d فئات فقط. قوما بإلغاء اختيار واحدة أولاً.</string>
 
     <string name="dialog_leave_match_title">مغادرة المباراة؟</string>
     <string name="dialog_leave_match_positive">مغادرة</string>
