@@ -87,10 +87,9 @@
 
     <!--
         Quiz board: 6 dynamic category slots (slot1..slot6), populated at runtime by
-        MainGame.kt from whatever 6 categories the teams picked on the selection
-        screen, plus a fixed "No Word" column that is always part of every game.
-        Arranged as a 4-column x 2-row grid (7 cells used, 1 spacer) so column
-        widths stay identical between both rows.
+        MainGame.kt from whichever 6 categories the teams picked on the selection
+        screen (any of the 9, including "No Word", can end up in any slot).
+        Arranged as a clean 3-column x 2-row grid.
     -->
     <LinearLayout
         android:id="@+id/main_game_section"
@@ -104,13 +103,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_game_names_section">
 
-        <!-- Row 1: slot1 - slot4 -->
+        <!-- Row 1: slot1 - slot3 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:weightSum="3">
 
             <LinearLayout
                 android:id="@+id/section_slot1"
@@ -316,6 +315,16 @@
                     android:textColor="@color/Primary" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <!-- Row 2: slot4 - slot6 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <LinearLayout
                 android:id="@+id/section_slot4"
                 android:layout_width="0dp"
@@ -383,16 +392,6 @@
                     android:text="@string/bonus_button"
                     android:textColor="@color/Primary" />
             </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Row 2: slot5, slot6, No Word (fixed), spacer -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="4">
 
             <LinearLayout
                 android:id="@+id/section_slot5"
@@ -529,80 +528,6 @@
                     android:text="@string/bonus_button"
                     android:textColor="@color/Primary" />
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/section_no_word"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:weightSum="5">
-
-                <TextView
-                    android:id="@+id/section_no_word_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:autoSizeTextType="uniform"
-                    android:text="@string/no_word_category"
-                    android:textAlignment="center"
-                    android:textColor="@color/Primary" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/no_word_200"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:layout_weight="1"
-                    android:autoSizeTextType="uniform"
-                    android:backgroundTint="@color/Secondary"
-                    android:letterSpacing="0.1"
-                    android:text="@string/points_200"
-                    android:textColor="@color/Primary" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/no_word_400"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:layout_weight="1"
-                    android:autoSizeTextType="uniform"
-                    android:backgroundTint="@color/Secondary"
-                    android:letterSpacing="0.1"
-                    android:text="@string/points_400"
-                    android:textColor="@color/Primary" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/no_word_600"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:layout_weight="1"
-                    android:autoSizeTextType="uniform"
-                    android:backgroundTint="@color/Secondary"
-                    android:letterSpacing="0.1"
-                    android:text="@string/points_600"
-                    android:textColor="@color/Primary" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/no_word_bonus"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:layout_marginBottom="6dp"
-                    android:layout_weight="1"
-                    android:autoSizeTextType="uniform"
-                    android:backgroundTint="@color/ripplePrimary"
-                    android:letterSpacing="0.1"
-                    android:text="@string/bonus_button"
-                    android:textColor="@color/Primary" />
-            </LinearLayout>
-
-            <!-- Spacer to keep all 4 columns the same width as row 1 -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
 
         </LinearLayout>
 

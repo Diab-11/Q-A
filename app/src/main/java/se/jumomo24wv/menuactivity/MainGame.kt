@@ -227,9 +227,6 @@ class MainGame : AppCompatActivity() {
             insets
         }
 
-        // The old fixed "No Word" column is no longer used: "No Word" is now just
-        // one of the 6 dynamic slots when the teams choose to pick it.
-        binding.sectionNoWord.visibility = View.GONE
 
         teamAName = intent.getStringExtra(CreateGame.ARG_TXT1)
         teamBName = intent.getStringExtra(CreateGame.ARG_TXT2)
