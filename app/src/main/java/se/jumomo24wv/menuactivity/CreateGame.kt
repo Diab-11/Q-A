@@ -67,7 +67,9 @@ class CreateGame : AppCompatActivity() {
             }
 
             if (!hasError) {
-                val intent = Intent(this, MainGame::class.java).apply {
+                // Team names & game name are collected here, then the teams jointly
+                // pick their 6 categories on the next screen before MainGame starts.
+                val intent = Intent(this, SelectCategoriesActivity::class.java).apply {
                     putExtra(ARG_TXT1, team1txt)
                     putExtra(ARG_TXT2, team2txt)
                     putExtra(ARG_GAMETXT, gametxt)
