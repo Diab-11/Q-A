@@ -91,6 +91,9 @@
     <string name="geography_category">Geografi</string>
     <string name="flags_countries_category">Flaggor &amp; länder</string>
     <string name="no_word_category">Inget ord</string>
+    <string name="history_category">Historia</string>
+    <string name="movies_category">Film</string>
+    <string name="science_category">Vetenskap</string>
 
     <string name="bonus_button">bonus!</string>
 
@@ -130,6 +133,11 @@
     <string name="winner_congrats">VINNARE!</string>
     <string name="back_to_menu_button_text">Tillbaka till menyn</string>
     <string name="trophy_content_description">Pokal</string>
+
+    <string name="select_categories_title">Välj era kategorier</string>
+    <string name="select_categories_instruction">Båda lagen väljer 6 kategorier tillsammans för matchen.</string>
+    <string name="select_categories_counter">%1$d / %2$d valda</string>
+    <string name="select_categories_limit_reached">Ni kan bara välja %1$d kategorier. Avmarkera en först.</string>
 
     <string name="dialog_leave_match_title">Lämna match?</string>
     <string name="dialog_leave_match_positive">Lämna</string>
